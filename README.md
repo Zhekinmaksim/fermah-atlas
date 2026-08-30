@@ -54,8 +54,10 @@ key lives in the server environment and never reaches the browser.
 ```
 Vercel -> Settings -> Environment Variables
   ANTHROPIC_API_KEY = sk-ant-...
-  ASSISTANT_MODEL   = claude-haiku-4-5-20251001   (optional)
+  ANTHROPIC_WORKSPACE_ID = wrkspc_...   (required for identity-linked keys)
 ```
+
+The assistant is pinned to `claude-haiku-4-5-20251001`, so `ASSISTANT_MODEL` is not needed.
 
 How it is fenced in, in order:
 

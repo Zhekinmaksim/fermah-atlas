@@ -5,7 +5,7 @@ Tick these in order. The first three are blockers.
 - [ ] Repo created and named to match `REPO` in `site/built-with.html`
 - [ ] Deployed on Vercel, root directory `site`, no build command
 - [ ] `fermahatlas.xyz` pointed at it, https live
-- [ ] `ANTHROPIC_API_KEY` set — ask the shark "What is Kernel?" and get an answer with a source
+- [ ] `ANTHROPIC_API_KEY` set; identity-linked keys also need `ANTHROPIC_WORKSPACE_ID` — ask the shark "What is Kernel?" and get an answer with a source
 - [ ] Ask it "what's the token price" and confirm it refuses
 - [ ] Opened on a phone: header scrolls, hero fits, games playable, shark closes
 - [ ] `fermahatlas@gmail.com` receives a test from the footer feedback link
