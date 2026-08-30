@@ -167,7 +167,21 @@ const el = (t,a={}) => {
 function drawGraph(target="graph-canvas"){
   const host = document.getElementById(target);
   if (!host) return;
-  const COLS=[70,300,560,860], BW=190, BH=54, ROW=86, TOP=30;
+  const COLS=[70,300,560,860], BW=190, BH=68, ROW=100, TOP=30;
+  const wrapNote = (value, max=28) => {
+    const lines=[];
+    let line="";
+    String(value).split(/\s+/).forEach(word => {
+      if (line && (line + " " + word).length > max) {
+        lines.push(line);
+        line=word;
+      } else {
+        line=line ? line + " " + word : word;
+      }
+    });
+    if (line) lines.push(line);
+    return lines.slice(0, 2);
+  };
   const byCol={};
   ECOSYSTEM.nodes.forEach(n => (byCol[n.col] = byCol[n.col] || []).push(n));
   const pos={};
@@ -207,16 +221,23 @@ function drawGraph(target="graph-canvas"){
       stroke: n.kind==="hist" ? "#1a2740" : "#22314F", "stroke-width":1,
       "stroke-dasharray": n.kind==="open" ? "5 5" : "none"
     }));
-    const t = el("text",{x:16, y:n.note?24:33, "font-family":"Space Grotesk, sans-serif",
+    const noteLines = n.note ? wrapNote(n.note) : [];
+    const t = el("text",{x:16, y:noteLines.length ? 24 : 40, "font-family":"Space Grotesk, sans-serif",
       "font-weight":"700","font-size":"16",
       fill: n.kind==="root" ? "#001030" : (solid ? "#fff" : "#808898")});
     t.textContent = n.label;
     g.appendChild(t);
-    if(n.note){
-      const s = el("text",{x:16, y:41, "font-family":"JetBrains Mono, monospace",
+    if(noteLines.length){
+      const s = el("text",{x:16, y:43, "font-family":"JetBrains Mono, monospace",
         "font-size":"10", fill: n.kind==="root" ? "rgba(0,16,48,.72)" : "#55627F"});
-      s.textContent = n.note;
+      s.textContent = noteLines[0];
       g.appendChild(s);
+      if (noteLines[1]) {
+        const s2 = el("text",{x:16, y:56, "font-family":"JetBrains Mono, monospace",
+          "font-size":"10", fill: n.kind==="root" ? "rgba(0,16,48,.72)" : "#55627F"});
+        s2.textContent = noteLines[1];
+        g.appendChild(s2);
+      }
     }
     svg.appendChild(g);
   });
