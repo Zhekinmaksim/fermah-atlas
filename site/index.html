@@ -191,17 +191,19 @@ function renderLatest(d){
 
   document.getElementById("week-label").textContent = "WEEK " + String(wk).padStart(2,"0");
 
-  const item = (r, isSel) => `
-    <div class="latest-item${isSel ? "" : " hm"}">
-      <a class="latest-avatar-link" href="c/${encodeURIComponent(r.avatar)}.html"
-         aria-label="Open @${r.handle} profile">
+  const item = (r, isSel) => {
+    const profile = `c/${encodeURIComponent(r.avatar)}`;
+    return `
+    <a class="latest-item${isSel ? "" : " hm"}" href="${profile}" aria-label="Open @${r.handle} creator card">
+      <span class="latest-avatar-link" aria-hidden="true">
         <img class="latest-avatar" src="avatars/${encodeURIComponent(r.avatar)}.jpg" alt="" loading="lazy"
              onerror="this.hidden=true">
-      </a>
+      </span>
       <span class="sq${isSel ? "" : " hm"}"></span>
-      <a class="latest-handle" href="fermafia.html#${encodeURIComponent(r.handle)}">@${r.handle}</a>
+      <span class="latest-handle">@${r.handle}</span>
       ${isSel ? `<span class="w">${dayOf(r.date)}</span>` : ""}
-    </div>`;
+    </a>`;
+  };
 
   const group = (label, list, isSel, later) => !list.length ? "" :
     `<p class="grouplabel${later ? " later" : ""}">${label} · ${list.length}</p>
