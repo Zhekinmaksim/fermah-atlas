@@ -6,6 +6,7 @@ Tick these in order. The first three are blockers.
 - [ ] Deployed on Vercel, root directory `site`, no build command
 - [ ] `fermahatlas.xyz` pointed at it, https live
 - [ ] `ANTHROPIC_API_KEY` set; identity-linked keys also need `ANTHROPIC_WORKSPACE_ID` — ask the shark "What is Kernel?" and get an answer with a source
+- [ ] Upstash Redis linked in Vercel — post one Fermafia Board record and confirm it remains after refresh
 - [ ] Ask it "what's the token price" and confirm it refuses
 - [ ] Opened on a phone: header scrolls, hero fits, games playable, shark closes
 - [ ] `fermahatlas@gmail.com` receives a test from the footer feedback link

@@ -10,8 +10,6 @@ const files = [
   ...fs.readdirSync(path.join(root, "c")).filter((name) => name.endsWith(".html")).map((name) => path.join(root, "c", name)),
   path.join(root, "README.md"),
   path.join(root, "data", "seed.json"),
-  path.join(root, "data", "operators.js"),
-  path.join(root, "assets", "games.js"),
   path.join(project, "README.md"),
   path.join(project, "CHECKLIST.md"),
   path.join(project, "BIO.txt"),

@@ -39,9 +39,64 @@
       <div class="cell"><b class="plain">1</b><span>OPEN SLOT</span></div>
       <div class="cell"><b class="plain">0</b><span>PLACEHOLDERS</span></div>
     </div>
-    <p class="src">THIS PAGE STAYS EMPTY UNTIL SOMETHING REAL SHIPS</p>
+    <p class="src">THE PROJECT REGISTRY STAYS EMPTY UNTIL SOMETHING REAL SHIPS</p>
   </div>
 </div>
+
+<section class="band community-board-sec" id="community-board"><div class="wrap reveal">
+  <div class="community-board-head">
+    <div>
+      <p class="eyebrow">Fermafia Board</p>
+      <h2 class="sec">Ideas become builds.</h2>
+      <p class="sec">A structured board for ideas, work in progress, help and research around
+        Fermah. No timeline, no empty hype — leave one useful record for the people building next.</p>
+    </div>
+    <a class="btn primary" href="#board-submit">Leave a record ↓</a>
+  </div>
+
+  <div class="community-board-stats" id="board-stats" aria-label="Board categories">
+    <div><span>IDEAS</span><b>—</b></div>
+    <div><span>BUILD</span><b>—</b></div>
+    <div><span>HELP</span><b>—</b></div>
+    <div><span>RESEARCH</span><b>—</b></div>
+  </div>
+
+  <div class="community-board-grid" id="board-grid" aria-live="polite">
+    <noscript><div class="community-board-empty">Enable JavaScript to load the board.</div></noscript>
+  </div>
+
+  <div class="community-board-submit" id="board-submit">
+    <p class="eyebrow">Post to the board</p>
+    <h3>Leave a useful trace.</h3>
+    <p class="hint">One clear idea, question or research note per entry. Posts are public and
+      short; use the existing submit form below for a shipped project.</p>
+    <form class="community-board-form" id="board-form">
+      <div class="row">
+        <label>Category
+          <select id="board-category" required>
+            <option value="ideas">Ideas</option>
+            <option value="build">Build</option>
+            <option value="help">Help</option>
+            <option value="research">Research</option>
+          </select>
+        </label>
+        <label>Your X handle <span class="optional">optional</span>
+          <input id="board-handle" maxlength="32" placeholder="0maxxdev" autocomplete="off">
+        </label>
+      </div>
+      <label>Title
+        <input id="board-title" maxlength="120" required placeholder="Community dashboard for Froben prover statistics">
+      </label>
+      <label>Record
+        <textarea id="board-body" maxlength="600" required placeholder="What should exist, what are you building, or where is the open question?"></textarea>
+      </label>
+      <div class="actions">
+        <button class="btn primary" type="submit">Post to board</button>
+        <span class="hint" id="board-status" role="status"></span>
+      </div>
+    </form>
+  </div>
+</div></section>
 
 <section class="band"><div class="wrap reveal">
   <div class="grid" id="built-grid"></div>
@@ -94,6 +149,119 @@
 <script src="assets/dropdown.js"></script>
 <script>
 mountChrome("built-with.html");
+
+const BOARD_CATEGORIES = ["ideas", "build", "help", "research"];
+const BOARD_LABELS = {ideas: "IDEAS", build: "BUILD", help: "HELP", research: "RESEARCH"};
+const boardGrid = document.getElementById("board-grid");
+const boardStats = [...document.querySelectorAll("#board-stats b")];
+
+function boardDate(value){
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "" : date.toLocaleDateString("en-US", {month:"short", day:"numeric"}).toUpperCase();
+}
+
+function renderBoard(data){
+  const items = Array.isArray(data.items) ? data.items : [];
+  BOARD_CATEGORIES.forEach((category, i) => {
+    boardStats[i].textContent = Number(data.counts?.[category] || 0);
+  });
+  boardGrid.replaceChildren();
+  BOARD_CATEGORIES.forEach((category) => {
+    const column = document.createElement("section");
+    column.className = "community-board-column";
+    const head = document.createElement("div");
+    head.className = "community-board-column-head";
+    const label = document.createElement("span");
+    label.textContent = BOARD_LABELS[category];
+    const count = document.createElement("b");
+    count.textContent = String(items.filter((item) => item.category === category).length);
+    head.append(label, count);
+    column.appendChild(head);
+    const entries = items.filter((item) => item.category === category);
+    if (!entries.length){
+      const empty = document.createElement("div");
+      empty.className = "community-board-empty";
+      empty.textContent = "No records yet.";
+      column.appendChild(empty);
+    }
+    entries.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "community-board-card";
+      const meta = document.createElement("div");
+      meta.className = "community-board-card-meta";
+      const kind = document.createElement("span");
+      kind.textContent = BOARD_LABELS[category];
+      const date = document.createElement("span");
+      date.textContent = boardDate(item.createdAt);
+      meta.append(kind, date);
+      const title = document.createElement("h3");
+      title.textContent = item.title;
+      const detail = document.createElement("p");
+      detail.textContent = item.body;
+      const foot = document.createElement("div");
+      foot.className = "community-board-card-foot";
+      const author = document.createElement("span");
+      author.textContent = item.handle ? `@${item.handle}` : "ANONYMOUS";
+      const signal = document.createElement("span");
+      signal.textContent = `▲ ${Number(item.votes || 0)}`;
+      foot.append(author, signal);
+      card.append(meta, title, detail, foot);
+      column.appendChild(card);
+    });
+    boardGrid.appendChild(column);
+  });
+}
+
+async function loadBoard(){
+  try {
+    const response = await fetch("/api/board", {headers: {Accept: "application/json"}});
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "board unavailable");
+    renderBoard(data);
+  } catch (error) {
+    boardGrid.replaceChildren();
+    const empty = document.createElement("div");
+    empty.className = "community-board-empty board-error";
+    empty.textContent = error.message === "board storage not configured"
+      ? "Board storage is not connected yet. Add Upstash Redis to make posts public."
+      : "The board is unavailable right now. Try again in a moment.";
+    boardGrid.appendChild(empty);
+    boardStats.forEach((stat) => { stat.textContent = "—"; });
+  }
+}
+
+document.getElementById("board-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const status = document.getElementById("board-status");
+  const submit = event.currentTarget.querySelector("button[type=submit]");
+  submit.disabled = true;
+  status.textContent = "POSTING…";
+  try {
+    const response = await fetch("/api/board", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", Accept: "application/json"},
+      body: JSON.stringify({
+        category: document.getElementById("board-category").value,
+        handle: document.getElementById("board-handle").value,
+        title: document.getElementById("board-title").value,
+        body: document.getElementById("board-body").value,
+      }),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "post failed");
+    event.currentTarget.reset();
+    status.textContent = "POSTED TO THE BOARD";
+    await loadBoard();
+  } catch (error) {
+    status.textContent = error.message === "board storage not configured"
+      ? "ADD UPSTASH REDIS FIRST"
+      : error.message.toUpperCase();
+  } finally {
+    submit.disabled = false;
+  }
+});
+
+loadBoard();
 
 const REPO = "Zhekinmaksim/fermah-atlas";   // moderation queue
 const val = id => document.getElementById(id).value.trim();

@@ -24,6 +24,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 - `data/seed.js` — the Spotlight record, loaded as a script so the site works from disk too.
 - `cards/`, `brand/` — creator cards and logo assets.
 - `api/scores.js` — shared leaderboard (optional, see below).
+- `api/board.js` — shared Fermafia Board entries (requires the same Redis store).
 
 ## Before launch
 
@@ -88,10 +89,11 @@ return, and labels for addresses are added by hand, only when an operator asks.
 
 ## Leaderboard (optional)
 
-The games keep a personal best in `localStorage` and work with no backend. For a shared
-board, on Vercel: **Storage → Create → KV**, link it to the project, redeploy. `api/scores.js`
-picks the credentials up from the environment; until then it answers 501 and the games
-fall back to local bests.
+The games keep a personal best in `localStorage` and work with no backend. The Fermafia Board
+and shared game leaderboard use the same Upstash Redis store: **Storage → Create → Upstash Redis**,
+link it to the project, and redeploy. Vercel adds `UPSTASH_REDIS_REST_URL` and
+`UPSTASH_REDIS_REST_TOKEN`; until then the board shows that storage is not configured and the
+games fall back to local bests.
 
 ## Deploy
 

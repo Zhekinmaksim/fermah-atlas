@@ -4,17 +4,19 @@
  * GET  /api/scores?game=2048   -> [{name, score}]  top 20
  * POST /api/scores  {game,name,score}
  *
- * Uses Vercel KV. Until a KV store is linked the endpoint returns 501 and the
- * games fall back to local bests, so the site works either way.
+ * Uses Upstash Redis provisioned through Vercel Marketplace. Until a store is
+ * linked the endpoint returns 501 and the games fall back to local bests.
  */
 const GAMES = new Set(["2048", "memory"]);
 const clean = s => String(s || "").replace(/[^A-Za-z0-9_]/g, "").slice(0, 20);
 
 async function kv() {
   try {
-    const mod = await import("@vercel/kv");
-    if (!process.env.KV_REST_API_URL) return null;
-    return mod.kv;
+    const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    if (!url || !token) return null;
+    const {Redis} = await import("@upstash/redis");
+    return new Redis({url, token});
   } catch { return null; }
 }
 
