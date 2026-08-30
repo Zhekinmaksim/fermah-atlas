@@ -6,6 +6,7 @@
  * extract of the official site and docs below, and refuses everything else.
  *
  * Vercel: Settings -> Environment Variables -> ANTHROPIC_API_KEY
+ * Identity-linked keys also need ANTHROPIC_WORKSPACE_ID (wrkspc_...).
  * The assistant is pinned to the supported Haiku model below.
  */
 
@@ -146,6 +147,7 @@ export default async function handler(req, res) {
     return;
   }
   const apiKey = String(process.env.ANTHROPIC_API_KEY || "").trim();
+  const workspaceId = String(process.env.ANTHROPIC_WORKSPACE_ID || "").trim();
   if (!apiKey) {
     res.status(200).json({answer: "The assistant is not configured yet.", on_topic: false});
     return;
@@ -185,14 +187,16 @@ export default async function handler(req, res) {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 12_000);
+    const headers = {
+      "content-type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    };
+    if (workspaceId) headers["anthropic-workspace-id"] = workspaceId;
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       signal: controller.signal,
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
+      headers,
       body: JSON.stringify(body),
     });
     clearTimeout(timeout);
@@ -200,6 +204,9 @@ export default async function handler(req, res) {
       const detail = await r.text();
       console.error("Anthropic request failed", {status: r.status, model: MODEL, detail: detail.slice(0, 500)});
       const answers = {
+        400: detail.includes("anthropic-workspace-id")
+          ? "This Anthropic key is identity-linked. Add ANTHROPIC_WORKSPACE_ID (wrkspc_...) to Vercel Production and redeploy."
+          : "Anthropic rejected the request. Check the API key, account billing and model access.",
         401: "The assistant key was rejected. Check ANTHROPIC_API_KEY in the Production environment and redeploy.",
         403: "The assistant key has no access to this Anthropic request. Check the key and account permissions.",
         404: "The Haiku model is unavailable for this Anthropic account. Check model access and billing.",
