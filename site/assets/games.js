@@ -77,7 +77,7 @@ const QUESTIONS = [
    e:"Kernel is the Protocol Agency Engine: it observes the event, runs the logic in a sandboxed container and settles the verified result on-chain."},
   {q:"Which two products run on Kernel in production today?",
    a:["Froben and Flashcast","Marina and Seek","Froben and Reclaim","Pie and Flashcast"], c:0,
-   e:"Froben, the proof marketplace live on mainnet, and Flashcast Social, the prediction-market product."},
+   e:"Froben and Flashcast are the two production Kernel products Atlas tracks. Fermah Pay and Marina are listed separately in the current docs."},
   {q:"Who is named on the Fermah site as a paying customer of Froben?",
    a:["ZKsync Era","Scroll","Boundless","zkVerify"], c:0,
    e:"ZKsync Era and Abstract Chain are the named paying customers. Scroll, Boundless and zkVerify appear on the partner wall, which is a different claim."},

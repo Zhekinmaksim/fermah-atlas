@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Powered by Fermah — Fermah Atlas</title>
-<meta name="description" content="Production integrations and named customers in the Fermah ecosystem, each with a source and a check date.">
+<meta name="description" content="Production integrations, docs-listed products and named customers in the Fermah ecosystem, each with a source and a check date.">
 <meta property="og:title" content="Powered by Fermah — Fermah Atlas">
 <meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
 <link rel="canonical" href="https://fermahatlas.xyz/powered">
@@ -25,8 +25,9 @@
     <div>
       <p class="eyebrow">Production &amp; integrations</p>
       <h1>Powered by Fermah</h1>
-      <p class="lede">Who actually runs on Fermah in production, and who has been announced but is
-        not currently listed as production. Nothing is on this page without a link and a date.</p>
+      <p class="lede">Who runs on Fermah in production, what the current docs list separately, and
+        what has been announced but is not currently listed as production. Nothing is here without
+        a link and a date.</p>
     </div>
   </div>
 </div></section>
@@ -36,10 +37,10 @@
     <div class="row">
       <div class="cell"><b id="p-all">—</b><span>ENTRIES</span></div>
       <div class="cell"><b id="p-live">—</b><span>LIVE / NAMED</span></div>
-      <div class="cell"><b class="plain" id="p-ann">—</b><span>ANNOUNCED</span></div>
-      <div class="cell"><b class="plain">2</b><span>PRODUCTS ON KERNEL</span></div>
+      <div class="cell"><b class="plain" id="p-ann">—</b><span>DOCS-LISTED / ANN.</span></div>
+      <div class="cell"><b class="plain">2</b><span>LIVE ON KERNEL</span></div>
     </div>
-    <p class="src">EVERY ENTRY CARRIES A SOURCE LINK · CHECKED 2026-08-26</p>
+    <p class="src">EVERY ENTRY CARRIES A SOURCE LINK · NEW DOCS CHECK 2026-08-30</p>
   </div>
 </div>
 
@@ -50,11 +51,11 @@
 <section class="band"><div class="wrap reveal">
   <p class="eyebrow">Ecosystem graph</p>
   <h2 class="sec">Who runs on what.</h2>
-  <p class="sec">Solid lines are relationships the official site states today. Dashed lines are
-    announced or historical integrations the current site does not list as production.</p>
+  <p class="sec">Solid lines are relationships current official sources state today. Dashed lines are
+    announced, historical or open slots Atlas does not promote as production.</p>
   <div id="graph-canvas"></div>
   <div class="legend">
-    <span><i></i>stated on fermah.xyz today</span>
+    <span><i></i>stated on official Fermah sources today</span>
     <span><i class="hist"></i>announced / historical</span>
   </div>
 </div></section>
@@ -85,7 +86,7 @@ ECOSYSTEM.powered.forEach((e, i) => {
     `<div class="kicker">${e.kicker}</div>` +
     `<h4>${e.name}</h4><p>${e.text}</p>` +
     `<div class="meta"><span class="tag ${e.status}">` +
-    `${({live:"live", enabled:"enabled by kernel", reference:"reference model"})[e.status] || "announced"}</span>` +
+    `${({live:"live", enabled:"enabled by kernel", listed:"docs-listed", reference:"reference model"})[e.status] || "announced"}</span>` +
     `<span>checked ${e.checked}</span></div>`;
   g.appendChild(d);
 });

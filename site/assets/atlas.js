@@ -8,6 +8,9 @@
 
 const CHECKED = "2026-08-26";
 const FERMAH = "https://www.fermah.xyz/";
+const DOCS = "https://docs.fermah.xyz/";
+const PAY_DOCS = "https://docs.fermah.xyz/fermah-pay";
+const DOCS_CHECKED = "2026-08-30";
 const CONTACT = "fermahatlas@gmail.com";
 
 const ECOSYSTEM = {
@@ -16,6 +19,8 @@ const ECOSYSTEM = {
     {id:"kernel",    label:"Kernel",          col:1, kind:"engine",  note:"Protocol Agency Engine"},
     {id:"froben",    label:"Froben",          col:2, kind:"product", note:"ZK proof marketplace · live on mainnet"},
     {id:"flashcast", label:"Flashcast",       col:2, kind:"product", note:"Prediction markets · live"},
+    {id:"pay",       label:"Fermah Pay",      col:2, kind:"product", note:"USDC payment layer · docs-listed"},
+    {id:"marina",    label:"Marina",          col:2, kind:"product", note:"Privacy data infrastructure · docs-listed"},
     {id:"community", label:"Community apps",  col:2, kind:"open",    note:"open slot"},
     {id:"zksync",    label:"ZKsync Era",      col:3, kind:"customer"},
     {id:"abstract",  label:"Abstract Chain",  col:3, kind:"customer"},
@@ -27,6 +32,8 @@ const ECOSYSTEM = {
     {from:"fermah",  to:"kernel",    status:"live"},
     {from:"kernel",  to:"froben",    status:"live"},
     {from:"kernel",  to:"flashcast", status:"live"},
+    {from:"fermah",  to:"pay",       status:"listed"},
+    {from:"fermah",  to:"marina",    status:"listed"},
     {from:"kernel",  to:"community", status:"open"},
     {from:"froben",  to:"zksync",    status:"live"},
     {from:"froben",  to:"abstract",  status:"live"},
@@ -43,6 +50,12 @@ const ECOSYSTEM = {
     {name:"Flashcast Social", kicker:"Product · live", status:"live",
      text:"Prediction markets created in a second on any topic, resolved automatically by Kernel — no committee and no dispute window.",
      source:"https://flashcast.social/", checked:CHECKED},
+    {name:"Fermah Pay", kicker:"Product · docs-listed", status:"listed",
+     text:"The current Fermah docs list Fermah Pay as a payments layer for products that need to charge users in USDC without asking them to hold gas, manage keys or leave the app to acquire XLM.",
+     source:PAY_DOCS, checked:DOCS_CHECKED},
+    {name:"Marina", kicker:"Product · docs-listed", status:"listed",
+     text:"The current Fermah docs list Marina as privacy-preserving data infrastructure for the decentralized web. The docs page marks its Documentation and API Reference as Soon, so Atlas does not label it as live.",
+     source:DOCS, checked:DOCS_CHECKED},
     {name:"ZKsync Era", kicker:"Paying customer of Froben", status:"live",
      text:"Named on the Fermah site as a paying customer of the Froben proof market.",
      source:FERMAH, checked:CHECKED},
@@ -91,6 +104,10 @@ const ECOSYSTEM = {
      url:"https://www.fermah.xyz/froben", checked:CHECKED},
     {rel:"Flashcast Social — prediction markets, live", status:"live",
      url:"https://flashcast.social/", checked:CHECKED},
+    {rel:"Fermah Pay — payments layer listed separately in the current Fermah docs",
+     status:"listed", url:PAY_DOCS, checked:DOCS_CHECKED},
+    {rel:"Marina — privacy-preserving data infrastructure listed separately in the current Fermah docs",
+     status:"listed", url:DOCS, checked:DOCS_CHECKED},
     {rel:"ZKsync Era — paying customer of Froben", status:"live", url:FERMAH, checked:CHECKED},
     {rel:"Abstract Chain — paying customer of Froben", status:"live", url:FERMAH, checked:CHECKED},
     {rel:"DeFi automation, programmable liquidity, price feeds and cross-protocol sequencing — listed as enabled by Kernel, not as shipped products", status:"enabled",
@@ -171,7 +188,7 @@ function drawGraph(target="graph-canvas"){
     const a=pos[e.from], b=pos[e.to];
     if(!a||!b) return;
     const x1=a.x+BW, y1=a.y+BH/2, x2=b.x, y2=b.y+BH/2, mx=(x1+x2)/2;
-    const soft = e.status !== "live";
+    const soft = e.status !== "live" && e.status !== "listed";
     svg.appendChild(el("path",{
       d:`M ${x1} ${y1} H ${mx} V ${y2} H ${x2}`, fill:"none",
       stroke: soft ? "#37456A" : "#06C19D",
@@ -215,7 +232,7 @@ function drawSources(target="src-body"){
     tr.innerHTML =
       `<td class="name">${s.rel}</td>` +
       `<td><span class="tag ${s.status}">` +
-      `${({live:"live", enabled:"enabled"})[s.status] || "announced"}</span></td>` +
+      `${({live:"live", enabled:"enabled", listed:"docs-listed"})[s.status] || "announced"}</span></td>` +
       `<td><a href="${s.url}" target="_blank" rel="noopener">` +
       `${s.url.replace(/^https?:\/\//,"")}</a></td><td>${s.checked}</td>`;
     body.appendChild(tr);
