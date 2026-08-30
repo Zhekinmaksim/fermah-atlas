@@ -28,6 +28,10 @@
       <p class="lede">Apps, agents and automations built on Kernel by anyone outside the core team.
         The engine leaves the slot open — “if it can be measured, triggered or sequenced, Kernel can
         run it” — and this page tracks what fills it.</p>
+      <div class="page-actions">
+        <a class="btn primary" href="#submit">Add your project</a>
+        <a class="btn" href="#community-board">Open board</a>
+      </div>
     </div>
   </div>
 </div></section>
@@ -42,61 +46,6 @@
     <p class="src">THE PROJECT REGISTRY STAYS EMPTY UNTIL SOMETHING REAL SHIPS</p>
   </div>
 </div>
-
-<section class="band community-board-sec" id="community-board"><div class="wrap reveal">
-  <div class="community-board-head">
-    <div>
-      <p class="eyebrow">Fermafia Board</p>
-      <h2 class="sec">Ideas become builds.</h2>
-      <p class="sec">A structured board for ideas, work in progress, help and research around
-        Fermah. No timeline, no empty hype — leave one useful record for the people building next.</p>
-    </div>
-    <a class="btn primary" href="#board-submit">Leave a record ↓</a>
-  </div>
-
-  <div class="community-board-stats" id="board-stats" aria-label="Board categories">
-    <div><span>IDEAS</span><b>—</b></div>
-    <div><span>BUILD</span><b>—</b></div>
-    <div><span>HELP</span><b>—</b></div>
-    <div><span>RESEARCH</span><b>—</b></div>
-  </div>
-
-  <div class="community-board-grid" id="board-grid" aria-live="polite">
-    <noscript><div class="community-board-empty">Enable JavaScript to load the board.</div></noscript>
-  </div>
-
-  <div class="community-board-submit" id="board-submit">
-    <p class="eyebrow">Post to the board</p>
-    <h3>Leave a useful trace.</h3>
-    <p class="hint">One clear idea, question or research note per entry. Posts are public and
-      short; use the existing submit form below for a shipped project.</p>
-    <form class="community-board-form" id="board-form">
-      <div class="row">
-        <label>Category
-          <select id="board-category" required>
-            <option value="ideas">Ideas</option>
-            <option value="build">Build</option>
-            <option value="help">Help</option>
-            <option value="research">Research</option>
-          </select>
-        </label>
-        <label>Your X handle <span class="optional">optional</span>
-          <input id="board-handle" maxlength="32" placeholder="0maxxdev" autocomplete="off">
-        </label>
-      </div>
-      <label>Title
-        <input id="board-title" maxlength="120" required placeholder="Community dashboard for Froben prover statistics">
-      </label>
-      <label>Record
-        <textarea id="board-body" maxlength="600" required placeholder="What should exist, what are you building, or where is the open question?"></textarea>
-      </label>
-      <div class="actions">
-        <button class="btn primary" type="submit">Post to board</button>
-        <span class="hint" id="board-status" role="status"></span>
-      </div>
-    </form>
-  </div>
-</div></section>
 
 <section class="band"><div class="wrap reveal">
   <div class="grid" id="built-grid"></div>
@@ -143,6 +92,61 @@
       No account? Use email. Either way a human reads it before anything is published.</p>
   </div>
 </section>
+
+<section class="band community-board-sec" id="community-board"><div class="wrap reveal">
+  <div class="community-board-head">
+    <div>
+      <p class="eyebrow">Fermafia Board</p>
+      <h2 class="sec">Ideas become builds.</h2>
+      <p class="sec">A structured board for ideas, work in progress, help and research around
+        Fermah. No timeline, no empty hype — leave one useful record for the people building next.</p>
+    </div>
+    <a class="btn primary" href="#board-submit">Leave a record ↓</a>
+  </div>
+
+  <div class="community-board-stats" id="board-stats" aria-label="Board categories">
+    <div><span>IDEAS</span><b>—</b></div>
+    <div><span>BUILD</span><b>—</b></div>
+    <div><span>HELP</span><b>—</b></div>
+    <div><span>RESEARCH</span><b>—</b></div>
+  </div>
+
+  <div class="community-board-grid" id="board-grid" aria-live="polite">
+    <noscript><div class="community-board-empty">Enable JavaScript to load the board.</div></noscript>
+  </div>
+
+  <div class="community-board-submit" id="board-submit">
+    <p class="eyebrow">Post to the board</p>
+    <h3>Leave a useful trace.</h3>
+    <p class="hint">One clear idea, question or research note per entry. Posts are public and
+      short; use Add your project above for a shipped project.</p>
+    <form class="community-board-form" id="board-form">
+      <div class="row">
+        <label>Category
+          <select id="board-category" required>
+            <option value="ideas">Ideas</option>
+            <option value="build">Build</option>
+            <option value="help">Help</option>
+            <option value="research">Research</option>
+          </select>
+        </label>
+        <label>Your X handle <span class="optional">optional</span>
+          <input id="board-handle" maxlength="32" placeholder="0maxxdev" autocomplete="off">
+        </label>
+      </div>
+      <label>Title
+        <input id="board-title" maxlength="120" required placeholder="Community dashboard for Froben prover statistics">
+      </label>
+      <label>Record
+        <textarea id="board-body" maxlength="600" required placeholder="What should exist, what are you building, or where is the open question?"></textarea>
+      </label>
+      <div class="actions">
+        <button class="btn primary" type="submit">Post to board</button>
+        <span class="hint" id="board-status" role="status"></span>
+      </div>
+    </form>
+  </div>
+</div></section>
 
 <script src="data/seed.js"></script>
 <script src="assets/atlas.js"></script>
