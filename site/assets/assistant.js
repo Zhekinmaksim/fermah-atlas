@@ -24,14 +24,15 @@
       </div>
       <div class="shark-log" id="shark-log">
         <div class="msg bot">Ask me about Fermah — Kernel, Froben, Flashcast, prover nodes,
-          the Community Spotlight. I answer from the official site and docs, and nothing else.</div>
+          the Community Spotlight or anyone in the Atlas archive. I answer from the indexed archive
+          and official material, and nothing else.</div>
         <div class="chips">${SUGGESTIONS.map((s) => `<button class="schip">${s}</button>`).join("")}</div>
       </div>
       <form class="shark-form" id="shark-form">
         <input id="shark-input" maxlength="400" autocomplete="off" placeholder="Ask about Fermah…">
         <button class="shark-send" type="submit" aria-label="Send">→</button>
       </form>
-      <p class="shark-foot">Answers come from fermah.xyz and docs.fermah.xyz. Unofficial archive.</p>
+      <p class="shark-foot">Answers come from the indexed Fermah Atlas archive and official material.</p>
     </div>
     <button class="shark-fab" id="shark-fab" aria-label="Ask the Fermah assistant">
       <img id="shark-img" src="brand/shark/shark-idle.webp" alt="">

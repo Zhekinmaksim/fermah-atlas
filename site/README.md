@@ -54,7 +54,7 @@ key lives in the server environment and never reaches the browser.
 ```
 Vercel -> Settings -> Environment Variables
   ANTHROPIC_API_KEY = sk-ant-...
-  ASSISTANT_MODEL   = claude-haiku-4-5-20251001   (optional)
+  ANTHROPIC_WORKSPACE_ID = wrkspc_...   (required for identity-linked keys)
 ```
 
 How it is fenced in, in order:
@@ -64,13 +64,14 @@ How it is fenced in, in order:
 2. Questions are capped at 400 characters and 8 per minute per IP.
 3. The system prompt allows one topic only, forbids answering from the model's own knowledge,
    and treats the user's text as data rather than instructions.
-4. The model only sees a curated `KB` extract of the official site and docs, picked by keyword.
-   If the answer is not in there, it says so and points at docs.fermah.xyz.
+4. The model receives relevant fragments from the complete text index: all Atlas HTML pages,
+   creator profiles, Spotlight data, game copy and project documentation. A small verified KB
+   remains for official facts and is sent alongside the search results.
 5. The reply must come back as `{"on_topic": …, "answer": …}`. Anything with `on_topic: false`
    is replaced by the fixed refusal line before it reaches the browser.
 
-To teach it something new, add an entry to `KB` with its source URL. That is the only way its
-knowledge grows — there is no scraping and no training.
+After changing site content, rebuild the committed index from the project root with
+`node site/tools/build_assistant_index.mjs`. There is no scraping and no training.
 
 ## Operator registry
 
