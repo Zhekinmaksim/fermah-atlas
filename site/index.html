@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fermah Atlas — the ecosystem behind protocols that act</title>
+<meta name="description" content="An unofficial community archive of the Fermah ecosystem: production integrations, apps built with Fermah, and creations from the Fermafia.">
+<meta property="og:title" content="Fermah Atlas">
+<meta property="og:description" content="The ecosystem behind protocols that act.">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/">
+<meta property="og:url" content="https://fermahatlas.xyz/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div class="reveal">
+        <p class="kicker">UNOFFICIAL COMMUNITY ARCHIVE</p>
+        <h1>The ecosystem behind <span class="teal">protocols that act.</span></h1>
+        <p class="lede">Discover production integrations, apps built with Fermah, and creations
+          from the Fermafia. Every relationship here carries a source and the date it was checked.</p>
+      </div>
+      <aside class="panelbox reveal" aria-label="Fermah at a glance">
+        <div class="head"><span>ONE ENGINE UNDERNEATH</span><b>LIVE</b></div>
+        <ul>
+          <li><span class="sq"></span><a href="https://www.fermah.xyz/" target="_blank"
+              rel="noopener">Kernel</a><span class="when">PROTOCOL AGENCY ENGINE</span></li>
+          <li><span class="sq"></span><a href="https://www.fermah.xyz/froben" target="_blank"
+              rel="noopener">Froben</a><span class="when">PROOF MARKET · MAINNET</span></li>
+          <li><span class="sq"></span><a href="https://flashcast.social/" target="_blank"
+              rel="noopener">Flashcast Social</a><span class="when">PREDICTION MARKETS</span></li>
+          <li><span class="sq hm"></span><span style="color:var(--gray)">ZKsync Era</span>
+              <span class="when">PAYING CUSTOMER</span></li>
+          <li><span class="sq hm"></span><span style="color:var(--gray)">Abstract Chain</span>
+              <span class="when">PAYING CUSTOMER</span></li>
+        </ul>
+        <a class="foot" href="powered.html">SEE THE FULL ECOSYSTEM →</a>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div class="statband">
+  <div class="wrap">
+    <div class="row">
+      <div class="cell"><b>2.8M+</b><span>PROOFS SETTLED</span></div>
+      <div class="cell"><b>1M+</b><span>MARKETS RESOLVED</span></div>
+      <div class="cell"><b>99.7%</b><span>RELIABILITY</span></div>
+      <div class="cell"><b>0</b><span>HUMANS IN THE LOOP</span></div>
+    </div>
+    <p class="src">AS PUBLISHED ON FERMAH.XYZ · CHECKED 2026-08-26</p>
+  </div>
+</div>
+
+<section><div class="wrap doors">
+  <a class="door reveal mark-corners" data-stagger href="powered.html">
+    <span class="idx">01</span>
+    <span><h3>Powered by Fermah</h3><span class="sub">Production &amp; integrations</span>
+      <span class="chips">
+        <span class="chip on">Kernel</span><span class="chip on">Froben</span>
+        <span class="chip on">Flashcast</span><span class="chip">ZKsync Era</span>
+        <span class="chip">Abstract Chain</span><span class="chip">Reclaim</span>
+      </span></span>
+    <span class="count"><b id="c-powered">—</b>entries</span>
+  </a>
+  <a class="door reveal mark-corners" data-stagger href="built-with.html">
+    <span class="idx">02</span>
+    <span><h3>Built with Fermah</h3><span class="sub">Apps &amp; workflows</span>
+      <span class="chips"><span class="chip open">open slot — nothing shipped yet</span></span></span>
+    <span class="count"><b class="zero" id="c-built">—</b>entries</span>
+  </a>
+  <a class="door reveal mark-corners" data-stagger href="fermafia.html">
+    <span class="idx">03</span>
+    <span><h3>Built by Fermafia</h3><span class="sub">Community tools &amp; creations</span>
+      <span class="chips" id="fermafia-chips"></span></span>
+    <span class="count"><b id="c-fermafia">—</b>creators</span>
+  </a>
+  <a class="door reveal mark-corners" data-stagger href="operators.html">
+    <span class="idx">04</span>
+    <span><h3>Operators</h3><span class="sub">Who runs the prover nodes</span>
+      <span class="chips"><span class="chip on">EigenLayer AVS</span>
+        <span class="chip">on-chain registry</span><span class="chip">supply side</span></span></span>
+    <span class="count"><b>—</b>indexing</span>
+  </a>
+  <a class="door reveal mark-corners" data-stagger href="play.html">
+    <span class="idx">05</span>
+    <span><h3>Play with Fermah</h3><span class="sub">Question of the day, memory, 2048</span>
+      <span class="chips"><span class="chip on">Question of the Day</span>
+        <span class="chip">Fermah Memory</span><span class="chip">2048 Fermah</span></span></span>
+    <span class="count"><b>3</b>games</span>
+  </a>
+</div></section>
+
+<section id="about"><div class="wrap reveal">
+  <div class="about-grid">
+    <div>
+      <p class="eyebrow">What Fermah is</p>
+      <h2>One engine underneath.</h2>
+    </div>
+    <div class="about-body">
+      <p class="long">Every smart contract ever written is reactive: it reads a condition and emits a
+        value, then waits for a human, a server or a cron job to do the next thing. Fermah Kernel —
+        which the team calls the Protocol Agency Engine — turns “if this verifiable thing is true, do
+        that” into an on-chain primitive: observe the event, run the logic in a sandboxed container,
+        settle the verified result back on-chain. Two products run on it in production today. Froben
+        is the universal proof market, live on mainnet, with ZKsync Era and Abstract Chain named as
+        paying customers. Flashcast Social turns any topic into a prediction market in a second and
+        resolves it automatically, with no committee and no dispute window.</p>
+      <p class="read">Read it at <a href="https://www.fermah.xyz/" target="_blank"
+        rel="noopener">fermah.xyz</a> and <a href="https://docs.fermah.xyz/" target="_blank"
+        rel="noopener">docs.fermah.xyz</a>.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="band" id="graph"><div class="wrap reveal">
+  <p class="eyebrow">Ecosystem graph</p>
+  <h2 class="sec">Who runs on what.</h2>
+  <p class="sec">Solid lines are relationships the official site states today. Dashed lines are
+    announced or historical integrations the current site does not list as production — Atlas
+    keeps them visible but never promotes them.</p>
+  <div id="graph-canvas"></div>
+  <div class="legend">
+    <span><i></i>stated on fermah.xyz today</span>
+    <span><i class="hist"></i>announced / historical</span>
+  </div>
+</div></section>
+
+<section id="latest"><div class="wrap reveal">
+  <div class="sec-head">
+    <div>
+      <p class="eyebrow">From the archive</p>
+      <h2 class="sec" style="margin-bottom:0">Latest Community Spotlight.</h2>
+    </div>
+    <p class="week" id="week-label">WEEK —</p>
+  </div>
+  <p class="sec">The most recent week the team published, rebuilt from the
+    official announcement. Filled square means selected, outline means honourable mention.</p>
+  <div id="latest-groups"></div>
+  <a class="foot-link" href="fermafia.html">OPEN THE FULL ARCHIVE — <span id="all-count">130</span> CREATORS →</a>
+</div></section>
+
+<section style="border-top:1px solid var(--rule)"><div class="wrap reveal">
+  <p class="eyebrow">Sources</p>
+  <h2 class="sec">Every edge, where it comes from</h2>
+  <table>
+    <thead><tr><th>Relationship</th><th>Status</th><th>Source</th><th>Checked</th></tr></thead>
+    <tbody id="src-body"></tbody>
+  </table>
+</div></section>
+
+<script src="data/seed.js"></script>
+<script src="assets/atlas.js"></script>
+<script src="assets/hero.js"></script>
+<script>
+const safe = (label, fn) => { try { fn(); } catch (e) { console.error(label, e); } };
+safe("chrome",  () => mountChrome("index.html"));
+safe("reveal",  () => mountReveal());
+safe("graph",   () => drawGraph());
+safe("sources", () => drawSources());
+safe("counts",  () => {
+  document.getElementById("c-powered").textContent = ECOSYSTEM.powered.length;
+  document.getElementById("c-built").textContent   = ECOSYSTEM.builtWith.length || "0";
+});
+
+const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+const dayOf = iso => { const [,m,d] = iso.split("-").map(Number); return MONTHS[m-1] + " " + d; };
+function renderLatest(d){
+  const wk = Math.max(...d.creators.flatMap(c => c.contributions.map(x => x.week_label)));
+  const rows = d.creators.flatMap(c => c.contributions
+      .filter(x => x.week_label === wk)
+      .map(x => ({handle:c.display_handle, tier:x.tier, date:x.announcement_date})));
+  const sel = rows.filter(r => r.tier === "spotlight");
+  const hm  = rows.filter(r => r.tier !== "spotlight");
+
+  document.getElementById("week-label").textContent = "WEEK " + String(wk).padStart(2,"0");
+
+  const item = (r, isSel) => `
+    <a class="latest-item${isSel ? "" : " hm"}" href="fermafia.html#${encodeURIComponent(r.handle)}">
+      <span class="sq${isSel ? "" : " hm"}"></span>
+      <span class="h">@${r.handle}</span>
+      ${isSel ? `<span class="w">${dayOf(r.date)}</span>` : ""}
+    </a>`;
+
+  const group = (label, list, isSel, later) => !list.length ? "" :
+    `<p class="grouplabel${later ? " later" : ""}">${label} · ${list.length}</p>
+     <div class="latest-grid">${list.map(r => item(r, isSel)).join("")}</div>`;
+
+  document.getElementById("latest-groups").innerHTML =
+    group("SELECTED", sel, true, false) +
+    group("HONOURABLE MENTIONS", hm, false, true);
+
+  const chips = document.getElementById("fermafia-chips");
+  if (chips) chips.innerHTML = sel.concat(hm).slice(0,5)
+    .map(r => `<span class="chip${r.tier === "spotlight" ? " on" : ""}">@${r.handle}</span>`)
+    .join("") + `<span class="chip">+${d.creators.length - 5} more</span>`;
+}
+
+function paintArchive(d){
+  document.getElementById("c-fermafia").textContent = d.source_summary.unique_creators;
+  document.getElementById("all-count").textContent  = d.source_summary.unique_creators;
+  try { mountFreshness(d); } catch (e) { console.error("freshness", e); }
+  renderLatest(d);
+}
+
+function archiveFailed(e){
+  console.error("archive", e);
+  document.getElementById("latest-groups").innerHTML =
+    '<p class="board-note">This week did not render: ' + (e && e.message || e) +
+    '</p>';
+}
+
+// synchronous when the seed script is present, so nothing async can swallow it
+if (window.SEED){ try { paintArchive(window.SEED); } catch (e) { archiveFailed(e); } }
+else { loadSeed().then(paintArchive).catch(archiveFailed); }
+</script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+</body>
+</html>

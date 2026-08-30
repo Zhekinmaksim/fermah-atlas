@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Play with Fermah — Fermah Atlas</title>
+<meta name="description" content="Three small games about the Fermah ecosystem: a question a day, a memory board, and 2048 played with ecosystem levels.">
+<meta property="og:title" content="Play with Fermah — Fermah Atlas">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/play">
+<meta property="og:url" content="https://fermahatlas.xyz/play">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<section class="wrap reveal" style="padding-block:clamp(76px,9vh,124px) clamp(40px,5vh,64px)">
+  <p class="eyebrow">Play with Fermah</p>
+  <h1 style="font-size:clamp(30px,4.6vw,54px);margin:16px 0 18px">Learn the ecosystem by playing with it.</h1>
+  <p class="lede">Three small games, all in the browser. Your best scores are kept on this device;
+    when the shared board is live they also land on a leaderboard everyone can see.</p>
+</section>
+
+<hr class="rule">
+
+<!-- 1 ---------------------------------------------------------------- -->
+<section class="wrap reveal">
+  <div class="game-head">
+    <div>
+      <p class="eyebrow">01 · Question of the Day</p>
+      <h2 class="sec" style="margin-bottom:6px">One question, once a day.</h2>
+    </div>
+    <div class="streak">STREAK<b id="qotd-streak">0 days</b></div>
+  </div>
+  <div class="gamebox" id="qotd"></div>
+  <p class="game-note">A new question appears every day at 00:00 UTC. Answer right on
+    consecutive days and the streak grows; miss one and it resets.</p>
+</section>
+
+<hr class="rule">
+
+<!-- 2 ---------------------------------------------------------------- -->
+<section class="wrap reveal">
+  <div class="game-head">
+    <div>
+      <p class="eyebrow">02 · Fermah Memory</p>
+      <h2 class="sec" style="margin-bottom:6px">Ten pairs, twenty cards.</h2>
+    </div>
+    <div class="streak">MOVES<b id="memory-moves">0</b></div>
+  </div>
+  <div class="game-split">
+    <div class="board-col">
+      <div class="board-bar">
+        <span class="cell"><span class="k">MOVES</span><span class="v" id="memory-moves-2">0</span></span>
+        <span class="cell"><span class="k">PAIRS</span><span class="v" id="memory-pairs">0 / 10</span></span>
+      </div>
+      <div class="memory-grid" id="memory"></div>
+      <div class="game-actions">
+        <button class="btn" id="memory-again">New board</button>
+        <span class="game-result" id="memory-result"></span>
+      </div>
+    </div>
+    <aside class="panelbox">
+      <div class="head"><span>LEADERBOARD</span><b>MEMORY</b></div>
+      <div class="board" id="memory-board"></div>
+    </aside>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- 3 ---------------------------------------------------------------- -->
+<section class="wrap reveal">
+  <div class="game-head">
+    <div>
+      <p class="eyebrow">03 · 2048 Fermah</p>
+      <h2 class="sec" style="margin-bottom:6px">Merge your way up the ecosystem.</h2>
+    </div>
+    <div class="streak">SCORE<b id="g2048-score">0</b></div>
+  </div>
+  <div class="game-split">
+    <div class="board-col">
+      <div class="board-bar">
+        <span class="cell"><span class="k">SCORE</span><span class="v" id="g2048-score-2">0</span></span>
+        <span class="cell"><span class="k">BEST</span><span class="v" id="g2048-best">—</span></span>
+      </div>
+      <div class="g2048" id="g2048"></div>
+      <div class="pad" id="g2048-pad" aria-label="direction pad"></div>
+      <div class="game-actions">
+        <button class="btn" id="g2048-new">New game</button>
+        <button class="btn" id="g2048-save">Save score</button>
+        <span class="game-result" id="g2048-msg"></span>
+      </div>
+      <p class="game-note">Arrow keys or WASD, the pad above, or a swipe on a phone. Classic four by four.
+        Request → Seeker → Matchmaker → Prover → Proof → Froben → Flashcast → Kernel →
+        ZKsync → Abstract → FERMAH.</p>
+    </div>
+    <aside class="panelbox">
+      <div class="head"><span>LEADERBOARD</span><b>2048</b></div>
+      <div class="board" id="g2048-board"></div>
+    </aside>
+  </div>
+</section>
+
+<script src="assets/icons.js"></script>
+<script src="data/seed.js"></script>
+<script src="assets/atlas.js"></script>
+<script src="assets/games.js"></script>
+<script>
+const safe = (l, fn) => { try { fn(); } catch (e) { console.error(l, e); } };
+safe("chrome", () => mountChrome("play.html"));
+safe("reveal", () => mountReveal());
+try { mountFreshness(window.SEED); } catch (e) {}
+document.documentElement.classList.remove("snap");
+</script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Operators — Fermah Atlas</title>
+<meta name="description" content="The supply side of the Fermah proof market: who runs the prover nodes, how registration works, and what it takes to join.">
+<meta property="og:title" content="Operators — Fermah Atlas">
+<meta property="og:description" content="The supply side of the Fermah proof market.">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/operators">
+<meta property="og:url" content="https://fermahatlas.xyz/operators">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<section class="wrap reveal" style="padding-block:clamp(76px,9vh,124px) clamp(40px,5vh,64px)">
+  <p class="eyebrow">The supply side</p>
+  <h1 style="font-size:clamp(30px,4.6vw,54px);margin:16px 0 18px">Operators</h1>
+  <p class="lede">Powered by Fermah shows who buys proofs. This page shows who makes them.
+    Prover nodes are the hardware half of the market, and their registration lives in public
+    contracts rather than in a dashboard — so it can be read by anyone, including this page.</p>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <p class="eyebrow">How the supply side works</p>
+  <h2 class="sec">Seekers ask, the Matchmaker allocates, nodes prove.</h2>
+  <p class="sec">Fermah is a market with machines on one side — GPUs and FPGAs run by operators —
+    and anything that needs a ZK proof on the other. A Seeker submits a Proof Request, the
+    Matchmaker assigns it to a Prover Node, and the node generates the proof. The whole ceiling
+    of the system is coordination between those three, not raw compute.</p>
+  <div class="op-grid">
+    <div class="op-card"><span class="step">01 · KEYS</span>
+      <h4>ECDSA and BLS</h4>
+      <p>An operator generates both key types. They identify the node to the network and sign
+        its participation.</p></div>
+    <div class="op-card"><span class="step">02 · WHITELIST</span>
+      <h4>Access is granted, not taken</h4>
+      <p>The operator set is permissioned: you request access before a node can register, which
+        is why the registry is small and every entry is deliberate.</p></div>
+    <div class="op-card"><span class="step">03 · REGISTRATION</span>
+      <h4>Through EigenLayer</h4>
+      <p>Registration goes through EigenLayer contracts for the Fermah AVS. That is what makes
+        the operator set publicly readable — no permission needed to look.</p></div>
+    <div class="op-card"><span class="step">04 · TELEMETRY</span>
+      <h4>A metrics sidecar</h4>
+      <p>Nodes ship an OpenTelemetry collector alongside the prover. Operators can point it at
+        additional collectors of their own, which is how a node could feed a public board.</p></div>
+  </div>
+  <p class="hint" style="margin-top:22px">Summarised from
+    <a href="https://docs.fermah.xyz/" target="_blank" rel="noopener" style="color:var(--teal)">docs.fermah.xyz</a>.
+    Follow the docs for the exact commands — Atlas does not mirror them, they change.</p>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <div class="sec-head">
+    <div>
+      <p class="eyebrow">Registry</p>
+      <h2 class="sec" style="margin-bottom:0">Registered prover nodes.</h2>
+    </div>
+    <p class="week" id="op-meta">NOT YET INDEXED</p>
+  </div>
+  <div id="op-body"></div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <p class="eyebrow">Running a node?</p>
+  <h2 class="sec">Put your node on the map.</h2>
+  <p class="sec">Once the registry is indexed, every registered address appears here whether its
+    operator asks or not — it is public on-chain data. What is not public is who is behind an
+    address. If you want your node shown under your name, tell me and it gets a label.</p>
+  <div class="acts">
+    <a class="btn primary" id="op-mail">Claim my node</a>
+    <a class="btn" href="https://docs.fermah.xyz/" target="_blank" rel="noopener">Node docs ↗</a>
+  </div>
+  <p class="hint" style="margin-top:16px">A label is opt-in and reversible. Atlas never links an
+    address to a person on its own — no heuristics, no name matching, no timing analysis.</p>
+</section>
+
+<script src="data/seed.js"></script>
+<script src="data/operators.js"></script>
+<script src="assets/atlas.js"></script>
+<script>
+const safe = (l, fn) => { try { fn(); } catch (e) { console.error(l, e); } };
+safe("chrome", () => mountChrome("operators.html"));
+safe("reveal", () => mountReveal());
+safe("fresh",  () => mountFreshness(window.SEED));
+
+safe("registry", () => {
+  const o = window.OPERATORS || {rows: []};
+  const host = document.getElementById("op-body");
+  const meta = document.getElementById("op-meta");
+  if (!o.rows.length){
+    host.innerHTML =
+      '<div class="empty">The registry is not indexed yet.<br>' +
+      'It reads the Fermah AVS registration events straight from the chain — no API key, ' +
+      'no permission, no node of my own required.<br>' +
+      'What is missing is one thing: the service manager address, which comes from ' +
+      '<a href="https://github.com/fermah-xyz/avs-metadata" target="_blank" rel="noopener" ' +
+      'style="color:var(--teal)">fermah-xyz/avs-metadata</a>. ' +
+      'Until it is confirmed, this page shows nothing rather than something invented.</div>';
+    return;
+  }
+  meta.textContent = `${o.rows.length} NODES · ${o.network || ""} · READ ${o.fetched || ""}`.toUpperCase();
+  host.innerHTML =
+    '<table class="op-table"><thead><tr><th>Operator</th><th>Registered</th>' +
+    '<th>Label</th></tr></thead><tbody>' +
+    o.rows.map(r =>
+      `<tr><td class="mono">${r.address.slice(0,10)}…${r.address.slice(-6)}</td>` +
+      `<td>${r.registered || "—"}</td><td>${r.label || "unlabelled"}</td></tr>`).join("") +
+    '</tbody></table>';
+});
+
+document.getElementById("op-mail").addEventListener("click", () => {
+  location.href = "mailto:" + CONTACT + "?subject=" +
+    encodeURIComponent("Fermah Atlas — claim my prover node") + "&body=" +
+    encodeURIComponent("Operator address:\n\nLabel to show:\n\nProof it is mine (a signature, a post, anything):\n");
+});
+</script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+</body>
+</html>

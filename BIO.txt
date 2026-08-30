@@ -1,0 +1,11 @@
+X bio for @fermah_atlas
+
+Primary:
+Unofficial map of the @fermah_xyz ecosystem.
+Who runs on Fermah, what's built with it, who runs the nodes,
+and every Community Spotlight, archived with sources.
+Built by @0maxxdev · fermahatlas.xyz
+
+Short, if X trims:
+Unofficial map of the @fermah_xyz ecosystem — production, apps, prover nodes,
+and every Community Spotlight, with sources. By @0maxxdev

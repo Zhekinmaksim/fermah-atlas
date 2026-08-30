@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Built by Fermafia — Fermah Atlas</title>
+<meta name="description" content="The full Community Spotlight record: every creator officially recognised by Fermah, with dates, links and a shareable card.">
+<meta property="og:title" content="Built by Fermafia — Fermah Atlas">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/fermafia">
+<meta property="og:url" content="https://fermahatlas.xyz/fermafia">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<section class="pagehead"><div class="wrap reveal">
+  <div class="top">
+    <span class="num">03</span>
+    <div>
+      <p class="eyebrow">Community tools &amp; creations</p>
+      <h1>Built by Fermafia</h1>
+      <p class="lede">The full Community Spotlight record, rebuilt from the official announcements.
+        Find yourself, open your card, post it. Nothing to claim and nothing to sign up for —
+        this is the archive of recognition the team already gave you.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="statband">
+  <div class="wrap">
+    <div class="row">
+      <div class="cell"><b id="s-creators">—</b><span>CREATORS</span></div>
+      <div class="cell"><b id="s-sel">—</b><span>SELECTIONS</span></div>
+      <div class="cell"><b class="plain" id="s-hm">—</b><span>MENTIONS</span></div>
+      <div class="cell"><b class="plain" id="s-weeks">—</b><span>WEEKS</span></div>
+    </div>
+    <p class="src">REBUILT FROM THE OFFICIAL ANNOUNCEMENTS · X HANDLES ONLY</p>
+  </div>
+</div>
+
+<section class="wall-sec" id="wall-sec" hidden>
+  <div class="wrap wall-head">
+    <p class="eyebrow">The record so far</p>
+    <p class="meta" id="wall-meta"></p>
+  </div>
+  <div class="wall">
+    <div class="wall-row"><div class="track" id="wall-a"></div></div>
+    <div class="wall-row"><div class="track rev" id="wall-b"></div></div>
+  </div>
+</section>
+
+<section><div class="wrap reveal">
+  <div class="search">
+    <input id="q" type="search" placeholder="Find your handle…" autocomplete="off"
+           aria-label="Search creators">
+    <span class="hint" id="hint"></span>
+  </div>
+  <div class="people" id="people"></div>
+</div></section>
+
+<script src="data/seed.js"></script>
+<script src="assets/atlas.js"></script>
+<script src="assets/dropdown.js"></script>
+<hr class="rule">
+
+<section class="wrap reveal" id="feedback">
+  <p class="eyebrow">Feedback</p>
+  <h2 class="sec">Something wrong on your card?</h2>
+  <p class="sec">A missing week, a handle that changed, a post that should not be here, or a
+    profile you want taken down. Write it here and it goes straight to my inbox — removals are
+    done without questions.</p>
+
+  <div class="form">
+    <div class="row">
+      <label>Your X handle<input id="fb-who" placeholder="0maxxdev" maxlength="40"></label>
+      <label>What is this about
+        <select id="fb-kind">
+          <option value="Correction">A detail on my card is wrong</option>
+          <option value="Missing recognition">A Spotlight of mine is missing</option>
+          <option value="Remove my profile">Remove my profile</option>
+          <option value="Site feedback">Feedback about the site</option>
+          <option value="Other">Something else</option>
+        </select>
+      </label>
+    </div>
+    <label>Details<textarea id="fb-text" maxlength="800"
+      placeholder="Week number, link to the post, whatever helps me check it."></textarea></label>
+    <div class="actions">
+      <button class="btn primary" id="fb-send">Send</button>
+      <span class="game-result" id="fb-note"></span>
+    </div>
+    <p class="hint">Opens your mail app with the message ready. Nothing is stored on this site —
+      there is no backend and no form database.</p>
+  </div>
+</section>
+
+<script src="assets/wall.js"></script>
+<script>
+mountChrome("fermafia.html");
+
+document.getElementById("fb-send").addEventListener("click", () => {
+  const who  = document.getElementById("fb-who").value.trim().replace(/^@/,"");
+  const kind = document.getElementById("fb-kind").value;
+  const text = document.getElementById("fb-text").value.trim();
+  if (!text){ document.getElementById("fb-note").textContent = "Add a line of detail first."; return; }
+  const body = `From: @${who || "anonymous"}\nAbout: ${kind}\n\n${text}\n`;
+  location.href = `mailto:${CONTACT}?subject=` +
+    encodeURIComponent(`Fermah Atlas — ${kind}`) + "&body=" + encodeURIComponent(body);
+  document.getElementById("fb-note").textContent = "Opening your mail app…";
+});
+mountReveal();
+
+const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+const day = iso => { const [,m,d] = iso.split("-").map(Number); return MONTHS[m-1] + " " + d; };
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+
+let PEOPLE = [];
+let WEEKS = [];
+
+const SITE = "https://fermahatlas.xyz";
+function pagePath(handle){ return "c/" + handle.toLowerCase() + ".html"; }
+function tweetText(c){
+  const bits = [];
+  if (c.spotlight_count) bits.push(c.spotlight_count + "x Community Spotlight");
+  if (c.honourable_mention_count) bits.push(c.honourable_mention_count + "x honourable mention");
+  return encodeURIComponent(
+    "My @fermah_xyz Community Spotlight record: " + bits.join(" · ") +
+    "\n\n" + SITE + "/c/" + c.display_handle.toLowerCase());
+}
+
+function sparkline(c, weeks){
+  const by = {};
+  c.contributions.forEach(x => { if (by[x.week_label] !== "spotlight") by[x.week_label] = x.tier; });
+  return `<span class="spark" aria-hidden="true">` + weeks.map(w => {
+    const t = by[w];
+    return `<i class="${t === "spotlight" ? "on" : t ? "hm" : ""}"></i>`;
+  }).join("") + `</span>`;
+}
+
+function row(c){
+  const div = document.createElement("div");
+  div.className = "person mark-corners";
+  div.dataset.handle = c.display_handle.toLowerCase();
+  const tally =
+    (c.spotlight_count ? `<b>${c.spotlight_count}</b> selected` : "") +
+    (c.spotlight_count && c.honourable_mention_count ? " · " : "") +
+    (c.honourable_mention_count ? `${c.honourable_mention_count} mentioned` : "");
+
+  const items = c.contributions.map(ct => `
+    <li><span class="sq ${ct.tier === "spotlight" ? "" : "hm"}"></span>
+        <span class="wk">W${String(ct.week_label).padStart(2,"0")}</span>
+        <span>${day(ct.announcement_date)}</span>
+        ${c.suspended
+          ? '<span style="margin-left:auto;color:var(--faint);font-size:11px">post unavailable</span>'
+          : `<a href="${ct.x_url}" target="_blank" rel="noopener"
+               style="color:var(--teal);margin-left:auto">view post ↗</a>`}</li>`).join("");
+
+  div.innerHTML = `
+    <button type="button" aria-expanded="false">
+      <img class="avatar" loading="lazy" alt=""
+           src="avatars/${c.display_handle.toLowerCase()}.jpg"
+           onerror="this.style.visibility='hidden'">
+      <span class="handle">@${esc(c.display_handle)}${c.suspended
+        ? '<span class="susp">suspended</span>' : ""}</span>
+      ${sparkline(c, WEEKS)}
+      <span class="tally">${tally}</span>
+      <span class="chev">open</span>
+    </button>
+    <div class="panel">
+      <img loading="lazy" src="${cardPath(c.display_handle)}"
+           alt="Spotlight card for @${esc(c.display_handle)}">
+      <div class="acts">
+        ${c.suspended ? "" : `<a class="btn primary" target="_blank" rel="noopener"
+           href="https://twitter.com/intent/tweet?text=${tweetText(c)}">Post on X</a>`}
+        <a class="btn" download href="${cardPath(c.display_handle)}">Download card</a>
+        <a class="btn" href="${pagePath(c.display_handle)}">Open my page</a>
+        ${c.suspended
+          ? '<span class="btn" style="cursor:default;opacity:.6">Account suspended</span>'
+          : `<a class="btn" target="_blank" rel="noopener"
+               href="https://x.com/${encodeURIComponent(c.display_handle)}">Profile ↗</a>`}
+      </div>
+      <ol>${items}</ol>
+    </div>`;
+
+  div.querySelector("button").addEventListener("click", () => {
+    const open = div.classList.toggle("open");
+    div.querySelector("button").setAttribute("aria-expanded", open);
+    div.querySelector(".chev").textContent = open ? "close" : "open";
+    if (open) history.replaceState(null, "", "#" + c.display_handle);
+  });
+  return div;
+}
+
+function render(list){
+  const host = document.getElementById("people");
+  host.textContent = "";
+  list.forEach(c => host.appendChild(row(c)));
+  document.getElementById("hint").textContent =
+    list.length === PEOPLE.length ? `${list.length} creators`
+                                  : `${list.length} of ${PEOPLE.length}`;
+}
+
+document.getElementById("q").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase().replace(/^@/, "");
+  render(q ? PEOPLE.filter(c => c.display_handle.toLowerCase().includes(q)) : PEOPLE);
+});
+
+loadSeed().then(d => {
+  try { mountFreshness(d); } catch (e) {}
+  try { mountFreshness(d); } catch (e) {}
+  PEOPLE = d.creators;
+  WEEKS = Object.keys(d.source_summary.week_dates).map(Number).sort((a, b) => a - b);
+  const s = d.source_summary;
+  document.getElementById("s-creators").textContent = s.unique_creators;
+  document.getElementById("s-sel").textContent      = s.spotlight_selections;
+  document.getElementById("s-hm").textContent       = s.honourable_mentions;
+  document.getElementById("s-weeks").textContent    = s.announcements;
+  render(PEOPLE);
+  mountWall(d, {skip: 4});
+
+  const want = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+  if (want){
+    const el = document.querySelector(`.person[data-handle="${CSS.escape(want)}"]`);
+    if (el){ el.querySelector("button").click(); }
+  }
+}).catch(() => {
+  document.getElementById("people").innerHTML =
+    '<div class="empty">Could not load the archive.<br>' +
+    'Check that <code>data/seed.js</code> sits next to this page.</div>';
+});
+</script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+</body>
+</html>

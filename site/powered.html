@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Powered by Fermah — Fermah Atlas</title>
+<meta name="description" content="Production integrations and named customers in the Fermah ecosystem, each with a source and a check date.">
+<meta property="og:title" content="Powered by Fermah — Fermah Atlas">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/powered">
+<meta property="og:url" content="https://fermahatlas.xyz/powered">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<section class="pagehead"><div class="wrap reveal">
+  <div class="top">
+    <span class="num">01</span>
+    <div>
+      <p class="eyebrow">Production &amp; integrations</p>
+      <h1>Powered by Fermah</h1>
+      <p class="lede">Who actually runs on Fermah in production, and who has been announced but is
+        not currently listed as production. Nothing is on this page without a link and a date.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="statband">
+  <div class="wrap">
+    <div class="row">
+      <div class="cell"><b id="p-all">—</b><span>ENTRIES</span></div>
+      <div class="cell"><b id="p-live">—</b><span>LIVE / NAMED</span></div>
+      <div class="cell"><b class="plain" id="p-ann">—</b><span>ANNOUNCED</span></div>
+      <div class="cell"><b class="plain">2</b><span>PRODUCTS ON KERNEL</span></div>
+    </div>
+    <p class="src">EVERY ENTRY CARRIES A SOURCE LINK · CHECKED 2026-08-26</p>
+  </div>
+</div>
+
+<section><div class="wrap reveal">
+  <div class="grid" id="powered-grid"></div>
+</div></section>
+
+<section class="band"><div class="wrap reveal">
+  <p class="eyebrow">Ecosystem graph</p>
+  <h2 class="sec">Who runs on what.</h2>
+  <p class="sec">Solid lines are relationships the official site states today. Dashed lines are
+    announced or historical integrations the current site does not list as production.</p>
+  <div id="graph-canvas"></div>
+  <div class="legend">
+    <span><i></i>stated on fermah.xyz today</span>
+    <span><i class="hist"></i>announced / historical</span>
+  </div>
+</div></section>
+
+<script src="data/seed.js"></script>
+<script src="assets/atlas.js"></script>
+<script>
+mountChrome("powered.html");
+mountReveal();
+try { mountFreshness(window.SEED); } catch (e) {}
+drawGraph();
+
+const live = ECOSYSTEM.powered.filter(e => e.status === "live").length;
+document.getElementById("p-all").textContent  = ECOSYSTEM.powered.length;
+document.getElementById("p-live").textContent = live;
+document.getElementById("p-ann").textContent  = ECOSYSTEM.powered.length - live;
+
+const g = document.getElementById("powered-grid");
+ECOSYSTEM.powered.forEach((e, i) => {
+  const d = document.createElement("a");
+  d.className = "entity mark-corners";
+  d.href = e.source;
+  d.target = "_blank";
+  d.rel = "noopener";
+  d.innerHTML =
+    `<span class="go">↗</span>` +
+    `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
+    `<div class="kicker">${e.kicker}</div>` +
+    `<h4>${e.name}</h4><p>${e.text}</p>` +
+    `<div class="meta"><span class="tag ${e.status}">` +
+    `${({live:"live", enabled:"enabled by kernel", reference:"reference model"})[e.status] || "announced"}</span>` +
+    `<span>checked ${e.checked}</span></div>`;
+  g.appendChild(d);
+});
+</script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+</body></html>

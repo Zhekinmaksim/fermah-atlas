@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Built with Fermah — Fermah Atlas</title>
+<meta name="description" content="Apps, agents and workflows built on top of Fermah Kernel.">
+<meta property="og:title" content="Built with Fermah — Fermah Atlas">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/built-with">
+<meta property="og:url" content="https://fermahatlas.xyz/built-with">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<section class="pagehead"><div class="wrap reveal">
+  <div class="top">
+    <span class="num">02</span>
+    <div>
+      <p class="eyebrow">Apps &amp; workflows</p>
+      <h1>Built with Fermah</h1>
+      <p class="lede">Apps, agents and automations built on Kernel by anyone outside the core team.
+        The engine leaves the slot open — “if it can be measured, triggered or sequenced, Kernel can
+        run it” — and this page tracks what fills it.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="statband">
+  <div class="wrap">
+    <div class="row">
+      <div class="cell"><b id="b-all">—</b><span>ENTRIES</span></div>
+      <div class="cell"><b class="plain">1</b><span>OPEN SLOT</span></div>
+      <div class="cell"><b class="plain">0</b><span>PLACEHOLDERS</span></div>
+    </div>
+    <p class="src">THIS PAGE STAYS EMPTY UNTIL SOMETHING REAL SHIPS</p>
+  </div>
+</div>
+
+<section class="band"><div class="wrap reveal">
+  <div class="grid" id="built-grid"></div>
+  <div class="empty" id="built-empty" hidden>
+    Nothing here yet.<br>
+    Building on Fermah? Send the repo and it lands here with a source and a date.
+  </div>
+</div></section>
+
+<hr class="rule">
+
+<section class="wrap reveal" id="submit">
+  <p class="eyebrow">Submit</p>
+  <h2 class="sec">Add your project.</h2>
+  <p class="sec">Anything that works on Fermah's architecture — a workflow on Kernel, a service
+    pulling proofs from Froben, a market on Flashcast, a tool, a model, a dashboard. Every
+    submission is reviewed by hand before it appears; nothing goes live automatically.</p>
+
+  <div class="form">
+    <div class="row">
+      <label>Project name<input id="f-name" placeholder="proofmarket-mcp" maxlength="60"></label>
+      <label>Link<input id="f-url" placeholder="https://github.com/…" maxlength="200"></label>
+    </div>
+    <div class="row">
+      <label>Your X handle<input id="f-by" placeholder="0maxxdev" maxlength="40"></label>
+      <label>What it uses
+        <select id="f-kind">
+          <option value="Kernel workflow">Kernel workflow</option>
+          <option value="Froben / proofs">Froben — proofs</option>
+          <option value="Flashcast market">Flashcast market</option>
+          <option value="Prover node tooling">Prover node tooling</option>
+          <option value="Reference model">Reference model — not live integration</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+    </div>
+    <label>What it does<textarea id="f-text" maxlength="600"
+      placeholder="Two or three sentences. Say plainly what is live and what is modelled — that label is kept as you write it."></textarea></label>
+    <div class="actions">
+      <button class="btn primary" id="f-issue">Submit for review</button>
+      <button class="btn" id="f-mail">Send by email instead</button>
+    </div>
+    <p class="hint">Submitting opens a pre-filled GitHub issue — that is the moderation queue.
+      No account? Use email. Either way a human reads it before anything is published.</p>
+  </div>
+</section>
+
+<script src="data/seed.js"></script>
+<script src="assets/atlas.js"></script>
+<script src="assets/dropdown.js"></script>
+<script>
+mountChrome("built-with.html");
+
+const REPO = "Zhekinmaksim/fermah-atlas";   // moderation queue
+const val = id => document.getElementById(id).value.trim();
+function submission(){
+  return {
+    title: `Submit: ${val("f-name") || "untitled"}`,
+    body:
+      `**Project:** ${val("f-name")}\n` +
+      `**Link:** ${val("f-url")}\n` +
+      `**Author:** @${val("f-by").replace(/^@/,"")}\n` +
+      `**Uses:** ${document.getElementById("f-kind").value}\n\n` +
+      `${val("f-text")}\n`
+  };
+}
+document.getElementById("f-issue").addEventListener("click", () => {
+  const s = submission();
+  open(`https://github.com/${REPO}/issues/new?labels=submission&title=` +
+       encodeURIComponent(s.title) + "&body=" + encodeURIComponent(s.body), "_blank");
+});
+document.getElementById("f-mail").addEventListener("click", () => {
+  const s = submission();
+  location.href = `mailto:${CONTACT}?subject=` + encodeURIComponent(s.title) +
+                  "&body=" + encodeURIComponent(s.body);
+});
+mountReveal();
+try { mountFreshness(window.SEED); } catch (e) {}
+document.getElementById("b-all").textContent = ECOSYSTEM.builtWith.length || "0";
+const g = document.getElementById("built-grid");
+if (!ECOSYSTEM.builtWith.length) {
+  document.getElementById("built-empty").hidden = false;
+} else {
+  ECOSYSTEM.builtWith.forEach((e, i) => {
+    const d = document.createElement("a");
+    d.className = "entity mark-corners";
+    d.href = e.source; d.target = "_blank"; d.rel = "noopener";
+    d.innerHTML =
+      `<span class="go">↗</span>` +
+      `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
+      `<div class="kicker">${e.kicker}</div><h4>${e.name}</h4><p>${e.text}</p>` +
+      `<div class="meta"><span class="tag ${e.status}">` +
+      `${({live:"live", enabled:"enabled by kernel", reference:"reference model"})[e.status] || e.status}</span>` +
+      `<span>checked ${e.checked}</span></div>`;
+    g.appendChild(d);
+  });
+}
+</script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+</body></html>
