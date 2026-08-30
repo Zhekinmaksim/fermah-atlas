@@ -179,7 +179,7 @@ function renderLatest(d){
   const wk = Math.max(...d.creators.flatMap(c => c.contributions.map(x => x.week_label)));
   const rows = d.creators.flatMap(c => c.contributions
       .filter(x => x.week_label === wk)
-      .map(x => ({handle:c.display_handle, tier:x.tier, date:x.announcement_date})));
+      .map(x => ({handle:c.display_handle, avatar:c.display_handle.toLowerCase(), tier:x.tier, date:x.announcement_date})));
   const sel = rows.filter(r => r.tier === "spotlight");
   const hm  = rows.filter(r => r.tier !== "spotlight");
 
@@ -187,6 +187,8 @@ function renderLatest(d){
 
   const item = (r, isSel) => `
     <a class="latest-item${isSel ? "" : " hm"}" href="fermafia.html#${encodeURIComponent(r.handle)}">
+      <img class="latest-avatar" src="avatars/${encodeURIComponent(r.avatar)}.jpg" alt="" loading="lazy"
+           onerror="this.hidden=true">
       <span class="sq${isSel ? "" : " hm"}"></span>
       <span class="h">@${r.handle}</span>
       ${isSel ? `<span class="w">${dayOf(r.date)}</span>` : ""}

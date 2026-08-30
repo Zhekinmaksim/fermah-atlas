@@ -9,7 +9,7 @@
  * Optional: ASSISTANT_MODEL (defaults to Haiku, which is plenty for this).
  */
 
-const MODEL = process.env.ASSISTANT_MODEL || "claude-haiku-4-5-20251001";
+const MODEL = String(process.env.ASSISTANT_MODEL || "claude-haiku-4-5-20251001").trim();
 const MAX_QUESTION = 400;
 const REFUSAL =
   "I only answer questions about Fermah, using the official site and docs. " +
@@ -143,7 +143,8 @@ export default async function handler(req, res) {
     res.status(405).json({error: "method not allowed"});
     return;
   }
-  if (!process.env.ANTHROPIC_API_KEY) {
+  const apiKey = String(process.env.ANTHROPIC_API_KEY || "").trim();
+  if (!apiKey) {
     res.status(200).json({answer: "The assistant is not configured yet.", on_topic: false});
     return;
   }
@@ -180,16 +181,30 @@ export default async function handler(req, res) {
   };
 
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12_000);
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
+      signal: controller.signal,
       headers: {
         "content-type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
+        "x-api-key": apiKey,
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify(body),
     });
-    if (!r.ok) throw new Error(`upstream ${r.status}`);
+    clearTimeout(timeout);
+    if (!r.ok) {
+      console.error("Anthropic request failed", {status: r.status, model: MODEL});
+      const answers = {
+        401: "The assistant key was rejected. Check ANTHROPIC_API_KEY in the Production environment and redeploy.",
+        403: "The assistant key has no access to this Anthropic request. Check the key and account permissions.",
+        404: "The configured assistant model is unavailable. Set ASSISTANT_MODEL to a supported Claude model and redeploy.",
+        429: "Anthropic is rate limiting requests. Try again in a moment.",
+      };
+      res.status(200).json({answer: answers[r.status] || "The assistant could not reach Anthropic. Try again in a moment.", on_topic: false});
+      return;
+    }
     const data = await r.json();
     const text = (data.content || []).filter((c) => c.type === "text").map((c) => c.text).join("").trim();
 
@@ -202,6 +217,7 @@ export default async function handler(req, res) {
     const answer = parsed.on_topic === true && parsed.answer ? String(parsed.answer) : REFUSAL;
     res.status(200).json({answer: answer.slice(0, 1200), on_topic: parsed.on_topic === true});
   } catch (e) {
-    res.status(200).json({answer: "I could not reach my source right now. Try again in a moment.", on_topic: false});
+    console.error("Anthropic request error", e.name === "AbortError" ? "timeout" : e.message);
+    res.status(200).json({answer: "I could not reach Anthropic right now. Try again in a moment.", on_topic: false});
   }
 }
