@@ -12,6 +12,7 @@ const DOCS = "https://docs.fermah.xyz/";
 const PAY_DOCS = "https://docs.fermah.xyz/fermah-pay";
 const DOCS_CHECKED = "2026-08-30";
 const CONTACT = "fermahatlas@gmail.com";
+const SOURCE_CODE = "https://github.com/Zhekinmaksim/fermah-atlas";
 
 const ECOSYSTEM = {
   nodes: [
@@ -142,11 +143,13 @@ function mountChrome(current, base){
       <span>
         <span class="by">Built by <a href="https://x.com/0maxxdev" target="_blank"
           rel="noopener">@0maxxdev</a></span><br>
-        Fermah Atlas — an unofficial community archive. Not affiliated with Fermah.
+        Fermah Atlas — an unofficial community archive. Not affiliated with Fermah.<br>
+        <span class="wallet-note">Atlas never asks you to connect a wallet<br>
+          to browse ecosystem data.</span>
       </span>
       <span class="cols">
         <span><a href="https://x.com/0maxxdev" target="_blank" rel="noopener">X</a> ·
-              <a href="https://github.com/Zhekinmaksim" target="_blank" rel="noopener">GitHub</a></span>
+              <a href="${SOURCE_CODE}" target="_blank" rel="noopener">VIEW SOURCE CODE ↗</a></span>
         <span><a href="${FERMAH}" target="_blank" rel="noopener">fermah.xyz</a> ·
               <a href="https://docs.fermah.xyz/" target="_blank" rel="noopener">docs</a> ·
               <a href="https://discord.gg/zzJDPWppRU" target="_blank" rel="noopener">discord</a></span>

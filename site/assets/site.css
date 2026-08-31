@@ -349,6 +349,7 @@ footer{border-top:1px solid var(--rule);padding:38px 0 62px;font-family:var(--mo
   flex-wrap:wrap;align-items:flex-start}
 footer .by{color:var(--gray);display:inline-block;margin-bottom:10px}
 footer .by a{color:var(--teal)}
+footer .wallet-note{display:inline-block;margin-top:12px;color:var(--gray)}
 footer .cols{display:flex;gap:clamp(24px,3.4vw,56px);flex-wrap:wrap;row-gap:14px}
 footer a{padding:2px 0}
 footer a:hover{color:var(--teal)}
