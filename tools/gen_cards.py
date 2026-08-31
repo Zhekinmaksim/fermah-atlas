@@ -16,7 +16,10 @@ import os
 from datetime import date
 from xml.sax.saxutils import escape
 
-import cairosvg
+try:
+    import cairosvg
+except ImportError:
+    cairosvg = None
 
 # ---- brand tokens, from the official Fermah brand kit ------------------------
 NAVY = "#001030"
@@ -30,8 +33,8 @@ FAINT = "#37456A"
 RULE = "#16233D"
 PERF = "#223353"
 
-DISPLAY = "AtlasDisplay"     # Space Grotesk
-MONO = "JetBrains Mono"
+DISPLAY = "Helvetica Neue, Arial, sans-serif"
+MONO = "JetBrains Mono, Menlo, Consolas, monospace"
 
 W, H = 1200, 630
 SEASON_LABEL = "SEASON 01"
@@ -130,6 +133,7 @@ def card_svg(creator, weeks, week_dates):
     contribs = sorted(creator["contributions"], key=lambda c: c["week_label"])
     spot = creator["spotlight_count"]
     hm = creator["honourable_mention_count"]
+    total_recognitions = spot + hm
 
     by_week = {}
     for c in contribs:
@@ -148,14 +152,12 @@ def card_svg(creator, weeks, week_dates):
     span = fmt_day(first) if first == last else f"{fmt_day(first)} — {fmt_day(last)}"
     span += f" · {first[:4]}"
 
-    # the stub carries whatever this person actually has
-    if spot:
-        big, big_label = spot, "SPOTLIGHT" if spot == 1 else "SPOTLIGHTS"
-    else:
-        big, big_label = hm, "MENTION" if hm == 1 else "MENTIONS"
+    # the stub carries every recognition event: selected + honourable mention
+    big = total_recognitions
+    big_label = "RECOGNITION" if total_recognitions == 1 else "RECOGNITIONS"
 
     active = len({c["week_label"] for c in contribs})
-    facts = fact(PAD_L, "MENTIONS", str(hm))
+    facts = fact(PAD_L, "MENTIONED", str(hm))
     facts += fact(PAD_L + 186, "LONGEST RUN",
                   f'{longest} {"WEEK" if longest == 1 else "WEEKS"}' if longest else "—")
     facts += fact(PAD_L + 372, "WEEKS ACTIVE", f'{active} <tspan fill="{DIMMER}">/ {len(weeks)}</tspan>')
@@ -318,6 +320,8 @@ def main():
     ap.add_argument("--seed", required=True)
     ap.add_argument("--out", default="cards")
     ap.add_argument("--only", nargs="*")
+    ap.add_argument("--svg-only", action="store_true",
+                    help="write SVG files without rendering PNGs")
     args = ap.parse_args()
 
     seed = json.load(open(args.seed))
@@ -334,6 +338,10 @@ def main():
         svg = card_svg(c, weeks, week_dates)
         stem = os.path.join(args.out, c["display_handle"].lower())
         open(stem + ".svg", "w").write(svg)
+        if args.svg_only:
+            continue
+        if cairosvg is None:
+            raise SystemExit("CairoSVG is not installed; use --svg-only or install CairoSVG with native cairo")
         cairosvg.svg2png(bytestring=svg.encode(), write_to=stem + ".png",
                          output_width=W, output_height=H)
     print(f"{len(creators)} cards -> {args.out}/")

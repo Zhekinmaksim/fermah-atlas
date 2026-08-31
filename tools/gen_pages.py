@@ -120,8 +120,8 @@ def build(seed_path, site_dir):
         slug = handle.lower()
         contribs = sorted(c["contributions"], key=lambda x: x["week_label"])
         desc = summary_of(c)
-        big = (f'{c["spotlight_count"]}x SELECTED' if c["spotlight_count"]
-               else f'{c["honourable_mention_count"]}x MENTIONED')
+        total_recognitions = c["spotlight_count"] + c["honourable_mention_count"]
+        big = f'{total_recognitions}x RECOGNIZED'
 
         suspended = bool(c.get("suspended"))
         items = "".join(
