@@ -12,6 +12,7 @@ const DOCS = "https://docs.fermah.xyz/";
 const PAY_DOCS = "https://docs.fermah.xyz/fermah-pay";
 const DOCS_CHECKED = "2026-08-30";
 const CONTACT = "fermahatlas@gmail.com";
+const PROJECT_X = "https://x.com/fermah_atlas";
 const SOURCE_CODE = "https://github.com/Zhekinmaksim/fermah-atlas";
 
 const ECOSYSTEM = {
@@ -147,7 +148,7 @@ function mountChrome(current, base){
         <span class="wallet-note">Atlas never asks you to connect a wallet to browse ecosystem data.</span>
       </span>
       <span class="cols">
-        <span><a href="https://x.com/0maxxdev" target="_blank" rel="noopener">X</a> ·
+        <span><a href="${PROJECT_X}" target="_blank" rel="noopener">X</a> ·
               <a href="${SOURCE_CODE}" target="_blank" rel="noopener">VIEW SOURCE CODE ↗</a></span>
         <span><a href="${FERMAH}" target="_blank" rel="noopener">fermah.xyz</a> ·
               <a href="https://docs.fermah.xyz/" target="_blank" rel="noopener">docs</a> ·
