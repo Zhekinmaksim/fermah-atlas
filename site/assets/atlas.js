@@ -144,8 +144,7 @@ function mountChrome(current, base){
         <span class="by">Built by <a href="https://x.com/0maxxdev" target="_blank"
           rel="noopener">@0maxxdev</a></span><br>
         Fermah Atlas — an unofficial community archive. Not affiliated with Fermah.<br>
-        <span class="wallet-note">Atlas never asks you to connect a wallet<br>
-          to browse ecosystem data.</span>
+        <span class="wallet-note">Atlas never asks you to connect a wallet to browse ecosystem data.</span>
       </span>
       <span class="cols">
         <span><a href="https://x.com/0maxxdev" target="_blank" rel="noopener">X</a> ·
