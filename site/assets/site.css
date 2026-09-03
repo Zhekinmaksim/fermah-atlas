@@ -523,7 +523,7 @@ ol.record a{margin-left:auto;color:var(--teal);font-size:11px;letter-spacing:.1e
 .shark-fab:hover{transform:translateY(-4px) scale(1.04)}
 .shark-fab img{width:82px;height:82px;display:block}
 .shark-panel[hidden]{display:none}
-.shark-panel{width:min(380px,calc(100vw - 52px));background:var(--navy-2);
+.shark-panel{width:min(430px,calc(100vw - 52px));background:var(--navy-2);
   border:1px solid var(--rule);border-radius:2px;box-shadow:0 24px 60px rgba(0,0,0,.5);
   display:flex;flex-direction:column;overflow:hidden}
 .shark-head{display:flex;align-items:center;gap:10px;padding:14px 16px;
@@ -536,7 +536,8 @@ ol.record a{margin-left:auto;color:var(--teal);font-size:11px;letter-spacing:.1e
 .shark-close:hover{color:var(--teal);border-color:var(--rule);background:rgba(0,16,48,.6)}
 .shark-log{padding:16px;display:flex;flex-direction:column;gap:12px;max-height:46vh;overflow-y:auto}
 .shark-log .msg{font-family:var(--mono);font-size:13px;line-height:1.62;padding:11px 13px;
-  border-radius:2px;white-space:pre-wrap}
+  border-radius:2px;white-space:pre-wrap;text-align:left}
+.shark-log .intro{white-space:normal;text-wrap:pretty;line-height:1.7}
 .shark-log .bot{background:rgba(0,16,48,.6);border:1px solid var(--rule);color:var(--gray)}
 .shark-log .me{background:rgba(6,193,157,.12);border:1px solid rgba(6,193,157,.3);
   color:var(--white);align-self:flex-end;max-width:88%}

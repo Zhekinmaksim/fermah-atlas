@@ -24,9 +24,7 @@
         <button class="shark-close" id="shark-close" aria-label="Close">×</button>
       </div>
       <div class="shark-log" id="shark-log">
-        <div class="msg bot">Ask me about Fermah — Kernel, Froben, Fermah Pay, Marina,
-          Flashcast, prover nodes, the Community Spotlight or anyone in the Atlas archive. I answer
-          from the indexed archive and official material, and nothing else.</div>
+        <div class="msg bot intro">Ask me about Fermah — Kernel, Froben, Fermah Pay, Marina, Flashcast, prover nodes, the Community Spotlight or anyone in the Atlas archive. I answer from the indexed archive and official material, and nothing else.</div>
         <div class="chips">${SUGGESTIONS.map((s) => `<button class="schip">${s}</button>`).join("")}</div>
       </div>
       <form class="shark-form" id="shark-form">
