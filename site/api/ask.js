@@ -77,6 +77,31 @@ const KB = [
     src: "https://docs.fermah.xyz/",
   },
   {
+    k: "prover node onboarding steps installation configuration machine secret registration telemetry starting node",
+    t: "The Fermah docs describe prover-node onboarding as a sequence: installation, configuration, machine secret, registration, telemetry, and starting the node. Atlas treats this as testnet/operator documentation and sends readers to the docs for the exact commands.",
+    src: "https://docs.fermah.xyz/testnet/for-prover-nodes",
+  },
+  {
+    k: "installation prover node ubuntu docker cuda toolkit fpn binary zksync configuration files install script",
+    t: "For installation, the docs point operators at Ubuntu 22.04 LTS, Docker, CUDA drivers and the CUDA container toolkit. The install script obtains the fpn / prover-node binary, downloads the default ZKsync prover, installs configuration files, sets up telemetry, and can onboard into the Fermah network when whitelist keys are available.",
+    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/installation",
+  },
+  {
+    k: "machine secret ecdsa private key store-key gen-machine-secret whitelist public keys operator application",
+    t: "For machine authentication, the docs use an imported ECDSA key to generate a machine secret. Operators submit the machine-secret public keys through the Fermah operator application flow and wait until those keys are whitelisted before continuing.",
+    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/machine-secret",
+  },
+  {
+    k: "registration prover-node register rpc sepolia eigenlayer el flag configuration whitelisted avs",
+    t: "Registration is a one-time action handled by the fpn / prover-node binary. The docs require machine secret and whitelist completion, configuration files, and a Sepolia RPC URL. Operators registered in EigenLayer use the same operator identity key and add the EigenLayer flag when registering.",
+    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/registration",
+  },
+  {
+    k: "starting node fpn run command telemetry config systemd docker kubernetes daemon",
+    t: "To start the node, the docs say telemetry should already be running and the configuration file should exist at ~/.fermah/config/prover-node-config.toml. The node is then launched with the fpn command, with daemon options documented for systemd, Docker and Kubernetes.",
+    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/starting-a-node",
+  },
+  {
     k: "telemetry metrics grafana monitoring sidecar opentelemetry dashboard",
     t: "Prover nodes ship a metrics sidecar built on OpenTelemetry. Operators can point it at additional collectors of their own. The team's aggregated Grafana dashboard is not open — the key is issued on request through their channels.",
     src: "https://docs.fermah.xyz/",
@@ -105,6 +130,14 @@ const KB = [
     k: "pi mascot shark logo brand mark",
     t: "The Fermah brand mark is the Greek letter pi, and the mascot is a shark carrying that mark.",
     src: "https://www.fermah.xyz/",
+  },
+];
+
+const DIRECT_ANSWERS = [
+  {
+    test: /\b((how|where|can|do).{0,40})?(run|start|install|operate|register|onboard).{0,80}(prover[- ]?node|node|operator)\b/i,
+    answer:
+      "To run a Fermah prover node, the docs route an operator through onboarding: prepare the server, install Docker/CUDA and the fpn/prover-node binary, load the assigned configuration, create the machine secret from an ECDSA key, submit the machine-secret public keys for whitelist approval, register through the Fermah AVS with a Sepolia RPC, then start the node with fpn once telemetry and ~/.fermah/config/prover-node-config.toml are in place. If the operator is also registered in EigenLayer, the docs say to use the same operator identity key and the EigenLayer registration flag. Atlas does not mirror the full command guide because those commands can change, so use the official docs for the exact steps.\nSource: https://docs.fermah.xyz/testnet/for-prover-nodes",
   },
 ];
 
@@ -180,6 +213,11 @@ function pickContext(q) {
     return {e, score};
   }).sort((a, b) => b.score - a.score);
   const top = scored.filter((s) => s.score > 0).slice(0, 4).map((s) => s.e);
+  if (/\b(prover[- ]?node|operator|onboard|registration|machine secret|telemetry|fpn)\b/i.test(q)) {
+    for (const entry of KB.filter((e) => /\b(prover|node|operator|registration|telemetry|fpn|machine secret)\b/i.test(e.k))) {
+      if (!top.includes(entry)) top.push(entry);
+    }
+  }
   const verified = (top.length ? top : KB.slice(0, 3))
     .map((e) => `- ${e.t}\n  source: ${e.src}`);
   return [
@@ -216,6 +254,12 @@ export default async function handler(req, res) {
   }
   if (BLOCKED.test(question) || INJECTION.test(question)) {
     res.status(200).json({answer: REFUSAL, on_topic: false});
+    return;
+  }
+
+  const direct = DIRECT_ANSWERS.find((entry) => entry.test.test(question));
+  if (direct) {
+    res.status(200).json({answer: direct.answer, on_topic: true});
     return;
   }
 
