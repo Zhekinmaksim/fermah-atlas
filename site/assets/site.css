@@ -266,6 +266,34 @@ a.entity:hover .num{color:var(--teal)}
 .empty{border:1px dashed var(--rule);padding:36px;text-align:center;color:var(--dim);
   font-family:var(--mono);font-size:13px;line-height:1.9}
 
+/* Flashcast Ignition chronicle */
+.ig-list{border-top:1px solid var(--rule)}
+.ig-week{display:grid;grid-template-columns:96px minmax(0,1fr);gap:clamp(16px,3vw,40px);
+  padding:clamp(22px,2.6vw,34px) 0;border-bottom:1px solid var(--rule)}
+.ig-week.thin{opacity:.62}
+.ig-no{font-family:var(--mono);font-size:clamp(20px,2.2vw,30px);color:var(--ghost);
+  font-weight:500;letter-spacing:var(--track-display)}
+.ig-dates{font-family:var(--mono);font-size:var(--lbl-2);letter-spacing:var(--trk-2);
+  color:var(--faint);margin:0 0 10px;text-transform:uppercase}
+.ig-body h3{margin:0;font-size:clamp(19px,2vw,26px);font-weight:700;
+  letter-spacing:var(--track-display);line-height:1.25;max-width:62ch}
+.ig-quests{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:7px;max-width:74ch}
+.ig-quests li{position:relative;padding-left:18px;font-family:var(--mono);font-size:13px;
+  line-height:1.6;color:var(--gray)}
+.ig-quests li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;
+  background:var(--ghost)}
+.ig-quests a{color:var(--teal)}
+.ig-markets{display:grid;gap:10px;margin-top:18px;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.ig-market{position:relative;display:block;border:1px solid var(--rule);background:var(--navy-2);
+  padding:16px 18px;border-radius:2px;font-family:var(--mono);font-size:13px;line-height:1.55;
+  color:var(--gray);box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 1px 0 rgba(0,0,0,.35);
+  transition:border-color .16s,background .16s,color .16s}
+.ig-market:hover{border-color:rgba(6,193,157,.45);background:var(--navy-3);color:var(--white)}
+.ig-market .go{position:absolute;top:14px;right:16px;color:var(--faint);font-size:13px}
+.ig-market:hover .go{color:var(--teal)}
+.ig-market .q{display:block;padding-right:22px}
+
 /* structured community board */
 .community-board-head{display:flex;align-items:end;justify-content:space-between;gap:28px}
 .community-board-head p.sec{margin-bottom:0}
@@ -613,6 +641,9 @@ ol.record a{margin-left:auto;color:var(--teal);font-size:11px;letter-spacing:.1e
   h1{max-width:100%}
   .stats{gap:18px}
   .stats b{font-size:26px}
+
+  .ig-week{grid-template-columns:1fr;gap:8px}
+  .ig-no{font-size:16px}
 }
 
 @media (max-width:400px){

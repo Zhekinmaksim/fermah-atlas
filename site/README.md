@@ -8,6 +8,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 |---|---|
 | `index.html` | hero, four doors, what Fermah is, ecosystem graph, latest spotlight, sources |
 | `powered.html` | Powered by Fermah — production and announced integrations |
+| `flashcast-season-01.html` | Flashcast Ignition — week-by-week Season 01 chronicle |
 | `built-with.html` | Built with Fermah — projects on Fermah's architecture, plus the submit form |
 | `fermafia.html` | Fermafia — 136 creators, searchable, card + post + download |
 | `operators.html` | Operators — the supply side and the on-chain node registry |
@@ -22,6 +23,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 - `assets/hero.js` — the pixel backdrop.
 - `assets/site.css` — brand tokens (`#001030`, `#06C19D`) and all styles.
 - `data/seed.js` — the Spotlight record, loaded as a script so the site works from disk too.
+- `data/ignition.js` — Flashcast Ignition Season 01 weeks, quests and featured markets.
 - `cards/`, `brand/` — creator cards and logo assets.
 - `api/scores.js` — shared leaderboard (optional, see below).
 - `api/board.js` — shared Fermafia Board entries (requires the same Redis store).
@@ -34,6 +36,9 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
    Submissions open a pre-filled GitHub issue there — create the repo (or change the
    constant) and watch it. Nothing publishes automatically: you read the issue and, if it
    holds up, add an entry to `ECOSYSTEM.builtWith` with a source and a check date.
+3. **Flashcast winners.** `flashcast-season-01.html` keeps the weeks and markets, but leaves
+   winners out while recaps use Discord names. Add winners to Fermafia only when an official
+   recap gives an X handle.
 
 ## Weekly update
 
@@ -66,8 +71,9 @@ How it is fenced in, in order:
 3. The system prompt allows one topic only, forbids answering from the model's own knowledge,
    and treats the user's text as data rather than instructions.
 4. The model receives relevant fragments from the complete text index: all Atlas HTML pages,
-   creator profiles, Spotlight data, game copy and project documentation. A small verified KB
-   remains for official facts and is sent alongside the search results.
+   creator profiles, Spotlight data, Flashcast Ignition data, game copy and project
+   documentation. A small verified KB remains for official facts and is sent alongside the
+   search results.
 5. The reply must come back as `{"on_topic": …, "answer": …}`. Anything with `on_topic: false`
    is replaced by the fixed refusal line before it reaches the browser.
 

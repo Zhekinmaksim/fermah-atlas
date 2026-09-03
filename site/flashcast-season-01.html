@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flashcast Season 01: Ignition — Fermah Atlas</title>
+<meta name="description" content="Week by week chronicle of Flashcast's first season: what each week asked for, and which markets the community bet on.">
+<meta property="og:title" content="Flashcast Season 01: Ignition — Fermah Atlas">
+<meta property="og:description" content="Twelve weeks of Ignition, and the markets behind them.">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/flashcast-season-01">
+<meta property="og:url" content="https://fermahatlas.xyz/flashcast-season-01">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<section class="wrap reveal" style="padding-block:clamp(76px,9vh,124px) clamp(36px,4.5vh,56px)">
+  <p class="eyebrow">Flashcast · Season 01</p>
+  <h1 style="font-size:clamp(30px,4.6vw,54px);margin:16px 0 18px">Ignition, week by week.</h1>
+  <p class="lede">Flashcast turns a post into a live prediction market: tag the bot on X and the
+    market exists seconds later. Season 01 ran that idea as a game — twelve weeks, each with its
+    own quest and its own featured markets. The season is a record of what the community argued
+    about, so this page keeps it.</p>
+  <div class="stats">
+    <span><b class="teal" id="ig-weeks">12</b>WEEKS</span>
+    <span><b id="ig-markets">—</b>FEATURED MARKETS</span>
+    <span><b id="ig-span">—</b>RUNNING SINCE</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <div class="sec-head">
+    <div>
+      <p class="eyebrow">The chronicle</p>
+      <h2 class="sec" style="margin-bottom:0">Twelve weeks.</h2>
+    </div>
+    <p class="week" id="ig-source">SOURCE: FLASHCASTERS ANNOUNCEMENTS</p>
+  </div>
+  <div id="ig-list" class="ig-list"></div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <p class="eyebrow">On the winners</p>
+  <h2 class="sec">Names are missing on purpose.</h2>
+  <p class="sec">Every week Flashcasters names its top market creators, and they earn the Magnet
+    role. Those winners are announced by Discord name — and this archive stores X handles only,
+    with no Discord identifiers anywhere in it. Guessing which X account sits behind a Discord
+    name would mean linking two identities their owner never linked, so the chronicle keeps the
+    weeks and leaves the people out.</p>
+  <p class="sec">If the announcements ever carry an X handle, the way the Community Spotlight
+    already does, the winners land in
+    <a href="fermafia.html" style="color:var(--teal)">Fermafia</a> automatically — same list,
+    same cards, second kind of recognition on the same page.</p>
+</section>
+
+<script src="data/seed.js"></script>
+<script src="data/ignition.js"></script>
+<script src="assets/atlas.js"></script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+<script>
+const safe = (l, fn) => { try { fn(); } catch (e) { console.error(l, e); } };
+safe("chrome", () => mountChrome("powered.html"));
+safe("reveal", () => mountReveal());
+safe("fresh",  () => mountFreshness(window.SEED));
+
+safe("ignition", () => {
+  const d = window.IGNITION;
+  const host = document.getElementById("ig-list");
+  const weeks = d.weeks;
+  const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  }[ch]));
+  const renderInline = (value) => escapeHTML(value).replace(
+    /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    (_match, label, url) => `<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`
+  );
+  const markets = weeks.reduce((n, w) => n + w.markets.length, 0);
+  const first = weeks.map(w => w.opened || w.closed).filter(Boolean).sort()[0] || "";
+  document.getElementById("ig-weeks").textContent = weeks.length;
+  document.getElementById("ig-markets").textContent = markets;
+  document.getElementById("ig-span").textContent = first ? first.slice(0, 7) : "—";
+  document.getElementById("ig-source").textContent = "CHECKED " + d.checked;
+
+  host.innerHTML = weeks.map(w => {
+    const dates = [w.opened, w.closed].filter(Boolean).join(" → ") || "no recap published";
+    const quests = w.quests.length
+      ? `<ul class="ig-quests">${w.quests.map(q => `<li>${renderInline(q)}</li>`).join("")}</ul>` : "";
+    const mk = w.markets.length
+      ? `<div class="ig-markets">${w.markets.map(m =>
+          `<a class="ig-market mark-corners" href="${escapeHTML(m.url)}" target="_blank" rel="noopener">
+             <span class="go">↗</span><span class="q">${escapeHTML(m.q)}</span></a>`).join("")}</div>`
+      : "";
+    return `<article class="ig-week${w.markets.length ? "" : " thin"}">
+      <div class="ig-no">W${String(w.week).padStart(2, "0")}</div>
+      <div class="ig-body">
+        <p class="ig-dates">${escapeHTML(dates)}</p>
+        <h3>${escapeHTML(w.focus)}</h3>
+        ${quests}${mk}
+      </div></article>`;
+  }).join("");
+});
+</script>
+</body>
+</html>

@@ -10,6 +10,7 @@ const files = [
   ...fs.readdirSync(path.join(root, "c")).filter((name) => name.endsWith(".html")).map((name) => path.join(root, "c", name)),
   path.join(root, "README.md"),
   path.join(root, "data", "seed.json"),
+  path.join(root, "data", "ignition.js"),
   path.join(project, "README.md"),
   path.join(project, "CHECKLIST.md"),
   path.join(project, "BIO.txt"),
@@ -63,6 +64,7 @@ function sourceUrl(file) {
   const relative = path.relative(root, file).replaceAll(path.sep, "/");
   if (relative === "index.html") return "https://fermahatlas.xyz/";
   if (relative.endsWith(".html")) return `https://fermahatlas.xyz/${relative.replace(/\.html$/, "")}`;
+  if (relative === "data/ignition.js") return "https://fermahatlas.xyz/flashcast-season-01";
   if (relative.startsWith("data/")) return "https://fermahatlas.xyz/fermafia";
   if (relative.startsWith("assets/")) return "https://fermahatlas.xyz/play";
   if (file.startsWith(project)) return `https://github.com/Zhekinmaksim/fermah-atlas/blob/main/${path.relative(project, file).replaceAll(path.sep, "/")}`;

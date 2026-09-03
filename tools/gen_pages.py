@@ -163,7 +163,7 @@ def build(seed_path, site_dir):
         written.append(slug)
 
     # sitemap + robots
-    pages = ["", "powered", "built-with", "fermafia", "operators", "play"]
+    pages = ["", "powered", "built-with", "fermafia", "operators", "play", "flashcast-season-01"]
     urls = [f"{DOMAIN}/{p}" for p in pages] + [f"{DOMAIN}/c/{s}" for s in written]
     body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
     open(os.path.join(site_dir, "sitemap.xml"), "w").write(

@@ -77,9 +77,12 @@ const g = document.getElementById("powered-grid");
 ECOSYSTEM.powered.forEach((e, i) => {
   const d = document.createElement("a");
   d.className = "entity mark-corners";
-  d.href = e.source;
-  d.target = "_blank";
-  d.rel = "noopener";
+  const href = e.href || e.source;
+  d.href = href;
+  if (/^https?:\/\//.test(href)) {
+    d.target = "_blank";
+    d.rel = "noopener";
+  }
   d.innerHTML =
     `<span class="go">↗</span>` +
     `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
