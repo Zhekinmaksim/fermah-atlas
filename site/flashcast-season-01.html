@@ -97,6 +97,7 @@ safe("ignition", () => {
   document.getElementById("ig-source").textContent = "CHECKED " + d.checked;
 
   host.innerHTML = weeks.map(w => {
+    const hasRecap = Boolean(w.opened || w.closed || w.quests.length || w.markets.length);
     const dates = [w.opened, w.closed].filter(Boolean).join(" → ") || "no recap published";
     const quests = w.quests.length
       ? `<ul class="ig-quests">${w.quests.map(q => `<li>${renderInline(q)}</li>`).join("")}</ul>` : "";
@@ -105,7 +106,7 @@ safe("ignition", () => {
           `<a class="ig-market mark-corners" href="${escapeHTML(m.url)}" target="_blank" rel="noopener">
              <span class="go">↗</span><span class="q">${escapeHTML(m.q)}</span></a>`).join("")}</div>`
       : "";
-    return `<article class="ig-week${w.markets.length ? "" : " thin"}">
+    return `<article class="ig-week${hasRecap ? "" : " thin"}">
       <div class="ig-no">W${String(w.week).padStart(2, "0")}</div>
       <div class="ig-body">
         <p class="ig-dates">${escapeHTML(dates)}</p>
