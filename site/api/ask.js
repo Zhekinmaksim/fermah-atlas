@@ -93,7 +93,7 @@ const KB = [
   },
   {
     k: "spotlight community creators weekly recognition honourable mention fermafia",
-    t: "The Community Spotlight is Fermah's weekly recognition of community creators: selected creators plus honourable mentions, published in the Discord. Fermah Atlas archives that record — 16 weeks, 130 creators, 79 selections and 169 mentions as of week 16 — using X handles only.",
+    t: "The Community Spotlight is Fermah's weekly recognition of community creators: selected creators plus honourable mentions, published in the Discord. Fermah Atlas archives that record — 17 weeks, 136 creators, 84 selections and 187 mentions as of week 17 — using X handles only.",
     src: "https://fermahatlas.xyz/fermafia",
   },
   {
