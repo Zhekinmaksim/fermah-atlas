@@ -10,7 +10,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 | `powered.html` | Powered by Fermah — production and announced integrations |
 | `flashcast-season-01.html` | Flashcast Ignition — week-by-week Season 01 chronicle |
 | `built-with.html` | Built with Fermah — projects on Fermah's architecture, plus the submit form |
-| `fermafia.html` | Fermafia — 136 creators, searchable, card + post + download |
+| `fermafia.html` | Fermafia — 148 creators, searchable, card + post + download |
 | `operators.html` | Operators — the supply side and the on-chain node registry |
 | `play.html` | Play with Fermah — question of the day, memory, 2048 |
 | `c/<handle>.html` | one page per creator, own title and own og:image |
@@ -43,7 +43,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 ## Weekly update
 
 ```
-python add_week.py --text w17.txt          # updates the seed and all cards
+python add_week.py --text w18.txt          # updates the seed and all cards
 cp seed.json site/data/seed.json
 python gen_pages.py --seed site/data/seed.json --site site   # creator pages + sitemap
 python -c "import json;d=json.load(open('site/data/seed.json'));open('site/data/seed.js','w').write('window.SEED = '+json.dumps(d,ensure_ascii=False,separators=(',',':'))+';')"
