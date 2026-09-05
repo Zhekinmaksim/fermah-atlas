@@ -73,6 +73,22 @@ nav a:hover,nav a[aria-current]{color:var(--teal)}
 .hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   background:radial-gradient(58% 52% at 76% 20%,rgba(6,193,157,.14),transparent 70%)}
 .hero-inner{position:relative;z-index:3;width:100%}
+.hero-eq{position:absolute;left:50%;bottom:clamp(18px,4.2vh,46px);z-index:3;
+  transform:translateX(-50%);display:flex;align-items:center;justify-content:center;
+  gap:clamp(3px,.45vw,6px);height:clamp(44px,9vh,92px);width:min(520px,54vw);
+  opacity:.48;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.hero-eq span{position:relative;display:block;width:clamp(3px,.5vw,6px);height:var(--h);
+  min-height:7px;background:var(--teal);animation:hero-eq 1.22s ease-in-out infinite;
+  animation-delay:var(--d);transform-origin:center;box-shadow:0 0 16px rgba(6,193,157,.22)}
+.hero-eq span::after{content:"";position:absolute;left:0;right:0;top:calc(100% + 3px);
+  height:100%;background:var(--teal);opacity:.34}
+@keyframes hero-eq{
+  0%,100%{transform:scaleY(.58);opacity:.46}
+  38%{transform:scaleY(1.18);opacity:.9}
+  68%{transform:scaleY(.78);opacity:.62}
+}
 h1{font-size:var(--t-hero);line-height:1.02;font-weight:700;
   letter-spacing:var(--track-display);margin:0 0 clamp(14px,1.6vh,24px);max-width:15ch}
 h1 .teal{color:var(--teal)}
@@ -697,6 +713,7 @@ ol.record a{margin-left:auto;color:var(--teal);font-size:11px;letter-spacing:.1e
   .music-btn .lbl{display:none}
 }
 @media (prefers-reduced-motion:reduce){.music-btn.on .bars i{animation:none;height:9px}}
+@media (prefers-reduced-motion:reduce){.hero-eq span{animation:none;transform:none;opacity:.58}}
 
 
 /* score rail: numbers belong next to the thing they count */
@@ -771,8 +788,11 @@ a.entity:hover{border-color:var(--rule)}          /* the corners carry the hover
   :root{--pad:18px}
 
   /* hero: the panel goes under the headline, nothing is cropped */
-  .hero{min-height:auto;padding-block:clamp(40px,7vh,72px) clamp(32px,5vh,56px)}
+  .hero{min-height:auto;padding-block:clamp(40px,7vh,72px) clamp(86px,15vh,118px)}
   .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-eq{bottom:28px;width:min(330px,74vw);height:44px;gap:3px;opacity:.34}
+  .hero-eq span{width:3px;min-height:5px}
+  .hero-eq span:nth-child(n+31){display:none}
   h1{font-size:clamp(28px,8.4vw,40px);line-height:1.06;max-width:100%}
   .lede{font-size:15px;line-height:1.6}
   .hero .kicker{font-size:10px}
