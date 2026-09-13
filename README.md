@@ -10,7 +10,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 | `powered.html` | Powered by Fermah — production and announced integrations |
 | `flashcast-season-01.html` | Flashcast Ignition — week-by-week Season 01 chronicle |
 | `built-with.html` | Built with Fermah — projects on Fermah's architecture, plus the submit form |
-| `fermafia.html` | Fermafia — 148 creators, searchable, card + post + download |
+| `fermafia.html` | Fermafia — 157 creators, searchable, card + post + download |
 | `operators.html` | Operators — the supply side and the on-chain node registry |
 | `play.html` | Play with Fermah — question of the day, memory, 2048 |
 | `c/<handle>.html` | one page per creator, own title and own og:image |
