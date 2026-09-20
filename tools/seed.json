@@ -2,7 +2,7 @@
  "generated_for": "Fermah Atlas",
  "privacy_note": "X handles only. Discord user IDs present in the source announcements are not parsed and never stored. Suspended accounts stay in the record but carry no links.",
  "source_summary": {
-  "announcements": 19,
+  "announcements": 20,
   "weeks": [
    1,
    2,
@@ -22,7 +22,8 @@
    16,
    17,
    18,
-   19
+   19,
+   20
   ],
   "week_dates": {
    "1": "2026-05-04",
@@ -43,11 +44,12 @@
    "16": "2026-08-21",
    "17": "2026-08-28",
    "18": "2026-09-05",
-   "19": "2026-09-13"
+   "19": "2026-09-13",
+   "20": "2026-09-20"
   },
-  "spotlight_selections": 94,
-  "honourable_mentions": 226,
-  "unique_creators": 157
+  "spotlight_selections": 99,
+  "honourable_mentions": 246,
+  "unique_creators": 164
  },
  "creators": [
   {
@@ -153,6 +155,80 @@
    ]
   },
   {
+   "display_handle": "Nyuella",
+   "spotlight_count": 4,
+   "honourable_mention_count": 0,
+   "contributions": [
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2091272219649245678",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2092518090583990741",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2096206135799738755",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2097994460206411814",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 17,
+   "last_week": 20
+  },
+  {
+   "display_handle": "shantelledore",
+   "spotlight_count": 4,
+   "honourable_mention_count": 0,
+   "first_week": 15,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2085693426540949595",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-14",
+     "week_label": 15
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2088581403130646985",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-21",
+     "week_label": 16
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2090816362499203551",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2096943266537046333",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ]
+  },
+  {
    "display_handle": "oxkimia",
    "spotlight_count": 3,
    "honourable_mention_count": 2,
@@ -234,6 +310,80 @@
    ]
   },
   {
+   "display_handle": "legendary54321",
+   "spotlight_count": 3,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "legendary54321",
+     "x_url": "https://x.com/legendary54321/status/2090662137458995536",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "legendary54321",
+     "x_url": "https://x.com/legendary54321/status/2092110073325887609",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "legendary54321",
+     "x_url": "https://x.com/legendary54321/status/2096468991669862468",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "legendary54321",
+     "x_url": "https://x.com/legendary54321/status/2097913881129894154",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 17,
+   "last_week": 20
+  },
+  {
+   "display_handle": "Sarcastic_AU",
+   "spotlight_count": 3,
+   "honourable_mention_count": 1,
+   "first_week": 13,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "Sarcastic_AU",
+     "x_url": "https://x.com/Sarcastic_AU/status/2079802660635762822",
+     "tier": "spotlight",
+     "announcement_date": "2026-07-31",
+     "week_label": 13
+    },
+    {
+     "x_handle": "Sarcastic_AU",
+     "x_url": "https://x.com/Sarcastic_AU/status/2081026114630373584",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-07",
+     "week_label": 14
+    },
+    {
+     "x_handle": "Sarcastic_AU",
+     "x_url": "https://x.com/Sarcastic_AU/status/2084586829005680841",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-14",
+     "week_label": 15
+    },
+    {
+     "x_handle": "Sarcastic_AU",
+     "x_url": "https://x.com/Sarcastic_AU/status/2097202889781289191",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ]
+  },
+  {
    "display_handle": "DEE_0125",
    "spotlight_count": 3,
    "honourable_mention_count": 0,
@@ -290,96 +440,6 @@
      "tier": "spotlight",
      "announcement_date": "2026-07-02",
      "week_label": 9
-    }
-   ]
-  },
-  {
-   "display_handle": "Nyuella",
-   "spotlight_count": 3,
-   "honourable_mention_count": 0,
-   "contributions": [
-    {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2091272219649245678",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2092518090583990741",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    },
-    {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2096206135799738755",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ],
-   "first_week": 17,
-   "last_week": 19
-  },
-  {
-   "display_handle": "Sarcastic_AU",
-   "spotlight_count": 3,
-   "honourable_mention_count": 0,
-   "first_week": 13,
-   "last_week": 15,
-   "contributions": [
-    {
-     "x_handle": "Sarcastic_AU",
-     "x_url": "https://x.com/Sarcastic_AU/status/2079802660635762822",
-     "tier": "spotlight",
-     "announcement_date": "2026-07-31",
-     "week_label": 13
-    },
-    {
-     "x_handle": "Sarcastic_AU",
-     "x_url": "https://x.com/Sarcastic_AU/status/2081026114630373584",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-07",
-     "week_label": 14
-    },
-    {
-     "x_handle": "Sarcastic_AU",
-     "x_url": "https://x.com/Sarcastic_AU/status/2084586829005680841",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-14",
-     "week_label": 15
-    }
-   ]
-  },
-  {
-   "display_handle": "shantelledore",
-   "spotlight_count": 3,
-   "honourable_mention_count": 0,
-   "first_week": 15,
-   "last_week": 17,
-   "contributions": [
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2085693426540949595",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-14",
-     "week_label": 15
-    },
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2088581403130646985",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-21",
-     "week_label": 16
-    },
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2090816362499203551",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
     }
    ]
   },
@@ -622,36 +682,6 @@
    ]
   },
   {
-   "display_handle": "legendary54321",
-   "spotlight_count": 2,
-   "honourable_mention_count": 1,
-   "contributions": [
-    {
-     "x_handle": "legendary54321",
-     "x_url": "https://x.com/legendary54321/status/2090662137458995536",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "legendary54321",
-     "x_url": "https://x.com/legendary54321/status/2092110073325887609",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    },
-    {
-     "x_handle": "legendary54321",
-     "x_url": "https://x.com/legendary54321/status/2096468991669862468",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ],
-   "first_week": 17,
-   "last_week": 19
-  },
-  {
    "display_handle": "sazexbt",
    "spotlight_count": 2,
    "honourable_mention_count": 1,
@@ -874,6 +904,43 @@
    ]
   },
   {
+   "display_handle": "ItsVj786",
+   "spotlight_count": 1,
+   "honourable_mention_count": 3,
+   "first_week": 10,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "ItsVj786",
+     "x_url": "https://x.com/ItsVj786/status/2071625398555934997",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-07-07",
+     "week_label": 10
+    },
+    {
+     "x_handle": "ItsVj786",
+     "x_url": "https://x.com/ItsVj786/status/2080683114754629787",
+     "tier": "spotlight",
+     "announcement_date": "2026-07-31",
+     "week_label": 13
+    },
+    {
+     "x_handle": "ItsVj786",
+     "x_url": "https://x.com/ItsVj786/status/2090493074950771026",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "ItsVj786",
+     "x_url": "https://x.com/ItsVj786/status/2097719431988490688",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ]
+  },
+  {
    "display_handle": "likith6150470",
    "spotlight_count": 1,
    "honourable_mention_count": 3,
@@ -907,6 +974,36 @@
      "tier": "spotlight",
      "announcement_date": "2026-07-07",
      "week_label": 10
+    }
+   ]
+  },
+  {
+   "display_handle": "__LuckyGold",
+   "spotlight_count": 1,
+   "honourable_mention_count": 2,
+   "first_week": 15,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "__LuckyGold",
+     "x_url": "https://x.com/__LuckyGold/status/2085010887429992745",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-14",
+     "week_label": 15
+    },
+    {
+     "x_handle": "__LuckyGold",
+     "x_url": "https://x.com/__LuckyGold/status/2091871677541949716",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "__LuckyGold",
+     "x_url": "https://x.com/__LuckyGold/status/2098446811782398402",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
     }
    ]
   },
@@ -971,6 +1068,36 @@
    ]
   },
   {
+   "display_handle": "illfated_fr",
+   "spotlight_count": 1,
+   "honourable_mention_count": 2,
+   "contributions": [
+    {
+     "x_handle": "illfated_fr",
+     "x_url": "https://x.com/illfated_fr/status/2093193836096839714",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "illfated_fr",
+     "x_url": "https://x.com/illfated_fr/status/2095039188945236477",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "illfated_fr",
+     "x_url": "https://x.com/illfated_fr/status/2097183080410927165",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 18,
+   "last_week": 20
+  },
+  {
    "display_handle": "itsmahi778",
    "spotlight_count": 1,
    "honourable_mention_count": 2,
@@ -1001,36 +1128,6 @@
    ]
   },
   {
-   "display_handle": "ItsVj786",
-   "spotlight_count": 1,
-   "honourable_mention_count": 2,
-   "first_week": 10,
-   "last_week": 17,
-   "contributions": [
-    {
-     "x_handle": "ItsVj786",
-     "x_url": "https://x.com/ItsVj786/status/2071625398555934997",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-07-07",
-     "week_label": 10
-    },
-    {
-     "x_handle": "ItsVj786",
-     "x_url": "https://x.com/ItsVj786/status/2080683114754629787",
-     "tier": "spotlight",
-     "announcement_date": "2026-07-31",
-     "week_label": 13
-    },
-    {
-     "x_handle": "ItsVj786",
-     "x_url": "https://x.com/ItsVj786/status/2090493074950771026",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    }
-   ]
-  },
-  {
    "display_handle": "98_akr",
    "spotlight_count": 1,
    "honourable_mention_count": 1,
@@ -1053,29 +1150,6 @@
     }
    ],
    "suspended": true
-  },
-  {
-   "display_handle": "__LuckyGold",
-   "spotlight_count": 1,
-   "honourable_mention_count": 1,
-   "first_week": 15,
-   "last_week": 18,
-   "contributions": [
-    {
-     "x_handle": "__LuckyGold",
-     "x_url": "https://x.com/__LuckyGold/status/2085010887429992745",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-14",
-     "week_label": 15
-    },
-    {
-     "x_handle": "__LuckyGold",
-     "x_url": "https://x.com/__LuckyGold/status/2091871677541949716",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    }
-   ]
   },
   {
    "display_handle": "Chidimm06",
@@ -1147,27 +1221,27 @@
    "last_week": 19
   },
   {
-   "display_handle": "illfated_fr",
+   "display_handle": "Iamolaniyi_",
    "spotlight_count": 1,
    "honourable_mention_count": 1,
+   "first_week": 5,
+   "last_week": 20,
    "contributions": [
     {
-     "x_handle": "illfated_fr",
-     "x_url": "https://x.com/illfated_fr/status/2093193836096839714",
+     "x_handle": "Iamolaniyi_",
+     "x_url": "https://x.com/Iamolaniyi_/status/2057766592906170645",
      "tier": "honourable_mention",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
+     "announcement_date": "2026-06-04",
+     "week_label": 5
     },
     {
-     "x_handle": "illfated_fr",
-     "x_url": "https://x.com/illfated_fr/status/2095039188945236477",
+     "x_handle": "Iamolaniyi_",
+     "x_url": "https://x.com/Iamolaniyi_/status/2097592222526890136",
      "tier": "spotlight",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
+     "announcement_date": "2026-09-20",
+     "week_label": 20
     }
-   ],
-   "first_week": 18,
-   "last_week": 19
+   ]
   },
   {
    "display_handle": "mamatomtn20aprl",
@@ -1237,6 +1311,29 @@
      "week_label": 12
     }
    ]
+  },
+  {
+   "display_handle": "oldazukii",
+   "spotlight_count": 1,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "oldazukii",
+     "x_url": "https://x.com/oldazukii/status/2094454005887795220",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "oldazukii",
+     "x_url": "https://x.com/oldazukii/status/2098122264101245124",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 19,
+   "last_week": 20
   },
   {
    "display_handle": "OneKiwi83488",
@@ -1684,6 +1781,57 @@
    "last_week": 18
   },
   {
+   "display_handle": "cryptomasterAJ",
+   "spotlight_count": 0,
+   "honourable_mention_count": 6,
+   "first_week": 15,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "cryptomasterAJ",
+     "x_url": "https://x.com/cryptomasterAJ/status/2085151700432871593",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-14",
+     "week_label": 15
+    },
+    {
+     "x_handle": "cryptomasterAJ",
+     "x_url": "https://x.com/cryptomasterAJ/status/2087336686950944827",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-21",
+     "week_label": 16
+    },
+    {
+     "x_handle": "cryptomasterAJ",
+     "x_url": "https://x.com/cryptomasterAJ/status/2090934723547938979",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "cryptomasterAJ",
+     "x_url": "https://x.com/cryptomasterAJ/status/2094141324304027775",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "cryptomasterAJ",
+     "x_url": "https://x.com/cryptomasterAJ/status/2096624059773796392",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "cryptomasterAJ",
+     "x_url": "https://x.com/cryptomasterAJ/status/2097058726033461453",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ]
+  },
+  {
    "display_handle": "Avinash_3107",
    "spotlight_count": 0,
    "honourable_mention_count": 5,
@@ -1728,50 +1876,6 @@
    ]
   },
   {
-   "display_handle": "cryptomasterAJ",
-   "spotlight_count": 0,
-   "honourable_mention_count": 5,
-   "first_week": 15,
-   "last_week": 19,
-   "contributions": [
-    {
-     "x_handle": "cryptomasterAJ",
-     "x_url": "https://x.com/cryptomasterAJ/status/2085151700432871593",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-14",
-     "week_label": 15
-    },
-    {
-     "x_handle": "cryptomasterAJ",
-     "x_url": "https://x.com/cryptomasterAJ/status/2087336686950944827",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-21",
-     "week_label": 16
-    },
-    {
-     "x_handle": "cryptomasterAJ",
-     "x_url": "https://x.com/cryptomasterAJ/status/2090934723547938979",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "cryptomasterAJ",
-     "x_url": "https://x.com/cryptomasterAJ/status/2094141324304027775",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    },
-    {
-     "x_handle": "cryptomasterAJ",
-     "x_url": "https://x.com/cryptomasterAJ/status/2096624059773796392",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ]
-  },
-  {
    "display_handle": "143Emile",
    "spotlight_count": 0,
    "honourable_mention_count": 4,
@@ -1805,6 +1909,80 @@
      "tier": "honourable_mention",
      "announcement_date": "2026-08-28",
      "week_label": 17
+    }
+   ]
+  },
+  {
+   "display_handle": "Adityapunk01",
+   "spotlight_count": 0,
+   "honourable_mention_count": 4,
+   "contributions": [
+    {
+     "x_handle": "Adityapunk01",
+     "x_url": "https://x.com/Adityapunk01/status/2091349929407238315",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "Adityapunk01",
+     "x_url": "https://x.com/Adityapunk01/status/2091987032117850283",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "Adityapunk01",
+     "x_url": "https://x.com/Adityapunk01/status/2094527251346026568",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "Adityapunk01",
+     "x_url": "https://x.com/Adityapunk01/status/2098155260967817698",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 17,
+   "last_week": 20
+  },
+  {
+   "display_handle": "B0laji_0",
+   "spotlight_count": 0,
+   "honourable_mention_count": 4,
+   "first_week": 14,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "bolajiusman000",
+     "x_url": "https://x.com/bolajiusman000/status/2083264334310875447",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-07",
+     "week_label": 14
+    },
+    {
+     "x_handle": "bolajiusman000",
+     "x_url": "https://x.com/bolajiusman000/status/2087140135766835274",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-21",
+     "week_label": 16
+    },
+    {
+     "x_handle": "bolajiusman000",
+     "x_url": "https://x.com/bolajiusman000/status/2092227517792792991",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "B0laji_0",
+     "x_url": "https://x.com/B0laji_0/status/2098724060276347387",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
     }
    ]
   },
@@ -1957,6 +2135,43 @@
    ]
   },
   {
+   "display_handle": "Tochiii184",
+   "spotlight_count": 0,
+   "honourable_mention_count": 4,
+   "first_week": 14,
+   "last_week": 20,
+   "contributions": [
+    {
+     "x_handle": "Tochiii184",
+     "x_url": "https://x.com/Tochiii184/status/2081804237013398009",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-07",
+     "week_label": 14
+    },
+    {
+     "x_handle": "Tochiii184",
+     "x_url": "https://x.com/Tochiii184/status/2089738952781566056",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "Tochiii184",
+     "x_url": "https://x.com/Tochiii184/status/2095615206525194583",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "Tochiii184",
+     "x_url": "https://x.com/Tochiii184/status/2098584372785947116",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ]
+  },
+  {
    "display_handle": "Vecna071",
    "spotlight_count": 0,
    "honourable_mention_count": 4,
@@ -2020,66 +2235,6 @@
      "tier": "honourable_mention",
      "announcement_date": "2026-07-31",
      "week_label": 13
-    }
-   ]
-  },
-  {
-   "display_handle": "Adityapunk01",
-   "spotlight_count": 0,
-   "honourable_mention_count": 3,
-   "contributions": [
-    {
-     "x_handle": "Adityapunk01",
-     "x_url": "https://x.com/Adityapunk01/status/2091349929407238315",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "Adityapunk01",
-     "x_url": "https://x.com/Adityapunk01/status/2091987032117850283",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    },
-    {
-     "x_handle": "Adityapunk01",
-     "x_url": "https://x.com/Adityapunk01/status/2094527251346026568",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ],
-   "first_week": 17,
-   "last_week": 19
-  },
-  {
-   "display_handle": "bolajiusman000",
-   "spotlight_count": 0,
-   "honourable_mention_count": 3,
-   "first_week": 14,
-   "last_week": 18,
-   "contributions": [
-    {
-     "x_handle": "bolajiusman000",
-     "x_url": "https://x.com/bolajiusman000/status/2083264334310875447",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-07",
-     "week_label": 14
-    },
-    {
-     "x_handle": "bolajiusman000",
-     "x_url": "https://x.com/bolajiusman000/status/2087140135766835274",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-21",
-     "week_label": 16
-    },
-    {
-     "x_handle": "bolajiusman000",
-     "x_url": "https://x.com/bolajiusman000/status/2092227517792792991",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
     }
    ]
   },
@@ -2384,36 +2539,6 @@
    ]
   },
   {
-   "display_handle": "Tochiii184",
-   "spotlight_count": 0,
-   "honourable_mention_count": 3,
-   "first_week": 14,
-   "last_week": 19,
-   "contributions": [
-    {
-     "x_handle": "Tochiii184",
-     "x_url": "https://x.com/Tochiii184/status/2081804237013398009",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-07",
-     "week_label": 14
-    },
-    {
-     "x_handle": "Tochiii184",
-     "x_url": "https://x.com/Tochiii184/status/2089738952781566056",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "Tochiii184",
-     "x_url": "https://x.com/Tochiii184/status/2095615206525194583",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ]
-  },
-  {
    "display_handle": "aayxx5h",
    "spotlight_count": 0,
    "honourable_mention_count": 2,
@@ -2435,6 +2560,29 @@
      "week_label": 13
     }
    ]
+  },
+  {
+   "display_handle": "AsadMalikFromPK",
+   "spotlight_count": 0,
+   "honourable_mention_count": 2,
+   "contributions": [
+    {
+     "x_handle": "AsadMalikFromPK",
+     "x_url": "https://x.com/AsadMalikFromPK/status/2094158102086193396",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "AsadMalikFromPK",
+     "x_url": "https://x.com/AsadMalikFromPK/status/2097299523634938320",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 19,
+   "last_week": 20
   },
   {
    "display_handle": "Azade7585542676",
@@ -2529,6 +2677,29 @@
    ]
   },
   {
+   "display_handle": "Faizan626371",
+   "spotlight_count": 0,
+   "honourable_mention_count": 2,
+   "contributions": [
+    {
+     "x_handle": "Faizan626371",
+     "x_url": "https://x.com/Faizan626371/status/2095806241117491506",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "Faizan626371",
+     "x_url": "https://x.com/Faizan626371/status/2099082457555640790",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 19,
+   "last_week": 20
+  },
+  {
    "display_handle": "HarisAl07133821",
    "spotlight_count": 0,
    "honourable_mention_count": 2,
@@ -2619,6 +2790,29 @@
      "week_label": 12
     }
    ]
+  },
+  {
+   "display_handle": "L1quidLoom",
+   "spotlight_count": 0,
+   "honourable_mention_count": 2,
+   "contributions": [
+    {
+     "x_handle": "L1quidLoom",
+     "x_url": "https://x.com/L1quidLoom/status/2095750019777495107",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "L1quidLoom",
+     "x_url": "https://x.com/L1quidLoom/status/2097059766208213389",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 19,
+   "last_week": 20
   },
   {
    "display_handle": "lindsey47893795",
@@ -2713,6 +2907,29 @@
    ]
   },
   {
+   "display_handle": "om_web3",
+   "spotlight_count": 0,
+   "honourable_mention_count": 2,
+   "contributions": [
+    {
+     "x_handle": "om_web3",
+     "x_url": "https://x.com/om_web3/status/2092148898907488402",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "om_web3",
+     "x_url": "https://x.com/om_web3/status/2097511443046502458",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 18,
+   "last_week": 20
+  },
+  {
    "display_handle": "Pawan2001564157",
    "spotlight_count": 0,
    "honourable_mention_count": 2,
@@ -2757,6 +2974,29 @@
      "week_label": 9
     }
    ]
+  },
+  {
+   "display_handle": "silvy_1111",
+   "spotlight_count": 0,
+   "honourable_mention_count": 2,
+   "contributions": [
+    {
+     "x_handle": "silvy_1111",
+     "x_url": "https://x.com/silvy_1111/status/2089720582527201294",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "silvy_1111",
+     "x_url": "https://x.com/silvy_1111/status/2097207339602579844",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 17,
+   "last_week": 20
   },
   {
    "display_handle": "VibinCryptoplus",
@@ -2890,6 +3130,22 @@
    ],
    "first_week": 18,
    "last_week": 18
+  },
+  {
+   "display_handle": "0xnagii",
+   "spotlight_count": 0,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "0xnagii",
+     "x_url": "https://x.com/0xnagii/status/2097935103414751637",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 20,
+   "last_week": 20
   },
   {
    "display_handle": "0xrnjbr",
@@ -3052,20 +3308,20 @@
    ]
   },
   {
-   "display_handle": "AsadMalikFromPK",
+   "display_handle": "Ashii_onchain",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
    "contributions": [
     {
-     "x_handle": "AsadMalikFromPK",
-     "x_url": "https://x.com/AsadMalikFromPK/status/2094158102086193396",
+     "x_handle": "Ashii_onchain",
+     "x_url": "https://x.com/Ashii_onchain/status/2098083150035599829",
      "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
+     "announcement_date": "2026-09-20",
+     "week_label": 20
     }
    ],
-   "first_week": 19,
-   "last_week": 19
+   "first_week": 20,
+   "last_week": 20
   },
   {
    "display_handle": "barrandland",
@@ -3213,22 +3469,6 @@
    ]
   },
   {
-   "display_handle": "Faizan626371",
-   "spotlight_count": 0,
-   "honourable_mention_count": 1,
-   "contributions": [
-    {
-     "x_handle": "Faizan626371",
-     "x_url": "https://x.com/Faizan626371/status/2095806241117491506",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ],
-   "first_week": 19,
-   "last_week": 19
-  },
-  {
    "display_handle": "godabeg_lee",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
@@ -3309,22 +3549,6 @@
    ]
   },
   {
-   "display_handle": "Iamolaniyi_",
-   "spotlight_count": 0,
-   "honourable_mention_count": 1,
-   "first_week": 5,
-   "last_week": 5,
-   "contributions": [
-    {
-     "x_handle": "Iamolaniyi_",
-     "x_url": "https://x.com/Iamolaniyi_/status/2057766592906170645",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-06-04",
-     "week_label": 5
-    }
-   ]
-  },
-  {
    "display_handle": "imanntz44",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
@@ -3339,6 +3563,22 @@
      "week_label": 12
     }
    ]
+  },
+  {
+   "display_handle": "joloforU",
+   "spotlight_count": 0,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "joloforU",
+     "x_url": "https://x.com/joloforU/status/2099209022440103966",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 20,
+   "last_week": 20
   },
   {
    "display_handle": "JugganAli236452",
@@ -3357,6 +3597,22 @@
    ]
   },
   {
+   "display_handle": "Kan_maomao",
+   "spotlight_count": 0,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "Kan_maomao",
+     "x_url": "https://x.com/Kan_maomao/status/2097284117893378431",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 20,
+   "last_week": 20
+  },
+  {
    "display_handle": "KatiTune25960",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
@@ -3373,22 +3629,6 @@
    ]
   },
   {
-   "display_handle": "L1quidLoom",
-   "spotlight_count": 0,
-   "honourable_mention_count": 1,
-   "contributions": [
-    {
-     "x_handle": "L1quidLoom",
-     "x_url": "https://x.com/L1quidLoom/status/2095750019777495107",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ],
-   "first_week": 19,
-   "last_week": 19
-  },
-  {
    "display_handle": "lone_faizal",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
@@ -3403,6 +3643,22 @@
      "week_label": 8
     }
    ]
+  },
+  {
+   "display_handle": "maniking5566",
+   "spotlight_count": 0,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "maniking5566",
+     "x_url": "https://x.com/maniking5566/status/2097696597345993118",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 20,
+   "last_week": 20
   },
   {
    "display_handle": "MerchantTotoro",
@@ -3517,38 +3773,6 @@
    ]
   },
   {
-   "display_handle": "oldazukii",
-   "spotlight_count": 0,
-   "honourable_mention_count": 1,
-   "contributions": [
-    {
-     "x_handle": "oldazukii",
-     "x_url": "https://x.com/oldazukii/status/2094454005887795220",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ],
-   "first_week": 19,
-   "last_week": 19
-  },
-  {
-   "display_handle": "om_web3",
-   "spotlight_count": 0,
-   "honourable_mention_count": 1,
-   "contributions": [
-    {
-     "x_handle": "om_web3",
-     "x_url": "https://x.com/om_web3/status/2092148898907488402",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    }
-   ],
-   "first_week": 18,
-   "last_week": 18
-  },
-  {
    "display_handle": "Rose320141",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
@@ -3595,22 +3819,6 @@
      "week_label": 16
     }
    ]
-  },
-  {
-   "display_handle": "silvy_1111",
-   "spotlight_count": 0,
-   "honourable_mention_count": 1,
-   "contributions": [
-    {
-     "x_handle": "silvy_1111",
-     "x_url": "https://x.com/silvy_1111/status/2089720582527201294",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    }
-   ],
-   "first_week": 17,
-   "last_week": 17
   },
   {
    "display_handle": "Sinthiya908",
@@ -3694,6 +3902,22 @@
    "suspended": true
   },
   {
+   "display_handle": "VaultVanec0sk",
+   "spotlight_count": 0,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "VaultVanec0sk",
+     "x_url": "https://x.com/VaultVanec0sk/status/2097629270646607952",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 20,
+   "last_week": 20
+  },
+  {
    "display_handle": "wedrick126807",
    "spotlight_count": 0,
    "honourable_mention_count": 1,
@@ -3708,6 +3932,22 @@
      "week_label": 15
     }
    ]
+  },
+  {
+   "display_handle": "yawem_web",
+   "spotlight_count": 0,
+   "honourable_mention_count": 1,
+   "contributions": [
+    {
+     "x_handle": "yawem_web",
+     "x_url": "https://x.com/yawem_web/status/2097410871391838712",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    }
+   ],
+   "first_week": 20,
+   "last_week": 20
   }
  ]
 }

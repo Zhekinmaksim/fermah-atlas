@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/c/bolajiusman000",
+      "destination": "/c/b0laji_0",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/cards/(.*)",
