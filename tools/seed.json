@@ -51,7 +51,7 @@
   },
   "spotlight_selections": 104,
   "honourable_mentions": 264,
-  "unique_creators": 174
+  "unique_creators": 173
  },
  "creators": [
   {
@@ -359,6 +359,43 @@
      "tier": "spotlight",
      "announcement_date": "2026-06-23",
      "week_label": 8
+    }
+   ]
+  },
+  {
+   "display_handle": "Prince_swago",
+   "spotlight_count": 3,
+   "honourable_mention_count": 1,
+   "first_week": 1,
+   "last_week": 21,
+   "contributions": [
+    {
+     "x_handle": "Prince_swago",
+     "x_url": "https://x.com/Prince_swago/status/2050879887632687347",
+     "tier": "spotlight",
+     "announcement_date": "2026-05-04",
+     "week_label": 1
+    },
+    {
+     "x_handle": "Prince_swago",
+     "x_url": "https://x.com/Prince_swago/status/2056667637526999096",
+     "tier": "spotlight",
+     "announcement_date": "2026-05-25",
+     "week_label": 4
+    },
+    {
+     "x_handle": "Prince_swago",
+     "x_url": "https://x.com/Prince_swago/status/2093310293359112401",
+     "tier": "honourable_mention",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "Prince_swago",
+     "x_url": "https://x.com/Prince_swago/status/2100590347818615115",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-28",
+     "week_label": 21
     }
    ]
   },
@@ -694,36 +731,6 @@
      "tier": "spotlight",
      "announcement_date": "2026-08-21",
      "week_label": 16
-    }
-   ]
-  },
-  {
-   "display_handle": "Prince_swago",
-   "spotlight_count": 2,
-   "honourable_mention_count": 1,
-   "first_week": 1,
-   "last_week": 21,
-   "contributions": [
-    {
-     "x_handle": "Prince_swago",
-     "x_url": "https://x.com/Prince_swago/status/2050879887632687347",
-     "tier": "spotlight",
-     "announcement_date": "2026-05-04",
-     "week_label": 1
-    },
-    {
-     "x_handle": "Prince_swago",
-     "x_url": "https://x.com/Prince_swago/status/2093310293359112401",
-     "tier": "honourable_mention",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    },
-    {
-     "x_handle": "Prince_swago",
-     "x_url": "https://x.com/Prince_swago/status/2100590347818615115",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-28",
-     "week_label": 21
     }
    ]
   },
@@ -1758,23 +1765,6 @@
      "week_label": 9
     }
    ]
-  },
-  {
-   "display_handle": "Percy_szn",
-   "spotlight_count": 1,
-   "honourable_mention_count": 0,
-   "first_week": 4,
-   "last_week": 4,
-   "contributions": [
-    {
-     "x_handle": "Percy_szn",
-     "x_url": "https://x.com/Percy_szn/status/2056667637526999096",
-     "tier": "spotlight",
-     "announcement_date": "2026-05-25",
-     "week_label": 4
-    }
-   ],
-   "suspended": true
   },
   {
    "display_handle": "Sadnoboy616",
