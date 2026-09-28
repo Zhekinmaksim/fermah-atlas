@@ -276,7 +276,6 @@ export default async function handler(req, res) {
   const body = {
     model: MODEL,
     max_tokens: 400,
-    temperature: 0,
     system: SYSTEM,
     messages: [
       {
