@@ -873,6 +873,10 @@ a.entity:hover{border-color:var(--rule)}          /* the corners carry the hover
 }
 .creator-avatar{width:120px;height:120px}
 .creator-head{display:flex;align-items:center;gap:22px;margin-bottom:6px}
+@media (max-width:640px){
+  .creator-head{align-items:flex-start;flex-direction:column;gap:14px}
+  .creator-head h1{max-width:100%;min-width:0;overflow-wrap:anywhere;word-break:break-word}
+}
 
 
 /* ------------------------- one tile, two games --------------------------- */
