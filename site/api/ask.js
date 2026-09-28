@@ -7,13 +7,13 @@
  *
  * Vercel: Settings -> Environment Variables -> ANTHROPIC_API_KEY
  * Identity-linked keys also need ANTHROPIC_WORKSPACE_ID (wrkspc_...).
- * The assistant is pinned to the supported Haiku model below.
+ * Set ANTHROPIC_MODEL to override the default model without changing code.
  */
 
 import {DOCUMENTS} from "./knowledge.js";
 
-// Keep the production assistant on the currently supported Haiku model.
-const MODEL = "claude-haiku-4-5-20251001";
+// Sonnet is the default; Vercel can override it with ANTHROPIC_MODEL.
+const MODEL = String(process.env.ANTHROPIC_MODEL || "claude-sonnet-5").trim();
 const MAX_QUESTION = 400;
 const REFUSAL =
   "I only answer questions about Fermah, using the official site and docs. " +
@@ -313,7 +313,7 @@ export default async function handler(req, res) {
           : "Anthropic rejected the request. Check the API key, account billing and model access.",
         401: "The assistant key was rejected. Check ANTHROPIC_API_KEY in the Production environment and redeploy.",
         403: "The assistant key has no access to this Anthropic request. Check the key and account permissions.",
-        404: "The Haiku model is unavailable for this Anthropic account. Check model access and billing.",
+        404: `The configured Anthropic model (${MODEL}) is unavailable for this account. Check ANTHROPIC_MODEL and model access.`,
         429: "Anthropic is rate limiting requests. Try again in a moment.",
       };
       res.status(200).json({answer: answers[r.status] || "Anthropic rejected the request. Check the API key, account billing and model access.", on_topic: false});

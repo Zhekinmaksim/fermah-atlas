@@ -61,6 +61,7 @@ key lives in the server environment and never reaches the browser.
 Vercel -> Settings -> Environment Variables
   ANTHROPIC_API_KEY = sk-ant-...
   ANTHROPIC_WORKSPACE_ID = wrkspc_...   (required for identity-linked keys)
+  ANTHROPIC_MODEL = claude-sonnet-5     (optional; this is the default)
 ```
 
 How it is fenced in, in order:
