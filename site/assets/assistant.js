@@ -13,6 +13,8 @@
     "What is Marina?",
     "Who pays for Froben?",
     "How do I run a prover node?",
+    "Who is behind Fermah?",
+    "Who funded Fermah?",
   ];
 
   const wrap = document.createElement("div");
@@ -25,7 +27,7 @@
         <button class="shark-close" id="shark-close" aria-label="Close">×</button>
       </div>
       <div class="shark-log" id="shark-log">
-        <div class="msg bot intro">Ask me about Fermah — Kernel, Froben, Flashcast Ignition, Fermah Pay, Marina, prover nodes, the Community Spotlight or anyone in the Atlas archive. I answer from the indexed archive and official material, and nothing else.</div>
+        <div class="msg bot intro">Ask me about Fermah’s products, prover nodes, team, seed funding or the Community Spotlight. I answer from the indexed Atlas archive and sourced material, and nothing else.</div>
         <div class="chips">${SUGGESTIONS.map((s) => `<button class="schip">${s}</button>`).join("")}</div>
       </div>
       <form class="shark-form" id="shark-form">
