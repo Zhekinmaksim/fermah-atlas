@@ -217,6 +217,10 @@ p.sec{color:var(--gray);font-size:var(--t-body);line-height:1.7;max-width:74ch;m
 .team-person img{display:block;width:88px;height:88px;object-fit:cover;border-radius:0}
 .team-person h4{font-size:24px;line-height:1.25;letter-spacing:0;margin:0 0 8px}
 .team-role{font:12px/1.65 var(--mono);letter-spacing:0;color:var(--teal);margin:0}
+.team-social{display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  font:12px/1.65 var(--mono);letter-spacing:0;color:var(--teal)}
+.team-social:hover{text-decoration:underline;text-underline-offset:3px}
+.team-social:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
 .team-bio{font-size:16px;line-height:1.75;color:var(--gray);margin:16px 0 0;max-width:44ch}
 .team-source{font:11px/1.8 var(--mono);letter-spacing:0;color:var(--dim);margin:18px 0 0}
 .team-source a{color:var(--teal)}
