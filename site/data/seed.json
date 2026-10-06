@@ -52,8 +52,8 @@
    "22": "2026-10-04"
   },
   "spotlight_selections": 109,
-  "honourable_mentions": 284,
-  "unique_creators": 183
+  "honourable_mentions": 279,
+  "unique_creators": 178
  },
  "creators": [
   {
@@ -105,12 +105,120 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
+  },
+  {
+   "display_handle": "Nyuella",
+   "spotlight_count": 5,
+   "honourable_mention_count": 0,
+   "contributions": [
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2091272219649245678",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/sn0wflakk/status/2091795843007324483",
+     "tier": "collab",
+     "announcement_date": "2026-09-05",
+     "week_label": 18,
+     "via_collab": "https://x.com/sn0wflakk/status/2091795843007324483"
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2092518090583990741",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2096206135799738755",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-13",
+     "week_label": 19
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/Nyuella/status/2097994460206411814",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    },
+    {
+     "x_handle": "Nyuella",
+     "x_url": "https://x.com/shantelledore/status/2099426092033458579",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-28",
+     "week_label": 21,
+     "via_collab": "https://x.com/shantelledore/status/2099426092033458579"
+    }
+   ],
+   "first_week": 17,
+   "last_week": 21,
+   "collab_count": 1
+  },
+  {
+   "display_handle": "shantelledore",
+   "spotlight_count": 5,
+   "honourable_mention_count": 0,
+   "first_week": 15,
+   "last_week": 21,
+   "contributions": [
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2085693426540949595",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-14",
+     "week_label": 15
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2088581403130646985",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-21",
+     "week_label": 16
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2090816362499203551",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-28",
+     "week_label": 17
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/sn0wflakk/status/2091795843007324483",
+     "tier": "collab",
+     "announcement_date": "2026-09-05",
+     "week_label": 18,
+     "via_collab": "https://x.com/sn0wflakk/status/2091795843007324483"
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2096943266537046333",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-20",
+     "week_label": 20
+    },
+    {
+     "x_handle": "shantelledore",
+     "x_url": "https://x.com/shantelledore/status/2099426092033458579",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-28",
+     "week_label": 21
+    }
+   ],
+   "collab_count": 1
   },
   {
    "display_handle": "sn0wflakk",
    "spotlight_count": 5,
-   "honourable_mention_count": 1,
+   "honourable_mention_count": 0,
    "first_week": 2,
    "last_week": 18,
    "contributions": [
@@ -152,55 +260,13 @@
     {
      "x_handle": "sn0wflakk",
      "x_url": "https://x.com/sn0wflakk/status/2091795843007324483",
-     "tier": "honourable_mention",
+     "tier": "collab",
      "announcement_date": "2026-09-05",
-     "week_label": 18
+     "week_label": 18,
+     "via_collab": "https://x.com/sn0wflakk/status/2091795843007324483"
     }
-   ]
-  },
-  {
-   "display_handle": "shantelledore",
-   "spotlight_count": 5,
-   "honourable_mention_count": 0,
-   "first_week": 15,
-   "last_week": 21,
-   "contributions": [
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2085693426540949595",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-14",
-     "week_label": 15
-    },
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2088581403130646985",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-21",
-     "week_label": 16
-    },
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2090816362499203551",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2096943266537046333",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-20",
-     "week_label": 20
-    },
-    {
-     "x_handle": "shantelledore",
-     "x_url": "https://x.com/shantelledore/status/2099426092033458579",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-28",
-     "week_label": 21
-    }
-   ]
+   ],
+   "collab_count": 1
   },
   {
    "display_handle": "legendary54321",
@@ -244,44 +310,47 @@
     }
    ],
    "first_week": 17,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
-   "display_handle": "Nyuella",
+   "display_handle": "DEE_0125",
    "spotlight_count": 4,
    "honourable_mention_count": 0,
+   "first_week": 16,
+   "last_week": 21,
    "contributions": [
     {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2091272219649245678",
+     "x_handle": "DEE_0125",
+     "x_url": "https://x.com/DEE_0125/status/2087832207415038410",
+     "tier": "spotlight",
+     "announcement_date": "2026-08-21",
+     "week_label": 16
+    },
+    {
+     "x_handle": "DEE_0125",
+     "x_url": "https://x.com/DEE_0125/status/2090793293747572921",
      "tier": "spotlight",
      "announcement_date": "2026-08-28",
      "week_label": 17
     },
     {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2092518090583990741",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    },
-    {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2096206135799738755",
+     "x_handle": "DEE_0125",
+     "x_url": "https://x.com/DEE_0125/status/2094351448725172320",
      "tier": "spotlight",
      "announcement_date": "2026-09-13",
      "week_label": 19
     },
     {
-     "x_handle": "Nyuella",
-     "x_url": "https://x.com/Nyuella/status/2097994460206411814",
+     "x_handle": "DEE_0125",
+     "x_url": "https://x.com/shantelledore/status/2099426092033458579",
      "tier": "spotlight",
-     "announcement_date": "2026-09-20",
-     "week_label": 20
+     "announcement_date": "2026-09-28",
+     "week_label": 21,
+     "via_collab": "https://x.com/shantelledore/status/2099426092033458579"
     }
    ],
-   "first_week": 17,
-   "last_week": 20
+   "collab_count": 0
   },
   {
    "display_handle": "oxkimia",
@@ -325,7 +394,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "cd_sh51200",
@@ -362,7 +432,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Prince_swago",
@@ -399,7 +470,8 @@
      "announcement_date": "2026-09-28",
      "week_label": 21
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Sarcastic_AU",
@@ -436,37 +508,8 @@
      "announcement_date": "2026-09-20",
      "week_label": 20
     }
-   ]
-  },
-  {
-   "display_handle": "DEE_0125",
-   "spotlight_count": 3,
-   "honourable_mention_count": 0,
-   "first_week": 16,
-   "last_week": 19,
-   "contributions": [
-    {
-     "x_handle": "DEE_0125",
-     "x_url": "https://x.com/DEE_0125/status/2087832207415038410",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-21",
-     "week_label": 16
-    },
-    {
-     "x_handle": "DEE_0125",
-     "x_url": "https://x.com/DEE_0125/status/2090793293747572921",
-     "tier": "spotlight",
-     "announcement_date": "2026-08-28",
-     "week_label": 17
-    },
-    {
-     "x_handle": "DEE_0125",
-     "x_url": "https://x.com/DEE_0125/status/2094351448725172320",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-13",
-     "week_label": 19
-    }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "mr_satoshiii",
@@ -496,7 +539,8 @@
      "announcement_date": "2026-07-02",
      "week_label": 9
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "themoewithin",
@@ -526,7 +570,8 @@
      "announcement_date": "2026-06-18",
      "week_label": 7
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "bruno_jr_talent",
@@ -570,7 +615,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "NewKO20110815",
@@ -607,7 +653,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "SAH4R_CORE",
@@ -644,7 +691,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0x_Angelarts",
@@ -674,7 +722,8 @@
      "announcement_date": "2026-06-18",
      "week_label": 7
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Ati43604",
@@ -704,7 +753,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "kyBellato",
@@ -734,7 +784,8 @@
      "announcement_date": "2026-08-21",
      "week_label": 16
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "salmahshh",
@@ -764,7 +815,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "sazexbt",
@@ -794,7 +846,8 @@
      "announcement_date": "2026-06-13",
      "week_label": 6
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Bilalearn",
@@ -817,7 +870,41 @@
     }
    ],
    "first_week": 21,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
+  },
+  {
+   "display_handle": "Web3barbiee",
+   "spotlight_count": 2,
+   "honourable_mention_count": 0,
+   "contributions": [
+    {
+     "x_handle": "Web3barbiee",
+     "x_url": "https://x.com/sn0wflakk/status/2091795843007324483",
+     "tier": "collab",
+     "announcement_date": "2026-09-05",
+     "week_label": 18,
+     "via_collab": "https://x.com/sn0wflakk/status/2091795843007324483"
+    },
+    {
+     "x_handle": "Web3barbiee",
+     "x_url": "https://x.com/Web3barbiee/status/2091825994281697442",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-05",
+     "week_label": 18
+    },
+    {
+     "x_handle": "Web3barbiee",
+     "x_url": "https://x.com/shantelledore/status/2099426092033458579",
+     "tier": "spotlight",
+     "announcement_date": "2026-09-28",
+     "week_label": 21,
+     "via_collab": "https://x.com/shantelledore/status/2099426092033458579"
+    }
+   ],
+   "first_week": 18,
+   "last_week": 21,
+   "collab_count": 1
   },
   {
    "display_handle": "illfated_fr",
@@ -861,7 +948,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "ItsVj786",
@@ -905,7 +993,8 @@
      "announcement_date": "2026-09-28",
      "week_label": 21
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Wishi007",
@@ -949,7 +1038,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "aminkaktos2015",
@@ -986,7 +1076,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "ashish258042",
@@ -1023,7 +1114,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Cryptomate3",
@@ -1060,7 +1152,8 @@
      "announcement_date": "2026-09-28",
      "week_label": 21
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "fathy_sol",
@@ -1097,7 +1190,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "ishuverse0",
@@ -1134,7 +1228,8 @@
      "announcement_date": "2026-08-07",
      "week_label": 14
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "likith6150470",
@@ -1171,7 +1266,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "__LuckyGold",
@@ -1201,7 +1297,8 @@
      "announcement_date": "2026-09-20",
      "week_label": 20
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "CaptainMarval08",
@@ -1231,7 +1328,8 @@
      "announcement_date": "2026-08-21",
      "week_label": 16
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "itsmahi778",
@@ -1261,7 +1359,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "98_akr",
@@ -1285,7 +1384,8 @@
      "week_label": 6
     }
    ],
-   "suspended": true
+   "suspended": true,
+   "collab_count": 0
   },
   {
    "display_handle": "barrandland",
@@ -1308,7 +1408,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "Chidimm06",
@@ -1331,7 +1432,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "CryptoFox_07",
@@ -1354,7 +1456,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "hoper0x",
@@ -1377,7 +1480,8 @@
     }
    ],
    "first_week": 17,
-   "last_week": 19
+   "last_week": 19,
+   "collab_count": 0
   },
   {
    "display_handle": "Iamolaniyi_",
@@ -1400,7 +1504,8 @@
      "announcement_date": "2026-09-20",
      "week_label": 20
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "mamatomtn20aprl",
@@ -1423,7 +1528,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "mcrypticvolt",
@@ -1446,7 +1552,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Monwilliams001",
@@ -1469,7 +1576,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "oldazukii",
@@ -1492,7 +1600,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 20
+   "last_week": 20,
+   "collab_count": 0
   },
   {
    "display_handle": "OneKiwi83488",
@@ -1515,7 +1624,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "QueenOsita1",
@@ -1539,7 +1649,8 @@
      "week_label": 13
     }
    ],
-   "suspended": true
+   "suspended": true,
+   "collab_count": 0
   },
   {
    "display_handle": "Sam_wolf1122",
@@ -1562,7 +1673,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Tipwotip",
@@ -1585,7 +1697,8 @@
      "announcement_date": "2026-05-11",
      "week_label": 2
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0maxxdev",
@@ -1601,7 +1714,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0truealpha",
@@ -1617,7 +1731,8 @@
      "announcement_date": "2026-05-25",
      "week_label": 4
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0xMerajj",
@@ -1633,7 +1748,8 @@
      "announcement_date": "2026-05-18",
      "week_label": 3
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "aimansheikhh03",
@@ -1649,7 +1765,8 @@
      "announcement_date": "2026-05-04",
      "week_label": 1
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "beatrice2425",
@@ -1665,7 +1782,8 @@
      "announcement_date": "2026-06-04",
      "week_label": 5
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Bitbox50",
@@ -1681,7 +1799,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "BLOCK_BUSTER26",
@@ -1697,7 +1816,8 @@
      "announcement_date": "2026-05-04",
      "week_label": 1
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "c0rishere",
@@ -1713,7 +1833,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "edward_evm",
@@ -1729,7 +1850,8 @@
      "announcement_date": "2026-05-04",
      "week_label": 1
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "HyderShav",
@@ -1745,7 +1867,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Manazrealfact",
@@ -1761,7 +1884,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "mRezaJafariyan",
@@ -1778,7 +1902,8 @@
      "week_label": 15
     }
    ],
-   "suspended": true
+   "suspended": true,
+   "collab_count": 0
   },
   {
    "display_handle": "navdeep_bh1414",
@@ -1794,7 +1919,8 @@
      "announcement_date": "2026-05-11",
      "week_label": 2
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Osita__1",
@@ -1810,7 +1936,8 @@
      "announcement_date": "2026-08-07",
      "week_label": 14
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "ox_elfawzan",
@@ -1826,7 +1953,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "Paradise__12345",
@@ -1842,7 +1970,8 @@
      "announcement_date": "2026-07-02",
      "week_label": 9
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Sadnoboy616",
@@ -1858,7 +1987,8 @@
      "announcement_date": "2026-05-25",
      "week_label": 4
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "thesarimzaidi",
@@ -1874,7 +2004,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Tina__bellina",
@@ -1890,7 +2021,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "VladisChernov",
@@ -1906,23 +2038,8 @@
      "announcement_date": "2026-05-11",
      "week_label": 2
     }
-   ]
-  },
-  {
-   "display_handle": "Web3barbiee",
-   "spotlight_count": 1,
-   "honourable_mention_count": 0,
-   "contributions": [
-    {
-     "x_handle": "Web3barbiee",
-     "x_url": "https://x.com/Web3barbiee/status/2091825994281697442",
-     "tier": "spotlight",
-     "announcement_date": "2026-09-05",
-     "week_label": 18
-    }
    ],
-   "first_week": 18,
-   "last_week": 18
+   "collab_count": 0
   },
   {
    "display_handle": "cryptomasterAJ",
@@ -1973,7 +2090,8 @@
      "announcement_date": "2026-09-20",
      "week_label": 20
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Adityapunk01",
@@ -2017,7 +2135,8 @@
     }
    ],
    "first_week": 17,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "Avinash_3107",
@@ -2061,7 +2180,8 @@
      "announcement_date": "2026-08-14",
      "week_label": 15
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "jaymieolamide",
@@ -2105,7 +2225,8 @@
      "announcement_date": "2026-10-04",
      "week_label": 22
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "143Emile",
@@ -2142,7 +2263,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "B0laji_0",
@@ -2179,7 +2301,8 @@
      "announcement_date": "2026-09-20",
      "week_label": 20
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "chetan0x1",
@@ -2216,7 +2339,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Dredd_the_001",
@@ -2253,7 +2377,8 @@
      "announcement_date": "2026-09-05",
      "week_label": 18
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Faizan626371",
@@ -2290,7 +2415,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "IluRk123",
@@ -2327,7 +2453,8 @@
      "announcement_date": "2026-09-28",
      "week_label": 21
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "lavender7888",
@@ -2364,7 +2491,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Moraxweb3",
@@ -2401,7 +2529,8 @@
      "announcement_date": "2026-10-04",
      "week_label": 22
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Tochiii184",
@@ -2438,7 +2567,8 @@
      "announcement_date": "2026-09-20",
      "week_label": 20
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Vecna071",
@@ -2475,7 +2605,8 @@
      "announcement_date": "2026-09-13",
      "week_label": 19
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "27_bishal",
@@ -2505,7 +2636,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "AsadMalikFromPK",
@@ -2535,7 +2667,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "butteryconcept",
@@ -2565,7 +2698,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Dukesznn_eth",
@@ -2595,7 +2729,8 @@
      "announcement_date": "2026-08-21",
      "week_label": 16
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "itszimal_",
@@ -2625,7 +2760,8 @@
      "announcement_date": "2026-08-21",
      "week_label": 16
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "izvhee",
@@ -2655,7 +2791,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "L1quidLoom",
@@ -2685,7 +2822,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "lisa6616393",
@@ -2715,7 +2853,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "lyriaa_tv",
@@ -2745,7 +2884,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "rira20233",
@@ -2775,7 +2915,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "sadegh4222",
@@ -2805,7 +2946,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "silvy_1111",
@@ -2835,7 +2977,8 @@
     }
    ],
    "first_week": 17,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "SurabhiXNezuko",
@@ -2865,7 +3008,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "aayxx5h",
@@ -2888,7 +3032,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Ashii_onchain",
@@ -2911,7 +3056,8 @@
     }
    ],
    "first_week": 20,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "Azade7585542676",
@@ -2934,7 +3080,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "ByronDrift",
@@ -2957,7 +3104,8 @@
      "announcement_date": "2026-05-18",
      "week_label": 3
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "captainsilv3r",
@@ -2980,7 +3128,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "creativecat3432",
@@ -3003,7 +3152,8 @@
      "announcement_date": "2026-09-13",
      "week_label": 19
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "CrypticSgr",
@@ -3026,7 +3176,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "HarisAl07133821",
@@ -3049,7 +3200,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Harshzzzzzz",
@@ -3072,7 +3224,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "joloforU",
@@ -3095,7 +3248,8 @@
     }
    ],
    "first_week": 20,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "Kan_maomao",
@@ -3118,7 +3272,8 @@
     }
    ],
    "first_week": 20,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "kati9449",
@@ -3141,7 +3296,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "lindsey47893795",
@@ -3164,7 +3320,8 @@
      "announcement_date": "2026-06-04",
      "week_label": 5
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "LUCKYlaku25",
@@ -3187,7 +3344,8 @@
      "announcement_date": "2026-08-07",
      "week_label": 14
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "luseeferr",
@@ -3210,7 +3368,8 @@
      "announcement_date": "2026-07-02",
      "week_label": 9
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "maniking5566",
@@ -3233,7 +3392,8 @@
     }
    ],
    "first_week": 20,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "MukeshR70147",
@@ -3256,7 +3416,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Naz___a",
@@ -3279,7 +3440,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "om_web3",
@@ -3302,7 +3464,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 20
+   "last_week": 20,
+   "collab_count": 0
   },
   {
    "display_handle": "Pawan2001564157",
@@ -3325,7 +3488,8 @@
      "announcement_date": "2026-06-04",
      "week_label": 5
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Proof__Seeker",
@@ -3348,7 +3512,8 @@
      "announcement_date": "2026-07-02",
      "week_label": 9
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "samuelonweb3",
@@ -3371,7 +3536,8 @@
      "announcement_date": "2026-10-04",
      "week_label": 22
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "soalkcurve",
@@ -3394,7 +3560,8 @@
      "announcement_date": "2026-10-04",
      "week_label": 22
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "VibinCryptoplus",
@@ -3417,7 +3584,8 @@
      "announcement_date": "2026-07-02",
      "week_label": 9
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Web3Radha",
@@ -3440,7 +3608,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "zeynabdamilola",
@@ -3463,7 +3632,8 @@
      "announcement_date": "2026-08-28",
      "week_label": 17
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0x_amanxbt",
@@ -3479,7 +3649,8 @@
      "announcement_date": "2026-08-07",
      "week_label": 14
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0xchlorinee",
@@ -3495,7 +3666,8 @@
      "announcement_date": "2026-06-13",
      "week_label": 6
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0xFifth",
@@ -3511,7 +3683,8 @@
      "announcement_date": "2026-06-13",
      "week_label": 6
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0xMerajjj",
@@ -3527,7 +3700,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 18
+   "last_week": 18,
+   "collab_count": 0
   },
   {
    "display_handle": "0xnagii",
@@ -3543,7 +3717,8 @@
     }
    ],
    "first_week": 20,
-   "last_week": 20
+   "last_week": 20,
+   "collab_count": 0
   },
   {
    "display_handle": "0xrnjbr",
@@ -3559,7 +3734,8 @@
      "announcement_date": "2026-06-13",
      "week_label": 6
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0xtheshai",
@@ -3575,7 +3751,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "0xwakes",
@@ -3591,7 +3768,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 18
+   "last_week": 18,
+   "collab_count": 0
   },
   {
    "display_handle": "1Depixel",
@@ -3607,7 +3785,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "_iamfaramade",
@@ -3623,7 +3802,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 18
+   "last_week": 18,
+   "collab_count": 0
   },
   {
    "display_handle": "ali_zifar7519",
@@ -3639,7 +3819,8 @@
      "announcement_date": "2026-06-04",
      "week_label": 5
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "amijun7444",
@@ -3655,7 +3836,8 @@
      "announcement_date": "2026-07-07",
      "week_label": 10
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "amircry94432508",
@@ -3671,7 +3853,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 18
+   "last_week": 18,
+   "collab_count": 0
   },
   {
    "display_handle": "Amirirh1",
@@ -3687,7 +3870,8 @@
      "announcement_date": "2026-08-14",
      "week_label": 15
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "ansarisiddiq876",
@@ -3703,7 +3887,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "ara_draww",
@@ -3719,7 +3904,8 @@
      "announcement_date": "2026-06-18",
      "week_label": 7
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "arian54t",
@@ -3735,7 +3921,8 @@
      "announcement_date": "2026-07-02",
      "week_label": 9
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "asumaa123",
@@ -3751,7 +3938,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "behtin6",
@@ -3767,7 +3955,8 @@
      "announcement_date": "2026-05-25",
      "week_label": 4
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "bivaventures",
@@ -3783,7 +3972,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 19
+   "last_week": 19,
+   "collab_count": 0
   },
   {
    "display_handle": "boss000026",
@@ -3799,7 +3989,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 19
+   "last_week": 19,
+   "collab_count": 0
   },
   {
    "display_handle": "bytewave01",
@@ -3815,7 +4006,8 @@
     }
    ],
    "first_week": 17,
-   "last_week": 17
+   "last_week": 17,
+   "collab_count": 0
   },
   {
    "display_handle": "cccroshan",
@@ -3831,7 +4023,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "CP_JACK_",
@@ -3848,7 +4041,8 @@
      "week_label": 6
     }
    ],
-   "suspended": true
+   "suspended": true,
+   "collab_count": 0
   },
   {
    "display_handle": "DalSahab3",
@@ -3864,7 +4058,8 @@
      "announcement_date": "2026-06-13",
      "week_label": 6
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "dheeraj_805",
@@ -3880,7 +4075,8 @@
      "announcement_date": "2026-05-18",
      "week_label": 3
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "DoctorDynamite3",
@@ -3896,7 +4092,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "FatimaSaud95",
@@ -3912,7 +4109,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "godabeg_lee",
@@ -3928,7 +4126,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "hassankhan96452",
@@ -3944,7 +4143,8 @@
      "announcement_date": "2026-05-25",
      "week_label": 4
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "hawk_tyt",
@@ -3960,7 +4160,8 @@
      "announcement_date": "2026-06-18",
      "week_label": 7
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "horriyasha01",
@@ -3976,7 +4177,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "hottkeed",
@@ -3992,7 +4194,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 19
+   "last_week": 19,
+   "collab_count": 0
   },
   {
    "display_handle": "Huzaif066",
@@ -4008,7 +4211,8 @@
      "announcement_date": "2026-07-15",
      "week_label": 11
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "IbrahimAwwalOl1",
@@ -4024,7 +4228,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "imanntz44",
@@ -4040,7 +4245,8 @@
      "announcement_date": "2026-07-22",
      "week_label": 12
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Ishaqxx3",
@@ -4056,7 +4262,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "JugganAli236452",
@@ -4072,7 +4279,8 @@
      "announcement_date": "2026-05-25",
      "week_label": 4
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "KatiTune25960",
@@ -4088,7 +4296,8 @@
      "announcement_date": "2026-05-18",
      "week_label": 3
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "khatere_bazi",
@@ -4104,7 +4313,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "lone_faizal",
@@ -4120,7 +4330,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "MerchantTotoro",
@@ -4136,7 +4347,8 @@
     }
    ],
    "first_week": 19,
-   "last_week": 19
+   "last_week": 19,
+   "collab_count": 0
   },
   {
    "display_handle": "Mlvmahdii",
@@ -4152,7 +4364,8 @@
      "announcement_date": "2026-06-18",
      "week_label": 7
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "mohitkhan777",
@@ -4168,7 +4381,8 @@
      "announcement_date": "2026-08-07",
      "week_label": 14
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Mr_Joker717",
@@ -4184,7 +4398,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "muna665830",
@@ -4200,7 +4415,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "mzain_2292",
@@ -4216,7 +4432,8 @@
      "announcement_date": "2026-07-31",
      "week_label": 13
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Nisar_Khisrow",
@@ -4232,7 +4449,8 @@
      "announcement_date": "2026-06-13",
      "week_label": 6
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "OGgrinding",
@@ -4248,7 +4466,8 @@
      "announcement_date": "2026-08-21",
      "week_label": 16
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "preshyfoot76257",
@@ -4264,7 +4483,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "Rose320141",
@@ -4280,7 +4500,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 18
+   "last_week": 18,
+   "collab_count": 0
   },
   {
    "display_handle": "SamiraDavodi",
@@ -4296,7 +4517,8 @@
      "announcement_date": "2026-06-18",
      "week_label": 7
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Sinthiya908",
@@ -4312,7 +4534,8 @@
      "announcement_date": "2026-06-23",
      "week_label": 8
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Siri_210",
@@ -4328,7 +4551,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "soha_thk",
@@ -4344,7 +4568,8 @@
     }
    ],
    "first_week": 18,
-   "last_week": 18
+   "last_week": 18,
+   "collab_count": 0
   },
   {
    "display_handle": "sun_sea2000",
@@ -4360,7 +4585,8 @@
     }
    ],
    "first_week": 21,
-   "last_week": 21
+   "last_week": 21,
+   "collab_count": 0
   },
   {
    "display_handle": "Sydneysundown",
@@ -4376,7 +4602,8 @@
      "announcement_date": "2026-08-21",
      "week_label": 16
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "usaxxxxxx",
@@ -4393,7 +4620,8 @@
      "week_label": 6
     }
    ],
-   "suspended": true
+   "suspended": true,
+   "collab_count": 0
   },
   {
    "display_handle": "VaultVanec0sk",
@@ -4409,7 +4637,8 @@
     }
    ],
    "first_week": 20,
-   "last_week": 20
+   "last_week": 20,
+   "collab_count": 0
   },
   {
    "display_handle": "wedrick126807",
@@ -4425,7 +4654,8 @@
      "announcement_date": "2026-08-14",
      "week_label": 15
     }
-   ]
+   ],
+   "collab_count": 0
   },
   {
    "display_handle": "Wizzy204_",
@@ -4441,7 +4671,8 @@
     }
    ],
    "first_week": 22,
-   "last_week": 22
+   "last_week": 22,
+   "collab_count": 0
   },
   {
    "display_handle": "yawem_web",
@@ -4457,7 +4688,9 @@
     }
    ],
    "first_week": 20,
-   "last_week": 20
+   "last_week": 20,
+   "collab_count": 0
   }
- ]
+ ],
+ "collaboration_policy": "Only credit collaborators whose X identity is explicitly established by an official Community Spotlight announcement. Keep the shared post URL and the recognition tier used in that announcement. Week 18 collaboration credits are separate from honourable mentions; the week 21 collaboration is a selected slot. Two unidentified collaborators remain uncredited. Do not publish Discord identifiers or infer identity from list order. Suspended accounts retain historical pages but are excluded from public aggregate statistics."
 }

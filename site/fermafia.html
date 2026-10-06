@@ -56,6 +56,7 @@
 </section>
 
 <section><div class="wrap reveal">
+  <div class="acts archive-stats-link"><a class="btn" href="stats.html">Season statistics →</a></div>
   <div class="search">
     <input id="q" type="search" placeholder="Find your handle…" autocomplete="off"
            aria-label="Search creators">
@@ -129,6 +130,7 @@ function tweetText(c){
   const bits = [];
   if (c.spotlight_count) bits.push(c.spotlight_count + "x Community Spotlight");
   if (c.honourable_mention_count) bits.push(c.honourable_mention_count + "x honourable mention");
+  if (c.collab_count) bits.push(c.collab_count + "x collab credit");
   return encodeURIComponent(
     "My @fermah_xyz Community Spotlight record: " + bits.join(" · ") +
     "\n\n" + SITE + "/c/" + c.display_handle.toLowerCase());
@@ -150,12 +152,14 @@ function row(c){
   const tally =
     (c.spotlight_count ? `<b>${c.spotlight_count}</b> selected` : "") +
     (c.spotlight_count && c.honourable_mention_count ? " · " : "") +
-    (c.honourable_mention_count ? `${c.honourable_mention_count} mentioned` : "");
+    (c.honourable_mention_count ? `${c.honourable_mention_count} mentioned` : "") +
+    (c.collab_count ? ` · ${c.collab_count} collab` : "");
 
   const items = c.contributions.map(ct => `
-    <li><span class="sq ${ct.tier === "spotlight" ? "" : "hm"}"></span>
+    <li><span class="sq ${ct.tier === "spotlight" ? "" : ct.tier === "collab" ? "collab" : "hm"}"></span>
         <span class="wk">W${String(ct.week_label).padStart(2,"0")}</span>
         <span>${day(ct.announcement_date)}</span>
+        ${ct.tier === "collab" ? '<span class="record-kind">collab</span>' : ""}
         ${c.suspended
           ? '<span style="margin-left:auto;color:var(--faint);font-size:11px">post unavailable</span>'
           : `<a href="${ct.x_url}" target="_blank" rel="noopener"
@@ -213,8 +217,7 @@ document.getElementById("q").addEventListener("input", e => {
 
 loadSeed().then(d => {
   try { mountFreshness(d); } catch (e) {}
-  try { mountFreshness(d); } catch (e) {}
-  PEOPLE = d.creators;
+  PEOPLE = d.creators.filter(c => !c.suspended);
   WEEKS = Object.keys(d.source_summary.week_dates).map(Number).sort((a, b) => a - b);
   const s = d.source_summary;
   document.getElementById("s-creators").textContent = s.unique_creators;
@@ -222,7 +225,7 @@ loadSeed().then(d => {
   document.getElementById("s-hm").textContent       = s.honourable_mentions;
   document.getElementById("s-weeks").textContent    = s.announcements;
   render(PEOPLE);
-  mountWall(d, {skip: 4});
+  mountWall({...d, creators: PEOPLE}, {skip: 4});
 
   const want = decodeURIComponent(location.hash.slice(1)).toLowerCase();
   if (want){

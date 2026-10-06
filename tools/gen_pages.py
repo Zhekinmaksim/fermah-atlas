@@ -28,7 +28,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="description" content="{desc}">
 <meta property="og:title" content="@{handle} — Fermah Community Spotlight record">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="{domain}/cards/{slug}.png">
+<meta property="og:image" content="{domain}/cards/{slug}.png?v={revision}-recognition2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="{domain}/c/{slug}">
@@ -36,7 +36,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="@{handle} — Fermah Community Spotlight record">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="{domain}/cards/{slug}.png">
+<meta name="twitter:image" content="{domain}/cards/{slug}.png?v={revision}-recognition2">
 <link rel="canonical" href="{domain}/c/{slug}">
 <meta name="theme-color" content="#001030">
 <link rel="icon" href="../brand/atlas-icon-64.png">
@@ -57,7 +57,7 @@ PAGE = """<!DOCTYPE html>
 <section class="wrap" style="padding-block:0 clamp(40px,5vh,72px)">
   <div class="creator-split">
     <div>
-      <img class="creator-card" src="../cards/{slug}.png"
+      <img class="creator-card" src="../cards/{slug}.png?v={revision}-recognition2"
            alt="Community Spotlight card for @{handle}" width="1200" height="630">
       <div class="acts">
         {actions}
@@ -102,6 +102,8 @@ def summary_of(c):
         bits.append(f'selected {c["spotlight_count"]}x')
     if c["honourable_mention_count"]:
         bits.append(f'mentioned {c["honourable_mention_count"]}x')
+    if c.get("collab_count"):
+        bits.append(f'collab credit {c["collab_count"]}x')
     weeks = sorted({x["week_label"] for x in c["contributions"]})
     return (", ".join(bits) or "in the archive") + \
            f' in the Fermah Community Spotlight, across {len(weeks)} ' + \
@@ -118,16 +120,18 @@ def build(seed_path, site_dir):
     for c in seed["creators"]:
         handle = c["display_handle"]
         slug = handle.lower()
+        card_url = f"../cards/{slug}.png?v={seed['source_summary']['announcements']}-recognition2"
         contribs = sorted(c["contributions"], key=lambda x: x["week_label"])
         desc = summary_of(c)
-        total_recognitions = c["spotlight_count"] + c["honourable_mention_count"]
+        total_recognitions = c["spotlight_count"] + c["honourable_mention_count"] + c.get("collab_count", 0)
         big = f'{total_recognitions}x RECOGNIZED'
 
         suspended = bool(c.get("suspended"))
         items = "".join(
-            f'<li><span class="sq{"" if x["tier"] == "spotlight" else " hm"}"></span>'
+            f'<li><span class="sq{"" if x["tier"] == "spotlight" else " collab" if x["tier"] == "collab" else " hm"}"></span>'
             f'<span class="wk">W{x["week_label"]:02d}</span>'
             f'<span class="dt">{day(x["announcement_date"])}</span>'
+            + ('<span class="record-kind">collab</span>' if x["tier"] == "collab" else "")
             + ('<span style="margin-left:auto;color:#37456A">post unavailable</span></li>'
                if suspended else
                f'<a href="{x["x_url"]}" target="_blank" rel="noopener">post ↗</a></li>')
@@ -138,6 +142,8 @@ def build(seed_path, site_dir):
             tweet_bits.append(f'{c["spotlight_count"]}x Community Spotlight')
         if c["honourable_mention_count"]:
             tweet_bits.append(f'{c["honourable_mention_count"]}x honourable mention')
+        if c.get("collab_count"):
+            tweet_bits.append(f'{c["collab_count"]}x collab credit')
         tweet = ("My @fermah_xyz Community Spotlight record: " + " · ".join(tweet_bits) +
                  f"\n\n{DOMAIN}/c/{slug}")
         tweet = tweet.replace("&", "%26").replace("#", "%23").replace("\n", "%0A") \
@@ -146,18 +152,19 @@ def build(seed_path, site_dir):
         av_path = os.path.join(site_dir, "avatars", slug + ".jpg")
         avatar = (f'<img class="creator-avatar" src="../avatars/{slug}.jpg" alt="">'
                   if os.path.exists(av_path) else "")
-        actions = (f'<a class="btn" download href="../cards/{slug}.png">Download card</a>'
+        actions = (f'<a class="btn" download href="{card_url}">Download card</a>'
                    '<span class="btn" style="cursor:default;opacity:.6">Account suspended</span>'
                    if suspended else
                    f'<a class="btn primary" target="_blank" rel="noopener" '
                    f'href="https://twitter.com/intent/tweet?text={tweet}">Post on X</a>'
-                   f'<a class="btn" download href="../cards/{slug}.png">Download card</a>'
+                   f'<a class="btn" download href="{card_url}">Download card</a>'
                    f'<a class="btn" target="_blank" rel="noopener" '
                    f'href="https://x.com/{handle}">Profile ↗</a>')
 
         html = PAGE.format(handle=escape(handle), slug=slug, desc=escape(desc),
                            avatar=avatar, actions=actions,
                            summary=escape(desc[0].upper() + desc[1:]), big=big,
+                           revision=seed["source_summary"]["announcements"],
                            items=items, tweet=tweet, domain=DOMAIN)
         open(os.path.join(out_dir, slug + ".html"), "w").write(html)
         written.append(slug)

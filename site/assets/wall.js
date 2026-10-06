@@ -1,7 +1,10 @@
 /* Fermah Atlas — the Fermafia card wall.
    Two rows of real Spotlight cards, each row duplicated so the marquee loops
    seamlessly at -50%. Shared by index.html and fermafia.html. */
-function cardPath(handle){ return "cards/" + handle.toLowerCase() + ".png"; }
+function cardPath(handle){
+  const week = window.SEED?.source_summary?.announcements || 0;
+  return "cards/" + handle.toLowerCase() + `.png?v=${week}-recognition2`;
+}
 
 function mountWall(d, opts){
   const host = document.getElementById("wall-sec");

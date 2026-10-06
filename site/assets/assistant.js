@@ -50,8 +50,8 @@
   const form = wrap.querySelector("#shark-form");
   const input = wrap.querySelector("#shark-input");
 
-  // pages in /c/ sit one level down
-  const base = location.pathname.includes("/c/") ? "../" : "";
+  // Creator and week pages sit one level down.
+  const base = /\/(c|week)\//.test(location.pathname) ? "../" : "";
   img.src = base + "brand/shark/shark-idle.webp";
 
   let isOpen = false;

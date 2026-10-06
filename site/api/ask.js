@@ -10,7 +10,7 @@
  * Set ANTHROPIC_MODEL to override the default model without changing code.
  */
 
-import {DOCUMENTS} from "./knowledge.js";
+import {ARCHIVE_SUMMARY, DOCUMENTS} from "./knowledge.js";
 
 // Sonnet is the default; Vercel can override it with ANTHROPIC_MODEL.
 const MODEL = String(process.env.ANTHROPIC_MODEL || "claude-sonnet-5").trim();
@@ -123,8 +123,13 @@ const KB = [
   },
   {
     k: "spotlight community creators weekly recognition honourable mention fermafia",
-    t: "The Community Spotlight is Fermah's weekly recognition of community creators: selected creators plus honourable mentions, published in the Discord. Fermah Atlas archives that record — 17 weeks, 136 creators, 84 selections and 187 mentions as of week 17 — using X handles only.",
+    t: `The Community Spotlight is Fermah's weekly recognition of community creators: selected creators plus honourable mentions, published in Discord. Fermah Atlas archives ${ARCHIVE_SUMMARY.announcements} weeks, ${ARCHIVE_SUMMARY.unique_creators} active creators, ${ARCHIVE_SUMMARY.spotlight_selections} selection credits and ${ARCHIVE_SUMMARY.honourable_mentions} mentions. Suspended accounts are excluded from these totals. Only officially identified X handles receive collaboration credits.`,
     src: "https://fermahatlas.xyz/fermafia",
+  },
+  {
+    k: "stats statistics streak streaks series season weekly run runs appearance appearances newcomers comeback comebacks gap gaps tierup retention статистика серии новички перерывы возвращения",
+    t: "The Atlas statistics page computes selection streaks, consecutive appearances, comeback gaps, next-week mention-to-selection transitions, newcomers and return rates from the Spotlight seed. Each week has its own page. A separate collaboration credit counts as an appearance but not an honourable mention; selected collaborators are credited as selections. Suspended accounts are excluded from aggregates. Use the indexed statistics records for the actual names and numbers.",
+    src: "https://fermahatlas.xyz/stats",
   },
   {
     k: "atlas what is this site unofficial who built archive sources",

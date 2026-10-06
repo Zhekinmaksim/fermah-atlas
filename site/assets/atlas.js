@@ -128,6 +128,7 @@ function mountChrome(current, base){
     ["powered.html",    "Powered by Fermah", "Production & integrations"],
     ["built-with.html", "Built with Fermah", "Apps & workflows"],
     ["fermafia.html",   "Fermafia",          "The community archive"],
+    ["stats.html",      "Stats",             "Season numbers, week by week"],
     ["operators.html",  "Operators",         "Who runs the prover nodes"],
     ["play.html",       "Play",              "Three games about the ecosystem"]
   ];

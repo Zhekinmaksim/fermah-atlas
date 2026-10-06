@@ -6,7 +6,7 @@
 --------------------------------------------------------------------------- */
 (function () {
   const KEY = "atlas:music";
-  const base = location.pathname.includes("/c/") ? "../" : "";
+  const base = /\/(c|week)\//.test(location.pathname) ? "../" : "";
 
   const audio = new Audio(base + "brand/ambient.mp3");
   audio.loop = true;

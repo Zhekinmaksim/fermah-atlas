@@ -200,7 +200,7 @@
     <span class="idx">03</span>
     <span><h3>Built by Fermafia</h3><span class="sub">Community tools &amp; creations</span>
       <span class="chips" id="fermafia-chips"></span></span>
-    <span class="count"><b id="c-fermafia">183</b>creators</span>
+    <span class="count"><b id="c-fermafia">178</b>creators</span>
   </a>
   <a class="door reveal mark-corners" data-stagger href="operators.html">
     <span class="idx">04</span>
@@ -273,7 +273,10 @@
       <a class="latest-item hm" href="c/wizzy204_" aria-label="Open @Wizzy204_ creator card"><span class="latest-avatar-link" aria-hidden="true"><img class="latest-avatar" src="avatars/wizzy204_.jpg" alt="" loading="lazy"></span><span class="sq hm"></span><span class="latest-handle">@Wizzy204_</span></a>
     </div>
   </div>
-  <a class="foot-link" href="fermafia.html">OPEN THE FULL ARCHIVE — <span id="all-count">183</span> CREATORS →</a>
+  <div class="latest-links">
+    <a class="btn" id="latest-week-link" href="week/22.html">OPEN WEEK 22 →</a>
+    <a class="foot-link" href="fermafia.html">OPEN THE FULL ARCHIVE — <span id="all-count">178</span> CREATORS →</a>
+  </div>
 </div></section>
 
 <section style="border-top:1px solid var(--rule)"><div class="wrap reveal">
@@ -303,13 +306,17 @@ const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV
 const dayOf = iso => { const [,m,d] = iso.split("-").map(Number); return MONTHS[m-1] + " " + d; };
 function renderLatest(d){
   const wk = Math.max(...d.creators.flatMap(c => c.contributions.map(x => x.week_label)));
-  const rows = d.creators.flatMap(c => c.contributions
+  const rows = d.creators.filter(c => !c.suspended).flatMap(c => c.contributions
       .filter(x => x.week_label === wk)
       .map(x => ({handle:c.display_handle, avatar:c.display_handle.toLowerCase(), tier:x.tier, date:x.announcement_date})));
   const sel = rows.filter(r => r.tier === "spotlight");
-  const hm  = rows.filter(r => r.tier !== "spotlight");
+  const hm  = rows.filter(r => r.tier === "honourable_mention");
+  const collabs = rows.filter(r => r.tier === "collab");
 
   document.getElementById("week-label").textContent = "WEEK " + String(wk).padStart(2,"0");
+  const weekLink = document.getElementById("latest-week-link");
+  weekLink.href = `week/${wk}.html`;
+  weekLink.textContent = `OPEN WEEK ${wk} →`;
 
   const item = (r, isSel) => {
     const profile = `c/${encodeURIComponent(r.avatar)}`;
@@ -319,7 +326,7 @@ function renderLatest(d){
         <img class="latest-avatar" src="avatars/${encodeURIComponent(r.avatar)}.jpg" alt="" loading="lazy"
              onerror="this.hidden=true">
       </span>
-      <span class="sq${isSel ? "" : " hm"}"></span>
+      <span class="sq${isSel ? "" : r.tier === "collab" ? " collab" : " hm"}"></span>
       <span class="latest-handle">@${r.handle}</span>
       ${isSel ? `<span class="w">${dayOf(r.date)}</span>` : ""}
     </a>`;
@@ -331,12 +338,13 @@ function renderLatest(d){
 
   document.getElementById("latest-groups").innerHTML =
     group("SELECTED", sel, true, false) +
-    group("HONOURABLE MENTIONS", hm, false, true);
+    group("HONOURABLE MENTIONS", hm, false, true) +
+    group("COLLAB OF THE WEEK", collabs, false, true);
 
   const chips = document.getElementById("fermafia-chips");
-  if (chips) chips.innerHTML = sel.concat(hm).slice(0,5)
+  if (chips) chips.innerHTML = sel.concat(hm, collabs).slice(0,5)
     .map(r => `<span class="chip${r.tier === "spotlight" ? " on" : ""}">@${r.handle}</span>`)
-    .join("") + `<span class="chip">+${d.creators.length - 5} more</span>`;
+    .join("") + `<span class="chip">+${d.source_summary.unique_creators - 5} more</span>`;
 }
 
 function paintArchive(d){

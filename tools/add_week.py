@@ -30,6 +30,7 @@ from datetime import date
 LINK = re.compile(r"https?://(?:www\.)?(?:x|twitter)\.com/([A-Za-z0-9_]+)/status/(\d+)")
 WEEK_HEAD = re.compile(r"Creators?\s+for\s+the\s+[Ww]eek\s*#?\s*(\d+)")
 MENTION_HEAD = re.compile(r"Honou?rable\s+Mentions?", re.I)
+COLLAB_HEAD = re.compile(r"Collab(?:oration)?\s+of\s+the\s+week", re.I)
 SUSPENDED = re.compile(r"suspend|deleted|not\s*found", re.I)
 
 
@@ -48,6 +49,10 @@ def parse(text, week=None, day=None):
             continue
         if WEEK_HEAD.search(line):
             tier = "spotlight"
+            continue
+        if COLLAB_HEAD.search(line):
+            if tier == "honourable_mention":
+                tier = "collab"
             continue
         if SUSPENDED.search(line) and not LINK.search(line):
             skipped += 1
@@ -106,6 +111,7 @@ def main():
         t = Counter(c["tier"] for c in cr["contributions"])
         cr["spotlight_count"] = t["spotlight"]
         cr["honourable_mention_count"] = t["honourable_mention"]
+        cr["collab_count"] = t["collab"]
         cr["first_week"] = cr["contributions"][0]["week_label"]
         cr["last_week"] = cr["contributions"][-1]["week_label"]
     creators.sort(key=lambda c: (-c["spotlight_count"], -c["honourable_mention_count"],
@@ -116,9 +122,10 @@ def main():
     ss["week_dates"] = {k: ss["week_dates"][k] for k in sorted(ss["week_dates"], key=int)}
     ss["weeks"] = sorted(int(k) for k in ss["week_dates"])
     ss["announcements"] = len(ss["weeks"])
-    ss["spotlight_selections"] = sum(c["spotlight_count"] for c in creators)
-    ss["honourable_mentions"] = sum(c["honourable_mention_count"] for c in creators)
-    ss["unique_creators"] = len(creators)
+    active = [c for c in creators if not c.get("suspended")]
+    ss["spotlight_selections"] = sum(c["spotlight_count"] for c in active)
+    ss["honourable_mentions"] = sum(c["honourable_mention_count"] for c in active)
+    ss["unique_creators"] = len(active)
     seed["creators"] = creators
 
     print(f"week {week} ({day})")

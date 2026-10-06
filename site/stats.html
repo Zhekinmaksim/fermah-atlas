@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Season statistics — Fermah Atlas</title>
+<meta name="description" content="Every Fermah Community Spotlight, counted: streaks, comebacks, tier-ups and the weekly intake of new creators.">
+<meta property="og:title" content="Fermah Community Spotlight — season statistics">
+<meta property="og:description" content="Streaks, comebacks, tier-ups and new creators, week by week.">
+<meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
+<link rel="canonical" href="https://fermahatlas.xyz/stats">
+<meta property="og:url" content="https://fermahatlas.xyz/stats">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001030">
+<link rel="icon" href="brand/atlas-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body class="stats-page">
+
+<section class="wrap reveal" style="padding-block:clamp(76px,9vh,124px) clamp(36px,4.5vh,56px)">
+  <p class="eyebrow">Season 01 · statistics</p>
+  <h1>What the announcements add up to.</h1>
+  <p class="lede">The runs, returns and first appearances behind Fermah’s Community Spotlight.
+    The season, week by week.</p>
+  <div class="stats">
+    <span><b class="teal" id="s-weeks">22</b>WEEKS</span>
+    <span><b id="s-creators">178</b>CREATORS</span>
+    <span><b id="s-sel">109</b>SELECTIONS</span>
+    <span><b id="s-men">279</b>MENTIONS</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <div class="sec-head">
+    <div>
+      <p class="eyebrow">Week by week</p>
+      <h2 class="sec" style="margin-bottom:0">Every announcement, and who was new in it.</h2>
+    </div>
+    <p class="week" id="s-last">—</p>
+  </div>
+  <div class="st-chart-scroll"><div class="st-chart" id="st-chart"></div></div>
+  <div class="st-legend">
+    <span><i class="sel"></i>selected</span>
+    <span><i class="men"></i>mentioned</span>
+    <span><i class="new"></i>new to the archive</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <div class="st-grid">
+    <div class="panelbox">
+      <div class="head"><span>LONGEST SELECTION RUNS</span><b>WEEKS IN A ROW</b></div>
+      <ol class="st-list" id="st-runs"></ol>
+    </div>
+    <div class="panelbox">
+      <div class="head"><span>MOST SELECTIONS</span><b>ALL TIME</b></div>
+      <ol class="st-list" id="st-leaders"></ol>
+    </div>
+    <div class="panelbox">
+      <div class="head"><span>LONGEST APPEARANCE RUNS</span><b>ANY TIER</b></div>
+      <ol class="st-list" id="st-appear"></ol>
+    </div>
+    <div class="panelbox">
+      <div class="head"><span>LONGEST GAPS</span><b>AND THE COMEBACK</b></div>
+      <ol class="st-list" id="st-gaps"></ol>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <div class="st-grid two">
+    <div>
+      <p class="eyebrow">Moving up</p>
+      <h2 class="sec">Mentioned one week, selected the next.</h2>
+      <p class="sec" id="st-tierup-lede"></p>
+      <div class="st-chips" id="st-tierups"></div>
+    </div>
+    <div>
+      <p class="eyebrow">How people stay</p>
+      <h2 class="sec">Some appear once. Others keep coming back.</h2>
+      <p class="sec" id="st-spread-lede"></p>
+      <div class="st-spread" id="st-spread"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap reveal">
+  <p class="eyebrow">Every week</p>
+  <h2 class="sec">One page per announcement.</h2>
+  <div class="st-weeks" id="st-weeks"></div>
+  <p class="stats-note">Counts exclude suspended accounts. A selection outranks a mention within
+    the same week; a separate collab credit still counts as an appearance. Collab participants are
+    credited only when an earlier official announcement identified their X handle.</p>
+</section>
+
+<script src="data/seed.js"></script>
+<script src="data/stats.js"></script>
+<script src="assets/atlas.js"></script>
+<script src="assets/assistant.js"></script>
+<script src="assets/music.js"></script>
+<script>
+const safe = (l, fn) => { try { fn(); } catch (e) { console.error(l, e); } };
+safe("chrome", () => mountChrome("stats.html"));
+safe("reveal", () => mountReveal());
+safe("fresh",  () => mountFreshness(window.SEED));
+
+const S = window.STATS;
+const page = h => "c/" + h.toLowerCase() + ".html";
+const who = h => `<a href="${page(h)}">@${h}</a>`;
+const wk = n => `<a href="week/${n}.html">W${String(n).padStart(2, "0")}</a>`;
+
+safe("head", () => {
+  document.getElementById("s-weeks").textContent = S.per_week.length;
+  document.getElementById("s-creators").textContent = S.creators;
+  document.getElementById("s-sel").textContent = S.selections;
+  document.getElementById("s-men").textContent = S.mentions;
+  document.getElementById("s-last").textContent = "THROUGH WEEK " + S.last_week;
+});
+
+safe("chart", () => {
+  const max = Math.max(1, ...S.per_week.map(w => Math.max(w.selected + w.mentioned, w.new)));
+  const chart = document.getElementById("st-chart");
+  chart.style.setProperty("--weeks", S.per_week.length);
+  const bars = S.per_week.map(w => {
+    const hSel = (w.selected / max) * 100, hMen = (w.mentioned / max) * 100;
+    const label = `Week ${w.week}: ${w.selected} selected, ${w.mentioned} mentioned, ${w.new} new`;
+    return `<a class="col" href="week/${w.week}.html" title="${label}" aria-label="${label}">
+      <span class="bar">
+        <i class="men" style="height:${hMen}%"></i>
+        <i class="sel" style="height:${hSel}%"></i>
+      </span>
+      <span class="n">${w.week}</span></a>`;
+  }).join("");
+  const points = S.per_week.map((w, i) => [
+    (i + .5) / S.per_week.length * 1000, 100 - w.new / max * 100,
+  ]);
+  chart.innerHTML = bars + `<svg class="st-intake" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <polyline points="${points.map(p => p.join(",")).join(" ")}"/>
+  </svg>`;
+});
+
+safe("lists", () => {
+  document.getElementById("st-runs").innerHTML = S.selection_runs.slice(0, 8).map(r =>
+    `<li>${who(r.handle)}<span class="v">${r.length}</span>
+       <span class="m">${wk(r.from)}–${wk(r.to)}${r.active ? " · <em>active</em>" : ""}</span></li>`).join("");
+  document.getElementById("st-leaders").innerHTML = S.leaders.slice(0, 8).map(r =>
+    `<li>${who(r.handle)}<span class="v">${r.selected}</span>
+       <span class="m">${r.weeks} weeks in the record</span></li>`).join("");
+  document.getElementById("st-appear").innerHTML = S.appearance_runs.slice(0, 8).map(r =>
+    `<li>${who(r.handle)}<span class="v">${r.length}</span>
+       <span class="m">${wk(r.from)}–${wk(r.to)}${r.active ? " · <em>active</em>" : ""}</span></li>`).join("");
+  document.getElementById("st-gaps").innerHTML = S.gaps.slice(0, 8).map(g =>
+    `<li>${who(g.handle)}<span class="v">${g.weeks}</span>
+       <span class="m">gone after ${wk(g.from)}, back in ${wk(g.back)}</span></li>`).join("");
+});
+
+safe("tierups", () => {
+  document.getElementById("st-tierup-lede").textContent =
+    `${S.tierup_total} times this season someone went from an honourable mention to the selected list the very next week. The most recent:`;
+  document.getElementById("st-tierups").innerHTML = S.tierups.map(t =>
+    `<a class="chip" href="week/${t.week}.html">@${t.handle} <span>W${t.week}</span></a>`).join("");
+});
+
+safe("spread", () => {
+  const entries = Object.entries(S.spread).map(([k, v]) => [Number(k), v]);
+  const max = Math.max(...entries.map(e => e[1]));
+  document.getElementById("st-spread-lede").textContent =
+    `${S.one_timers} of ${S.creators} creators have appeared exactly once. ${S.came_back} came back at least one more time.`;
+  document.getElementById("st-spread").innerHTML = entries.map(([n, v]) =>
+    `<div class="row"><span class="k">${n} ${n === 1 ? "week" : "weeks"}</span>
+       <span class="track"><i style="width:${(v / max) * 100}%"></i></span>
+       <span class="v">${v}</span></div>`).join("");
+});
+
+safe("weeks", () => {
+  document.getElementById("st-weeks").innerHTML = S.per_week.slice().reverse().map(w =>
+    `<a class="st-week mark-corners" href="week/${w.week}.html">
+       <span class="no">W${String(w.week).padStart(2, "0")}</span>
+       <span class="d">${w.date}</span>
+       <span class="c">${w.selected} · ${w.mentioned} · <em>${w.new} new</em></span></a>`).join("");
+});
+</script>
+</body>
+</html>

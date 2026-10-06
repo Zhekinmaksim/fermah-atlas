@@ -105,7 +105,7 @@ def mono_w(text, size):
 
 
 def legend(y):
-    items = [("dash", "no announcement"), ("outline", "mentioned"), ("fill", "selected")]
+    items = [("dash", "no announcement"), ("collab", "collab"), ("outline", "mentioned"), ("fill", "selected")]
     out, x_right = [], MAIN_R
     for kind, label in items:
         sw_x = x_right - mono_w(label, 12) - 18
@@ -114,6 +114,9 @@ def legend(y):
         elif kind == "outline":
             out.append(f'<rect x="{sw_x + 1:.1f}" y="{y - 8}" width="9" height="9" fill="none" '
                        f'stroke="{TEAL}" stroke-width="2"/>')
+        elif kind == "collab":
+            out.append(f'<rect x="{sw_x + 1:.1f}" y="{y - 8}" width="9" height="9" fill="none" '
+                       f'stroke="#6E9FB8" stroke-width="2" stroke-dasharray="2 2"/>')
         else:
             out.append(f'<rect x="{sw_x:.1f}" y="{y - 7}" width="11" height="4" fill="{DASH}"/>')
         out.append(f'<text x="{x_right:.1f}" y="{y}" font-family="{MONO}" font-size="12" '
@@ -133,11 +136,12 @@ def card_svg(creator, weeks, week_dates):
     contribs = sorted(creator["contributions"], key=lambda c: c["week_label"])
     spot = creator["spotlight_count"]
     hm = creator["honourable_mention_count"]
-    total_recognitions = spot + hm
+    total_recognitions = spot + hm + creator.get("collab_count", 0)
 
     by_week = {}
+    rank = {"spotlight": 3, "honourable_mention": 2, "collab": 1}
     for c in contribs:
-        if by_week.get(c["week_label"]) != "spotlight":
+        if rank[c["tier"]] > rank.get(by_week.get(c["week_label"]), 0):
             by_week[c["week_label"]] = c["tier"]
 
     longest = run = 0
@@ -189,8 +193,9 @@ def card_svg(creator, weeks, week_dates):
             f'<rect x="{x}" y="{y - s}" width="{s}" height="{s}" fill="{TEAL}"/>' if is_spot else
             f'<rect x="{x + 0.5}" y="{y - s + 0.5}" width="{s - 1}" height="{s - 1}" fill="none" '
             f'stroke="{TEAL}" stroke-width="2"/>')
+        label = {"spotlight": "selected", "honourable_mention": "mentioned", "collab": "collab"}[ct["tier"]]
         tail = (f'<tspan fill="{DIMMER}">  ·  </tspan><tspan fill="{GRAY}">'
-                f'{"selected" if is_spot else "mentioned"}</tspan>') if verbose else ""
+                f'{label}</tspan>') if verbose else ""
         log.append(
             f'<text x="{x + s + 9}" y="{y}" font-family="{MONO}" font-size="{size}" fill="{WHITE}">'
             f'W{ct["week_label"]:02d}<tspan fill="{DIMMER}">  ·  </tspan>'
@@ -224,6 +229,11 @@ def card_svg(creator, weeks, week_dates):
             cells.append(f'<rect x="{x + 1.5:.1f}" y="{base_y - h + 1.5:.1f}" '
                          f'width="{cell_w - 3:.1f}" height="{h - 3:.1f}" fill="none" '
                          f'stroke="{TEAL}" stroke-width="3"/>')
+        elif t == "collab":
+            h = CHART_H * 0.45
+            cells.append(f'<rect x="{x + 1.5:.1f}" y="{base_y - h + 1.5:.1f}" '
+                         f'width="{cell_w - 3:.1f}" height="{h - 3:.1f}" fill="none" '
+                         f'stroke="#6E9FB8" stroke-width="3" stroke-dasharray="4 3"/>')
         elif wk in week_dates:
             cells.append(f'<rect x="{x:.1f}" y="{base_y - 7}" width="{cell_w:.1f}" '
                          f'height="7" fill="{DIM}"/>')
@@ -261,7 +271,7 @@ def card_svg(creator, weeks, week_dates):
     cells.append(f'<path d="{" ".join(path)}" fill="none" stroke="{WHITE}" stroke-width="2" '
                  f'stroke-opacity="0.85" stroke-linejoin="round"/>')
     cells.append(f'<text x="{MAIN_R}" y="{ly(total) - 10:.1f}" font-family="{MONO}" '
-                 f'font-size="13" fill="{WHITE}" text-anchor="end">{total} total</text>')
+                 f'font-size="13" fill="{WHITE}" text-anchor="end">{total} weeks</text>')
     cells.append(f'<rect x="{PAD_L}" y="{base_y}" width="{COL_W}" height="1" fill="{RULE}"/>')
 
     av = avatar_href(handle)
@@ -322,6 +332,7 @@ def main():
     ap.add_argument("--only", nargs="*")
     ap.add_argument("--svg-only", action="store_true",
                     help="write SVG files without rendering PNGs")
+    ap.add_argument("--png-only", action="store_true", help="write only PNG files for site deployment")
     args = ap.parse_args()
 
     seed = json.load(open(args.seed))
@@ -337,7 +348,9 @@ def main():
     for c in creators:
         svg = card_svg(c, weeks, week_dates)
         stem = os.path.join(args.out, c["display_handle"].lower())
-        open(stem + ".svg", "w").write(svg)
+        if not args.png_only:
+            with open(stem + ".svg", "w") as output:
+                output.write(svg)
         if args.svg_only:
             continue
         if cairosvg is None:

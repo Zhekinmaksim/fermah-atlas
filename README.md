@@ -6,11 +6,13 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 
 | file | what it is |
 |---|---|
-| `index.html` | hero, four doors, what Fermah is, ecosystem graph, latest spotlight, sources |
+| `index.html` | hero, team and backing, five doors, ecosystem graph, latest spotlight, sources |
 | `powered.html` | Powered by Fermah — production and announced integrations |
 | `flashcast-season-01.html` | Flashcast Ignition — week-by-week Season 01 chronicle |
 | `built-with.html` | Built with Fermah — projects on Fermah's architecture, plus the submit form |
-| `fermafia.html` | Fermafia — 183 creators, searchable, card + post + download |
+| `fermafia.html` | Fermafia — 178 active creators, searchable, card + post + download |
+| `stats.html` | season statistics: weekly intake, runs, comebacks, tier-ups and retention |
+| `week/<n>.html` | one static page per announcement, with its own OG metadata |
 | `operators.html` | Operators — the supply side and the on-chain node registry |
 | `play.html` | Play with Fermah — question of the day, memory, 2048 |
 | `c/<handle>.html` | one page per creator, own title and own og:image |
@@ -23,6 +25,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 - `assets/hero.js` — the pixel backdrop.
 - `assets/site.css` — brand tokens (`#001030`, `#06C19D`) and all styles.
 - `data/seed.js` — the Spotlight record, loaded as a script so the site works from disk too.
+- `data/stats.js`, `data/stats.json` — statistics generated from the same seed.
 - `data/ignition.js` — Flashcast Ignition Season 01 weeks, quests and featured markets.
 - `cards/`, `brand/` — creator cards and logo assets.
 - `api/scores.js` — shared leaderboard (optional, see below).
@@ -43,16 +46,28 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 ## Weekly update
 
 ```
-python add_week.py --text w18.txt          # updates the seed and all cards
-cp seed.json site/data/seed.json
-python gen_pages.py --seed site/data/seed.json --site site   # creator pages + sitemap
-python -c "import json;d=json.load(open('site/data/seed.json'));open('site/data/seed.js','w').write('window.SEED = '+json.dumps(d,ensure_ascii=False,separators=(',',':'))+';')"
+python3 tools/add_week.py --text tools/week23.txt --seed site/data/seed.json --date YYYY-MM-DD --no-cards
+python3 tools/gen_cards.py --seed site/data/seed.json --out site/cards --png-only
+python3 tools/gen_pages.py --seed site/data/seed.json --site site
+python3 tools/gen_weeks.py --site site
 node tools/update_home_fallback.mjs
-cp cards/*.png site/cards/
 node site/tools/build_assistant_index.mjs
 ```
 
 Counts, the creator list, the latest-spotlight block and the timelines all follow the seed.
+
+Card rendering requires CairoSVG and native Cairo. `gen_weeks.py` writes both statistics
+formats, all week pages, the seed script, static counter fallbacks and the final sitemap.
+Run it after `gen_pages.py`, which also writes a sitemap.
+
+Suspended accounts retain historical pages but are excluded from public aggregate counts.
+The archive has 183 historical profiles, of which 178 are active. Separate collaboration
+credits are not mentions. A collaboration inside the selected list counts as a selection.
+Only participants whose X identity is established by an official announcement receive
+credit; two unidentified collaborators remain uncredited. The rule is recorded in the seed.
+
+Checks: `python3 tools/test_weeks.py`, `python3 tools/test_archive.py` and
+`node site/tools/test_assistant_team.mjs`.
 
 ## The shark assistant
 

@@ -10,7 +10,7 @@ let html = fs.readFileSync(indexPath, "utf8");
 const latestWeek = Math.max(
   ...seed.creators.flatMap((creator) => creator.contributions.map((item) => item.week_label)),
 );
-const rows = seed.creators.flatMap((creator) =>
+const rows = seed.creators.filter(creator => !creator.suspended).flatMap((creator) =>
   creator.contributions
     .filter((item) => item.week_label === latestWeek)
     .map((item) => ({
@@ -29,8 +29,9 @@ const day = (iso) => {
 
 const item = (row, selected) => {
   const hm = selected ? "" : " hm";
+  const square = selected ? "" : row.tier === "collab" ? " collab" : " hm";
   const date = selected ? `<span class="w">${day(row.date)}</span>` : "";
-  return `      <a class="latest-item${hm}" href="c/${row.slug}" aria-label="Open @${row.handle} creator card"><span class="latest-avatar-link" aria-hidden="true"><img class="latest-avatar" src="avatars/${row.slug}.jpg" alt="" loading="lazy"></span><span class="sq${hm}"></span><span class="latest-handle">@${row.handle}</span>${date}</a>`;
+  return `      <a class="latest-item${hm}" href="c/${row.slug}" aria-label="Open @${row.handle} creator card"><span class="latest-avatar-link" aria-hidden="true"><img class="latest-avatar" src="avatars/${row.slug}.jpg" alt="" loading="lazy"></span><span class="sq${square}"></span><span class="latest-handle">@${row.handle}</span>${date}</a>`;
 };
 
 const group = (label, list, selected, later = false) => [
@@ -41,11 +42,13 @@ const group = (label, list, selected, later = false) => [
 ].join("\n");
 
 const selected = rows.filter((row) => row.tier === "spotlight");
-const mentions = rows.filter((row) => row.tier !== "spotlight");
+const mentions = rows.filter((row) => row.tier === "honourable_mention");
+const collaborations = rows.filter((row) => row.tier === "collab");
 const latest = [
   '  <div id="latest-groups">',
   group("SELECTED", selected, true),
   group("HONOURABLE MENTIONS", mentions, false, true),
+  ...(collaborations.length ? [group("COLLAB OF THE WEEK", collaborations, false, true)] : []),
   "  </div>",
 ].join("\n");
 
@@ -57,7 +60,9 @@ function replaceOne(pattern, replacement, label) {
 
 replaceOne(/<b id="c-fermafia">\d+<\/b>/, `<b id="c-fermafia">${seed.source_summary.unique_creators}</b>`, "door count");
 replaceOne(/<p class="week" id="week-label">WEEK \d+<\/p>/, `<p class="week" id="week-label">WEEK ${latestWeek}</p>`, "week label");
-replaceOne(/  <div id="latest-groups">[\s\S]*?\n  <\/div>\n  <a class="foot-link"/, `${latest}\n  <a class="foot-link"`, "latest groups");
+replaceOne(/  <div id="latest-groups">[\s\S]*?\n  <\/div>(?=\n  <div class="latest-links">)/, latest, "latest groups");
+replaceOne(/<a class="btn" id="latest-week-link" href="week\/\d+\.html">OPEN WEEK \d+ →<\/a>/,
+  `<a class="btn" id="latest-week-link" href="week/${latestWeek}.html">OPEN WEEK ${latestWeek} →</a>`, "week link");
 replaceOne(/<span id="all-count">\d+<\/span>/, `<span id="all-count">${seed.source_summary.unique_creators}</span>`, "archive count");
 
 fs.writeFileSync(indexPath, html);
