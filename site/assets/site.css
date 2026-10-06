@@ -949,6 +949,11 @@ a.entity:hover{border-color:var(--rule)}          /* the corners carry the hover
 /* Season statistics and the per-announcement archive. */
 .sq.collab{background:none;border:1px dashed #6E9FB8}
 .record-kind{font:10px/1.5 var(--mono);color:var(--gray)}
+.recognition-avatar{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  flex:none;width:32px;height:32px;overflow:hidden;background:var(--ghost);
+  color:var(--gray);font:11px/1 var(--mono);letter-spacing:0}
+.recognition-avatar img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.recognition-avatar img[hidden]{display:none}
 .archive-stats-link{max-width:940px;margin:0 auto 22px}
 .latest-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:28px}
 .latest-links .foot-link{margin-top:0}
@@ -981,39 +986,54 @@ a.entity:hover{border-color:var(--rule)}          /* the corners carry the hover
 .st-grid.two{gap:48px}
 ol.st-list{list-style:none;margin:0;padding:0}
 ol.st-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;
-  padding:11px 0;border-bottom:1px solid var(--rule);font:14px/1.6 var(--mono)}
+  padding:8px 0;border-bottom:1px solid var(--rule);font:14px/1.6 var(--mono)}
 ol.st-list li:last-child{border-bottom:0}
 ol.st-list li>a{color:var(--white);overflow-wrap:anywhere}
 ol.st-list a:hover{color:var(--teal)}
 ol.st-list .v{font:700 22px/1.2 var(--display);color:var(--teal);grid-row:span 2;align-self:center}
-ol.st-list .m{font-size:11px;color:var(--gray);letter-spacing:0}
+ol.st-list .m{font-size:11px;color:var(--gray);letter-spacing:0;padding-left:42px}
 ol.st-list .m a{color:var(--gray)}
 ol.st-list em{color:var(--teal);font-style:normal}
 .st-chips{display:flex;flex-wrap:wrap;gap:8px}
 .st-chips .chip{font-size:12px;letter-spacing:0;padding:7px 10px;color:var(--gray);overflow-wrap:anywhere}
-.st-chips .chip span{color:var(--teal);margin-left:6px}
+.st-chips .chip .st-chip-week{color:var(--teal);margin-left:2px;white-space:nowrap}
+.st-person{display:flex;align-items:center;gap:10px;min-width:0}
+.st-handle{min-width:0;overflow-wrap:anywhere}
+.st-tierup{display:inline-flex;align-items:center;gap:8px;max-width:100%}
+.st-tierup .recognition-avatar{width:24px;height:24px;font-size:9px}
 .st-spread .row{display:grid;grid-template-columns:76px minmax(0,1fr) 40px;gap:12px;align-items:center;
   padding:6px 0;font:12px/1.6 var(--mono);color:var(--gray)}
 .st-spread .track{height:10px;background:var(--ghost)}
 .st-spread .track i{display:block;height:100%;background:var(--teal)}
 .st-spread .v{text-align:right;color:var(--white)}
-.st-weeks{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
-.st-week{display:flex;flex-direction:column;gap:6px;padding:16px 18px;border:1px solid var(--rule);
+.st-weeks{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr))}
+.st-week{display:flex;flex-direction:column;gap:8px;min-width:0;padding:10px 12px;border:1px solid var(--rule);
   background:var(--navy-2);border-radius:2px}
-.st-week .no{font:700 24px/1.2 var(--display);color:var(--white)}
-.st-week .d{font:11px/1.6 var(--mono);color:var(--gray);letter-spacing:0}
-.st-week .c{font:12px/1.6 var(--mono);color:var(--gray)}
+.st-week-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.st-week .no{font:700 18px/1.2 var(--display);color:var(--white)}
+.st-week .d{font:10px/1.6 var(--mono);color:var(--gray);letter-spacing:0;white-space:nowrap}
+.st-week .c{display:flex;flex-wrap:wrap;gap:2px 8px;font:10px/1.5 var(--mono);color:var(--gray)}
+.st-week .c>span,.st-week .c>em{white-space:nowrap}
+.st-week-faces{display:flex;align-items:center;gap:4px;min-height:22px}
+.st-week-faces .recognition-avatar{width:22px;height:22px;font-size:8px}
+.st-more{font:10px/1.5 var(--mono);color:var(--gray)}
 .st-week em{color:var(--teal);font-style:normal}
-.week-page h1{font-size:64px;letter-spacing:0;margin:14px 0}
+.week-page h1{font-size:48px;letter-spacing:0;margin:10px 0}
+.week-page section.wrap{padding-block:24px}
+.week-page section.week-hero{padding-top:36px}
+.week-page .stats{margin-top:16px;gap:24px}
+.week-page .stats b{font-size:28px}
 .wk-list{display:grid;gap:0;border-top:1px solid var(--rule);margin-top:6px}
-.wk-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 14px;
-  padding:16px 0;border-bottom:1px solid var(--rule);font:15px/1.6 var(--mono)}
-.wk-row .nm{min-width:0;overflow-wrap:anywhere}
-.wk-row .nm a{color:var(--white)}
-.wk-row .nm a:hover{color:var(--teal)}
-.wk-tag{font-size:10px;letter-spacing:0;text-transform:uppercase;color:var(--teal);
-  border:1px solid rgba(6,193,157,.35);padding:2px 7px;border-radius:2px;grid-column:1;width:fit-content}
-.wk-row .post{grid-column:2;grid-row:1;font-size:11px;color:var(--gray);align-self:center}
+.wk-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;
+  padding:6px 0;border-bottom:1px solid var(--rule);font:13px/1.6 var(--mono)}
+.wk-row .nm{display:flex;align-items:center;gap:10px;min-width:0;min-height:32px;color:var(--white)}
+.wk-row .nm:hover{color:var(--teal)}
+.wk-identity{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;min-width:0}
+.wk-handle{min-width:0;overflow-wrap:anywhere}
+.wk-tag{font-size:9px;line-height:1.5;letter-spacing:0;text-transform:uppercase;color:var(--teal);
+  border:1px solid rgba(6,193,157,.35);padding:1px 5px;border-radius:2px;width:fit-content}
+.wk-row .post{display:inline-flex;align-items:center;min-height:32px;grid-column:2;grid-row:1;
+  font-size:11px;color:var(--gray);align-self:center;white-space:nowrap}
 .wk-row .post:hover{color:var(--teal)}
 .wk-nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .wk-collab{margin-top:34px}
@@ -1025,6 +1045,10 @@ ol.st-list em{color:var(--teal);font-style:normal}
 @media (max-width:640px){
   .stats-page h1{font-size:32px}
   .week-page h1{font-size:34px}
+  .week-page section.week-hero{padding-top:28px}
+  .week-page .stats{gap:20px}
+  .week-page .stats b{font-size:24px}
+  .wk-row .recognition-avatar{width:28px;height:28px}
   .st-chart{height:210px;gap:4px}
   .st-grid.two{gap:32px}
 }

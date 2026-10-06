@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from gen_weeks import build_stats, build_weeks, validate_seed
+from gen_weeks import build_stats, build_weeks, validate_seed, week_row
 
 
 def record(handle, items, suspended=False):
@@ -58,6 +58,16 @@ class WeekTests(unittest.TestCase):
         broken["creators"][0]["contributions"][0]["x_url"] = "https://x.com/https:/status/"
         with self.assertRaisesRegex(ValueError, "Invalid post URL"):
             validate_seed(broken)
+
+    def test_avatar_and_compact_identity(self):
+        entry = self.seed["creators"][0]["contributions"][0]
+        html = week_row("Alice", entry, "first time", True, True)
+        self.assertIn('src="../avatars/alice.jpg"', html)
+        self.assertIn('class="wk-identity"', html)
+        self.assertIn('class="nm" href="../c/alice.html"', html)
+        fallback = week_row("Bob", entry, "", True, False)
+        self.assertIn('<span>BO</span>', fallback)
+        self.assertNotIn("<img", fallback)
 
     def test_duplicate_identity_rejected(self):
         broken = copy.deepcopy(self.seed)

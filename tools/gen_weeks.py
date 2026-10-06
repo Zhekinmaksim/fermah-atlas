@@ -153,7 +153,7 @@ WEEK_PAGE = """<!DOCTYPE html>
 </head>
 <body class="week-page">
 
-<section class="wrap" style="padding-block:clamp(64px,8vh,104px) clamp(28px,4vh,44px)">
+<section class="wrap week-hero">
   <p class="eyebrow">Community Spotlight · {date}</p>
   <h1>Week {wk}.</h1>
   <p class="lede">{lede}</p>
@@ -205,13 +205,19 @@ try {{ mountFreshness(window.SEED); }} catch (e) {{}}
 """
 
 
-def week_row(h, entry, note, has_page):
+def week_row(h, entry, note, has_page, has_avatar=False):
     link = f'../c/{h.lower()}.html' if has_page else None
-    name = (f'<a href="{link}">@{escape(h)}</a>' if link else f'@{escape(h)}')
+    image = (f'<img src="../avatars/{h.lower()}.jpg" alt="" width="32" height="32" '
+             'loading="lazy" onerror="this.hidden=true">') if has_avatar else ""
+    avatar = (f'<span class="recognition-avatar" aria-hidden="true">'
+              f'<span>{escape(h[:2].upper())}</span>{image}</span>')
+    tag = f'<span class="wk-tag">{escape(note)}</span>' if note else ""
+    identity = f'{avatar}<span class="wk-identity"><span class="wk-handle">@{escape(h)}</span>{tag}</span>'
+    name = (f'<a class="nm" href="{link}">{identity}</a>' if link
+            else f'<span class="nm">{identity}</span>')
     post = (f'<a class="post" href="{escape(entry["x_url"], quote=True)}" target="_blank" rel="noopener">post ↗</a>'
             if entry and not entry.get("suspended") else "")
-    tag = f'<span class="wk-tag">{escape(note)}</span>' if note else ""
-    return f'<div class="wk-row"><span class="nm">{name}</span>{tag}{post}</div>'
+    return f'<div class="wk-row">{name}{post}</div>'
 
 
 def build_weeks(seed, rec, stats, site_dir):
@@ -263,13 +269,15 @@ def build_weeks(seed, rec, stats, site_dir):
             return ""
 
         has = lambda h: os.path.exists(os.path.join(pages_dir, h.lower() + ".html"))
-        sel_html = "".join(week_row(h, e, note(h), has(h)) for h, e in sel)
-        men_html = "".join(week_row(h, e, note(h), has(h)) for h, e in men)
+        has_avatar = lambda h: os.path.exists(os.path.join(site_dir, "avatars", h.lower() + ".jpg"))
+        row = lambda h, e: week_row(h, e, note(h), has(h), has_avatar(h))
+        sel_html = "".join(row(h, e) for h, e in sel)
+        men_html = "".join(row(h, e) for h, e in men)
         collab_html = ""
         if collab:
             collab_html = ('<p class="eyebrow wk-collab">Collab of the week</p>'
                            '<div class="wk-list">' +
-                           "".join(week_row(h, e, note(h), has(h)) for h, e in collab) + "</div>"
+                           "".join(row(h, e) for h, e in collab) + "</div>"
                            '<p class="hint">Only participants with an officially identified X handle are credited.</p>')
 
         here = [h for h in rec if w in rec[h]]

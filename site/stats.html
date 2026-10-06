@@ -118,7 +118,11 @@ safe("fresh",  () => mountFreshness(window.SEED));
 
 const S = window.STATS;
 const page = h => "c/" + h.toLowerCase() + ".html";
-const who = h => `<a href="${page(h)}">@${h}</a>`;
+const avatar = h => `<span class="recognition-avatar" aria-hidden="true" title="@${h}">
+  <span>${h.slice(0, 2).toUpperCase()}</span>
+  <img src="avatars/${encodeURIComponent(h.toLowerCase())}.jpg" alt="" width="32" height="32" loading="lazy" onerror="this.hidden=true">
+</span>`;
+const who = h => `<a class="st-person" href="${page(h)}">${avatar(h)}<span class="st-handle">@${h}</span></a>`;
 const wk = n => `<a href="week/${n}.html">W${String(n).padStart(2, "0")}</a>`;
 
 safe("head", () => {
@@ -170,7 +174,7 @@ safe("tierups", () => {
   document.getElementById("st-tierup-lede").textContent =
     `${S.tierup_total} times this season someone went from an honourable mention to the selected list the very next week. The most recent:`;
   document.getElementById("st-tierups").innerHTML = S.tierups.map(t =>
-    `<a class="chip" href="week/${t.week}.html">@${t.handle} <span>W${t.week}</span></a>`).join("");
+    `<a class="chip st-tierup" href="week/${t.week}.html">${avatar(t.handle)}<span class="st-handle">@${t.handle}</span><span class="st-chip-week">W${t.week}</span></a>`).join("");
 });
 
 safe("spread", () => {
@@ -185,11 +189,19 @@ safe("spread", () => {
 });
 
 safe("weeks", () => {
-  document.getElementById("st-weeks").innerHTML = S.per_week.slice().reverse().map(w =>
-    `<a class="st-week mark-corners" href="week/${w.week}.html">
-       <span class="no">W${String(w.week).padStart(2, "0")}</span>
-       <span class="d">${w.date}</span>
-       <span class="c">${w.selected} · ${w.mentioned} · <em>${w.new} new</em></span></a>`).join("");
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  document.getElementById("st-weeks").innerHTML = S.per_week.slice().reverse().map(w => {
+    const selected = window.SEED.creators.filter(c => !c.suspended && c.contributions.some(x =>
+      x.week_label === w.week && x.tier === "spotlight")).map(c => c.display_handle);
+    const [, month, date] = w.date.split("-").map(Number);
+    const extra = selected.length > 5 ? `<span class="st-more">+${selected.length - 5}</span>` : "";
+    return `<a class="st-week mark-corners" href="week/${w.week}.html" aria-label="Week ${w.week}: ${w.selected} selected, ${w.mentioned} mentioned, ${w.new} new">
+      <span class="st-week-head"><span class="no">W${String(w.week).padStart(2, "0")}</span>
+        <time class="d" datetime="${w.date}">${months[month - 1]} ${date}</time></span>
+      <span class="st-week-faces">${selected.slice(0, 5).map(avatar).join("")}${extra}</span>
+      <span class="c"><span>${w.selected} selected</span><span>${w.mentioned} mentioned</span><em>${w.new} new</em></span>
+    </a>`;
+  }).join("");
 });
 </script>
 </body>
