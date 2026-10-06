@@ -10,7 +10,7 @@
  * Set ANTHROPIC_MODEL to override the default model without changing code.
  */
 
-import {ARCHIVE_SUMMARY, DOCUMENTS} from "./knowledge.js";
+import {ARCHIVE_STATS, ARCHIVE_SUMMARY, DOCUMENTS} from "./knowledge.js";
 
 // Sonnet is the default; Vercel can override it with ANTHROPIC_MODEL.
 const MODEL = String(process.env.ANTHROPIC_MODEL || "claude-sonnet-5").trim();
@@ -129,6 +129,33 @@ const KB = [
   {
     k: "stats statistics streak streaks series season weekly run runs appearance appearances newcomers comeback comebacks gap gaps tierup retention статистика серии новички перерывы возвращения",
     t: "The Atlas statistics page computes selection streaks, consecutive appearances, comeback gaps, next-week mention-to-selection transitions, newcomers and return rates from the Spotlight seed. Each week has its own page. A separate collaboration credit counts as an appearance but not an honourable mention; selected collaborators are credited as selections. Suspended accounts are excluded from aggregates. Use the indexed statistics records for the actual names and numbers.",
+    src: "https://fermahatlas.xyz/stats",
+  },
+  {
+    k: "longest selection streak streaks selected consecutive run runs series серия серии попаданий подряд",
+    t: "Longest selection streaks in the current Atlas archive: " + ARCHIVE_STATS.selection_runs.slice(0, 4)
+      .map(r => `@${r.handle}: ${r.length} consecutive selected weeks, from week ${r.from} through week ${r.to}${r.active ? " (active)" : ""}`).join("; ") + ".",
+    src: "https://fermahatlas.xyz/stats",
+  },
+  {
+    k: "longest appearance appearances active streak streaks run runs any tier серия появления активная",
+    t: "Longest appearance runs (any recognition type): " + ARCHIVE_STATS.appearance_runs.slice(0, 4)
+      .map(r => `@${r.handle}: ${r.length} consecutive weeks, from week ${r.from} through week ${r.to}`).join("; ") +
+      ". Longest active appearance runs: " + ARCHIVE_STATS.active_appearance_runs.slice(0, 3)
+      .map(r => `@${r.handle}: ${r.length} weeks, from week ${r.from} through week ${r.to}`).join("; ") + ".",
+    src: "https://fermahatlas.xyz/stats",
+  },
+  {
+    k: "longest gap gaps comeback comebacks return returns missing absence prince iamolaniyi перерыв перерывы возвращение",
+    t: "Longest gaps between recorded appearances: " + ARCHIVE_STATS.gaps.slice(0, 3)
+      .map(g => `@${g.handle}: ${g.weeks} missed weeks, last seen in week ${g.from}, back in week ${g.back}`).join("; ") + ".",
+    src: "https://fermahatlas.xyz/stats",
+  },
+  {
+    k: "most selections leaders ranking tierup tierups mention selected next retention returned once one-timers distribution лидеры переходы распределение",
+    t: "Most selection credits: " + ARCHIVE_STATS.leaders.slice(0, 5)
+      .map(r => `@${r.handle}: ${r.selected}`).join("; ") +
+      `. There are ${ARCHIVE_STATS.tierup_total} next-week honourable-mention-to-selection transitions. ${ARCHIVE_STATS.one_timers} of ${ARCHIVE_STATS.creators} active creators appeared in exactly one week; ${ARCHIVE_STATS.came_back} returned in at least one later week.`,
     src: "https://fermahatlas.xyz/stats",
   },
   {
