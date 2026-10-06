@@ -290,6 +290,7 @@ def build_weeks(seed, rec, stats, site_dir):
             sel=sel_html or '<p class="hint">No selections recorded.</p>',
             men=men_html or '<p class="hint">No mentions recorded.</p>',
             collab=collab_html, prev=prev, next=nxt)
+        html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
         with open(os.path.join(site_dir, "week", f"{w}.html"), "w") as output:
             output.write(html)
     return len(weeks)

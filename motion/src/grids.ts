@@ -54,4 +54,3 @@ export const ATLAS_WORD: string[] = [
   "WWW.......WWW.....WWW......WWWWWWWWWWWWW.......WWW..WWWWWWWWW..",
   "WWW.......WWW.....WWW......WWWWWWWWWWWWW.......WWW....WWWWWW...",
 ];
-
