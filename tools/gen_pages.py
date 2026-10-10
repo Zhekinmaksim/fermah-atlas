@@ -52,6 +52,7 @@ PAGE = """<!DOCTYPE html>
   <div class="creator-head">{avatar}
     <h1 style="font-size:clamp(30px,4.6vw,60px);margin:14px 0 10px">@{handle}</h1></div>
   <p class="lede">{summary}</p>
+  {aliases}
 </section>
 
 <section class="wrap" style="padding-block:0 clamp(40px,5vh,72px)">
@@ -117,9 +118,12 @@ def build(seed_path, site_dir):
     os.makedirs(out_dir, exist_ok=True)
 
     written = []
+    current_handles = {c["display_handle"].lower() for c in seed["creators"]}
     for c in seed["creators"]:
         handle = c["display_handle"]
         slug = handle.lower()
+        previous = c.get("previous_handles", [])
+        aliases = (f'<p class="hint">Previously ' + ", ".join(f'@{escape(h)}' for h in previous) + ".</p>") if previous else ""
         card_url = f"../cards/{slug}.png?v={seed['source_summary']['announcements']}-recognition2"
         contribs = sorted(c["contributions"], key=lambda x: x["week_label"])
         desc = summary_of(c)
@@ -162,12 +166,24 @@ def build(seed_path, site_dir):
                    f'href="https://x.com/{handle}">Profile ↗</a>')
 
         html = PAGE.format(handle=escape(handle), slug=slug, desc=escape(desc),
-                           avatar=avatar, actions=actions,
+                           avatar=avatar, actions=actions, aliases=aliases,
                            summary=escape(desc[0].upper() + desc[1:]), big=big,
                            revision=seed["source_summary"]["announcements"],
                            items=items, tweet=tweet, domain=DOMAIN)
+        html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
         open(os.path.join(out_dir, slug + ".html"), "w").write(html)
         written.append(slug)
+        for alias in previous:
+            old_slug = alias.lower()
+            if not re.fullmatch(r"[a-z0-9_]{1,15}", old_slug) or old_slug in current_handles:
+                raise ValueError(f"Invalid or conflicting previous handle: {alias}")
+            redirect = (f'<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">\n'
+                        f'<title>@{escape(alias)} is now @{escape(handle)} — Fermah Atlas</title>\n'
+                        f'<link rel="canonical" href="{DOMAIN}/c/{slug}">\n'
+                        f'<meta http-equiv="refresh" content="0;url={slug}.html">\n'
+                        f'</head><body><a href="{slug}.html">Open @{escape(handle)} and the full Spotlight history</a></body></html>\n')
+            with open(os.path.join(out_dir, old_slug + ".html"), "w") as output:
+                output.write(redirect)
 
     # sitemap + robots
     pages = ["", "powered", "built-with", "fermafia", "operators", "play", "flashcast-season-01"]

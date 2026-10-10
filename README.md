@@ -10,7 +10,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 | `powered.html` | Powered by Fermah — production and announced integrations |
 | `flashcast-season-01.html` | Flashcast Ignition — week-by-week Season 01 chronicle |
 | `built-with.html` | Built with Fermah — projects on Fermah's architecture, plus the submit form |
-| `fermafia.html` | Fermafia — 178 active creators, searchable, card + post + download |
+| `fermafia.html` | Fermafia — 182 active creators, searchable, card + post + download |
 | `stats.html` | season statistics: weekly intake, runs, comebacks, tier-ups and retention |
 | `week/<n>.html` | one static page per announcement, with its own OG metadata |
 | `operators.html` | Operators — the supply side and the on-chain node registry |
@@ -61,7 +61,7 @@ formats, all week pages, the seed script, static counter fallbacks and the final
 Run it after `gen_pages.py`, which also writes a sitemap.
 
 Suspended accounts retain historical pages but are excluded from public aggregate counts.
-The archive has 183 historical profiles, of which 178 are active. Separate collaboration
+The archive has 187 historical profiles, of which 182 are active. Separate collaboration
 credits are not mentions. A collaboration inside the selected list counts as a selection.
 Only participants whose X identity is established by an official announcement receive
 credit; two unidentified collaborators remain uncredited. The rule is recorded in the seed.

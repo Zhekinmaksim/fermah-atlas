@@ -103,7 +103,7 @@ for (const file of files) {
     if (Array.isArray(data.creators)) {
       text = [JSON.stringify(data.source_summary), data.collaboration_policy || "",
         ...data.creators.flatMap(c => [
-          `@${c.display_handle}: ${c.spotlight_count} selected, ${c.honourable_mention_count} mentioned, ${c.collab_count || 0} collab credits. Suspended: ${Boolean(c.suspended)}.`,
+          `@${c.display_handle}${c.previous_handles?.length ? ` (previously ${c.previous_handles.map(h => `@${h}`).join(", ")})` : ""}: ${c.spotlight_count} selected, ${c.honourable_mention_count} mentioned, ${c.collab_count || 0} collab credits. Suspended: ${Boolean(c.suspended)}.`,
           ...c.contributions.map(event => `@${c.display_handle}: ${JSON.stringify(event)}`),
         ])].join("\n");
     } else {

@@ -212,7 +212,8 @@ function render(list){
 
 document.getElementById("q").addEventListener("input", e => {
   const q = e.target.value.trim().toLowerCase().replace(/^@/, "");
-  render(q ? PEOPLE.filter(c => c.display_handle.toLowerCase().includes(q)) : PEOPLE);
+  render(q ? PEOPLE.filter(c => [c.display_handle, ...(c.previous_handles || [])]
+    .some(h => h.toLowerCase().includes(q))) : PEOPLE);
 });
 
 loadSeed().then(d => {
@@ -229,7 +230,9 @@ loadSeed().then(d => {
 
   const want = decodeURIComponent(location.hash.slice(1)).toLowerCase();
   if (want){
-    const el = document.querySelector(`.person[data-handle="${CSS.escape(want)}"]`);
+    const canonical = PEOPLE.find(c => [c.display_handle, ...(c.previous_handles || [])]
+      .some(h => h.toLowerCase() === want))?.display_handle.toLowerCase() || want;
+    const el = document.querySelector(`.person[data-handle="${CSS.escape(canonical)}"]`);
     if (el){ el.querySelector("button").click(); }
   }
 }).catch(() => {

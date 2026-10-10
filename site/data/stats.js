@@ -1,9 +1,9 @@
 window.STATS = {
- "last_week": 22,
- "last_date": "2026-10-04",
- "creators": 178,
- "selections": 109,
- "mentions": 279,
+ "last_week": 23,
+ "last_date": "2026-10-10",
+ "creators": 182,
+ "selections": 114,
+ "mentions": 297,
  "per_week": [
   {
    "week": 1,
@@ -180,6 +180,14 @@ window.STATS = {
    "mentioned": 20,
    "new": 10,
    "returning": 15
+  },
+  {
+   "week": 23,
+   "date": "2026-10-10",
+   "selected": 5,
+   "mentioned": 18,
+   "new": 4,
+   "returning": 19
   }
  ],
  "selection_runs": [
@@ -219,11 +227,25 @@ window.STATS = {
    "active": false
   },
   {
+   "handle": "Manazrealfact",
+   "length": 2,
+   "from": 22,
+   "to": 23,
+   "active": true
+  },
+  {
+   "handle": "ox_elfawzan",
+   "length": 2,
+   "from": 22,
+   "to": 23,
+   "active": true
+  },
+  {
    "handle": "Bilalearn",
    "length": 2,
    "from": 21,
    "to": 22,
-   "active": true
+   "active": false
   },
   {
    "handle": "shantelledore",
@@ -238,56 +260,42 @@ window.STATS = {
    "from": 16,
    "to": 17,
    "active": false
-  },
-  {
-   "handle": "bruno_jr_talent",
-   "length": 2,
-   "from": 16,
-   "to": 17,
-   "active": false
-  },
-  {
-   "handle": "kyBellato",
-   "length": 2,
-   "from": 15,
-   "to": 16,
-   "active": false
   }
  ],
  "active_selection_runs": [
   {
-   "handle": "Bilalearn",
-   "length": 2,
-   "from": 21,
-   "to": 22,
-   "active": true
-  },
-  {
-   "handle": "salmahshh",
-   "length": 1,
-   "from": 22,
-   "to": 22,
-   "active": true
-  },
-  {
-   "handle": "barrandland",
-   "length": 1,
-   "from": 22,
-   "to": 22,
-   "active": true
-  },
-  {
    "handle": "Manazrealfact",
-   "length": 1,
+   "length": 2,
    "from": 22,
-   "to": 22,
+   "to": 23,
    "active": true
   },
   {
    "handle": "ox_elfawzan",
-   "length": 1,
+   "length": 2,
    "from": 22,
-   "to": 22,
+   "to": 23,
+   "active": true
+  },
+  {
+   "handle": "Web3barbiee",
+   "length": 1,
+   "from": 23,
+   "to": 23,
+   "active": true
+  },
+  {
+   "handle": "Moraxweb3",
+   "length": 1,
+   "from": 23,
+   "to": 23,
+   "active": true
+  },
+  {
+   "handle": "blockzen_alpha",
+   "length": 1,
+   "from": 23,
+   "to": 23,
    "active": true
   }
  ],
@@ -300,11 +308,18 @@ window.STATS = {
    "active": false
   },
   {
+   "handle": "Faizan626371",
+   "length": 5,
+   "from": 19,
+   "to": 23,
+   "active": true
+  },
+  {
    "handle": "illfated_fr",
    "length": 5,
    "from": 18,
    "to": 22,
-   "active": true
+   "active": false
   },
   {
    "handle": "Nyuella",
@@ -354,56 +369,49 @@ window.STATS = {
    "from": 4,
    "to": 8,
    "active": false
-  },
-  {
-   "handle": "Faizan626371",
-   "length": 4,
-   "from": 19,
-   "to": 22,
-   "active": true
   }
  ],
  "active_appearance_runs": [
   {
-   "handle": "illfated_fr",
-   "length": 5,
-   "from": 18,
-   "to": 22,
-   "active": true
-  },
-  {
    "handle": "Faizan626371",
-   "length": 4,
+   "length": 5,
    "from": 19,
-   "to": 22,
+   "to": 23,
    "active": true
   },
   {
    "handle": "Bilalearn",
-   "length": 2,
+   "length": 3,
    "from": 21,
-   "to": 22,
+   "to": 23,
    "active": true
   },
   {
    "handle": "Naz___a",
-   "length": 2,
+   "length": 3,
    "from": 21,
-   "to": 22,
+   "to": 23,
    "active": true
   },
   {
-   "handle": "salmahshh",
-   "length": 1,
+   "handle": "Manazrealfact",
+   "length": 2,
    "from": 22,
-   "to": 22,
+   "to": 23,
    "active": true
   },
   {
-   "handle": "barrandland",
-   "length": 1,
+   "handle": "ox_elfawzan",
+   "length": 2,
    "from": 22,
-   "to": 22,
+   "to": 23,
+   "active": true
+  },
+  {
+   "handle": "Moraxweb3",
+   "length": 2,
+   "from": 22,
+   "to": 23,
    "active": true
   }
  ],
@@ -459,6 +467,10 @@ window.STATS = {
  ],
  "tierups": [
   {
+   "handle": "Moraxweb3",
+   "week": 23
+  },
+  {
    "handle": "oldazukii",
    "week": 20
   },
@@ -501,13 +513,9 @@ window.STATS = {
   {
    "handle": "itsmahi778",
    "week": 9
-  },
-  {
-   "handle": "oxkimia",
-   "week": 6
   }
  ],
- "tierup_total": 14,
+ "tierup_total": 15,
  "leaders": [
   {
    "handle": "eam__sha",
@@ -571,13 +579,13 @@ window.STATS = {
   }
  ],
  "spread": {
-  "1": 79,
-  "2": 40,
-  "3": 23,
+  "1": 74,
+  "2": 45,
+  "3": 25,
   "4": 22,
   "5": 10,
-  "6": 4
+  "6": 6
  },
- "one_timers": 79,
- "came_back": 99
+ "one_timers": 74,
+ "came_back": 108
 };

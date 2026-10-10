@@ -59,7 +59,21 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual({x["week_label"] for x in people["prince_swago"]["contributions"]}, {1, 4, 18, 21})
         self.assertIn("0xmerajj", people)
         self.assertIn("0xmerajjj", people)
+        self.assertNotIn("doctordynamite3", people)
+        self.assertIn("DoctorDynamite3", people["ahsan_crypto3"]["previous_handles"])
+        self.assertTrue({21, 23}.issubset({x["week_label"] for x in people["ahsan_crypto3"]["contributions"]}))
         self.assertFalse(re.search(r"<@!?\d+>", json.dumps(self.seed)))
+
+    def test_week23_announcement(self):
+        week = next(w for w in self.stats["per_week"] if w["week"] == 23)
+        self.assertEqual((week["selected"], week["mentioned"], week["new"]), (5, 18, 4))
+        handles = [c["display_handle"].lower() for c in self.seed["creators"] if any(
+            x["week_label"] == 23 for x in c["contributions"])]
+        self.assertEqual(len(handles), 23)
+        for handle in handles:
+            self.assertTrue((SITE / "avatars" / f"{handle}.jpg").exists())
+        redirects = json.loads((SITE / "vercel.json").read_text())["redirects"]
+        self.assertTrue(any(r["source"] == "/c/doctordynamite3" and r["destination"] == "/c/ahsan_crypto3" for r in redirects))
 
     def test_pages_cards_and_local_links(self):
         html_files = list(SITE.glob("*.html")) + list((SITE / "c").glob("*.html")) + list((SITE / "week").glob("*.html"))
