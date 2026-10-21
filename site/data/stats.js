@@ -1,9 +1,9 @@
 window.STATS = {
- "last_week": 23,
- "last_date": "2026-10-10",
- "creators": 182,
- "selections": 114,
- "mentions": 297,
+ "last_week": 24,
+ "last_date": "2026-10-18",
+ "creators": 189,
+ "selections": 119,
+ "mentions": 321,
  "per_week": [
   {
    "week": 1,
@@ -188,6 +188,14 @@ window.STATS = {
    "mentioned": 18,
    "new": 4,
    "returning": 19
+  },
+  {
+   "week": 24,
+   "date": "2026-10-18",
+   "selected": 5,
+   "mentioned": 24,
+   "new": 7,
+   "returning": 22
   }
  ],
  "selection_runs": [
@@ -204,6 +212,13 @@ window.STATS = {
    "from": 18,
    "to": 21,
    "active": false
+  },
+  {
+   "handle": "ox_elfawzan",
+   "length": 3,
+   "from": 22,
+   "to": 24,
+   "active": true
   },
   {
    "handle": "shantelledore",
@@ -227,18 +242,18 @@ window.STATS = {
    "active": false
   },
   {
+   "handle": "blockzen_alpha",
+   "length": 2,
+   "from": 23,
+   "to": 24,
+   "active": true
+  },
+  {
    "handle": "Manazrealfact",
    "length": 2,
    "from": 22,
    "to": 23,
-   "active": true
-  },
-  {
-   "handle": "ox_elfawzan",
-   "length": 2,
-   "from": 22,
-   "to": 23,
-   "active": true
+   "active": false
   },
   {
    "handle": "Bilalearn",
@@ -253,66 +268,59 @@ window.STATS = {
    "from": 20,
    "to": 21,
    "active": false
-  },
-  {
-   "handle": "DEE_0125",
-   "length": 2,
-   "from": 16,
-   "to": 17,
-   "active": false
   }
  ],
  "active_selection_runs": [
   {
-   "handle": "Manazrealfact",
-   "length": 2,
-   "from": 22,
-   "to": 23,
-   "active": true
-  },
-  {
    "handle": "ox_elfawzan",
-   "length": 2,
+   "length": 3,
    "from": 22,
-   "to": 23,
-   "active": true
-  },
-  {
-   "handle": "Web3barbiee",
-   "length": 1,
-   "from": 23,
-   "to": 23,
-   "active": true
-  },
-  {
-   "handle": "Moraxweb3",
-   "length": 1,
-   "from": 23,
-   "to": 23,
+   "to": 24,
    "active": true
   },
   {
    "handle": "blockzen_alpha",
-   "length": 1,
+   "length": 2,
    "from": 23,
-   "to": 23,
+   "to": 24,
+   "active": true
+  },
+  {
+   "handle": "barrandland",
+   "length": 1,
+   "from": 24,
+   "to": 24,
+   "active": true
+  },
+  {
+   "handle": "Bitbox50",
+   "length": 1,
+   "from": 24,
+   "to": 24,
+   "active": true
+  },
+  {
+   "handle": "stfu0911",
+   "length": 1,
+   "from": 24,
+   "to": 24,
    "active": true
   }
  ],
  "appearance_runs": [
+  {
+   "handle": "Faizan626371",
+   "length": 6,
+   "from": 19,
+   "to": 24,
+   "active": true
+  },
   {
    "handle": "cryptomasterAJ",
    "length": 6,
    "from": 15,
    "to": 20,
    "active": false
-  },
-  {
-   "handle": "Faizan626371",
-   "length": 5,
-   "from": 19,
-   "to": 23,
-   "active": true
   },
   {
    "handle": "illfated_fr",
@@ -374,44 +382,44 @@ window.STATS = {
  "active_appearance_runs": [
   {
    "handle": "Faizan626371",
-   "length": 5,
+   "length": 6,
    "from": 19,
-   "to": 23,
+   "to": 24,
    "active": true
   },
   {
    "handle": "Bilalearn",
-   "length": 3,
+   "length": 4,
    "from": 21,
-   "to": 23,
-   "active": true
-  },
-  {
-   "handle": "Naz___a",
-   "length": 3,
-   "from": 21,
-   "to": 23,
-   "active": true
-  },
-  {
-   "handle": "Manazrealfact",
-   "length": 2,
-   "from": 22,
-   "to": 23,
+   "to": 24,
    "active": true
   },
   {
    "handle": "ox_elfawzan",
-   "length": 2,
+   "length": 3,
    "from": 22,
-   "to": 23,
+   "to": 24,
    "active": true
   },
   {
-   "handle": "Moraxweb3",
-   "length": 2,
+   "handle": "Manazrealfact",
+   "length": 3,
    "from": 22,
-   "to": 23,
+   "to": 24,
+   "active": true
+  },
+  {
+   "handle": "joloforU",
+   "length": 3,
+   "from": 22,
+   "to": 24,
+   "active": true
+  },
+  {
+   "handle": "ansarisiddiq876",
+   "length": 3,
+   "from": 22,
+   "to": 24,
    "active": true
   }
  ],
@@ -453,16 +461,16 @@ window.STATS = {
    "back": 18
   },
   {
-   "handle": "samuelonweb3",
+   "handle": "amircry94432508",
    "weeks": 5,
-   "from": 16,
-   "back": 22
+   "from": 18,
+   "back": 24
   },
   {
-   "handle": "IluRk123",
+   "handle": "soha_thk",
    "weeks": 5,
-   "from": 12,
-   "back": 18
+   "from": 18,
+   "back": 24
   }
  ],
  "tierups": [
@@ -573,19 +581,19 @@ window.STATS = {
    "weeks": 3
   },
   {
-   "handle": "themoewithin",
+   "handle": "ox_elfawzan",
    "selected": 3,
    "weeks": 3
   }
  ],
  "spread": {
   "1": 74,
-  "2": 45,
-  "3": 25,
+  "2": 42,
+  "3": 33,
   "4": 22,
-  "5": 10,
-  "6": 6
+  "5": 11,
+  "6": 7
  },
  "one_timers": 74,
- "came_back": 108
+ "came_back": 115
 };

@@ -75,6 +75,29 @@ class ArchiveTests(unittest.TestCase):
         redirects = json.loads((SITE / "vercel.json").read_text())["redirects"]
         self.assertTrue(any(r["source"] == "/c/doctordynamite3" and r["destination"] == "/c/ahsan_crypto3" for r in redirects))
 
+    def test_week24_announcement(self):
+        from add_week import parse
+
+        text = (ROOT / "tools/week24.txt").read_text()
+        _, _, rows, _ = parse(text)
+        expected = {(handle, sid, tier) for handle, sid, tier in rows}
+        actual = set()
+        for creator in self.seed["creators"]:
+            for item in creator["contributions"]:
+                if item["week_label"] == 24:
+                    sid = item["x_url"].rsplit("/", 1)[1]
+                    actual.add((item["x_handle"], sid, item["tier"]))
+                    self.assertTrue((SITE / "avatars" / f'{creator["display_handle"].lower()}.jpg').exists())
+        self.assertEqual(len(expected), 29)
+        self.assertEqual(actual, expected)
+        week = next(w for w in self.stats["per_week"] if w["week"] == 24)
+        self.assertEqual((week["selected"], week["mentioned"], week["new"]), (5, 24, 7))
+        self.assertEqual(week["date"], "2026-10-18")
+        source = (SITE / "week/24.html").read_text()
+        for handle, sid, _ in rows:
+            self.assertIn(f"https://x.com/{handle}/status/{sid}", source)
+            self.assertIn(f"../c/{handle.lower()}.html", source)
+
     def test_pages_cards_and_local_links(self):
         html_files = list(SITE.glob("*.html")) + list((SITE / "c").glob("*.html")) + list((SITE / "week").glob("*.html"))
         for file in html_files:
