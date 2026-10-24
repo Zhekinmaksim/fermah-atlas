@@ -77,6 +77,7 @@ try {
     ["How does phased access through joinwaitlist.xyz work?", /joinwaitlist|waitlist|phased/i, post + "2112251932291023222"],
     ["What does Fermah mean by a live action position?", /live action position/i, post + "2110412319050125507"],
     ["How does an action's half life guide its execution path?", /half life|useful lifetime/i, post + "2108545275832815656"],
+    ["How does consumption horizon affect execution?", /consumption horizon/i, post + "2114025885648974132"],
   ];
   assert.deepEqual(new Set(questions.map(([, , source]) => source)),
     new Set(OFFICIAL_NOTES.map((note) => note.src)), "Cover every official note's source");
@@ -84,6 +85,12 @@ try {
     const result = await ask(question);
     const context = extracts(result);
     assertNote(context, pattern, source);
+    if (/consumption horizon/.test(question)) {
+      assert.match(context, /local consumption to native execution/);
+      assert.match(context, /next action to TEE/);
+      assert.match(context, /future sequences to ZK/);
+      assert.match(context, /not a universal rule/);
+    }
     if (/x402/.test(question)) {
       assert.match(context, /Fermah Pay/);
       assert.match(context, /USDC/);
@@ -137,7 +144,7 @@ try {
   }
 
   // Exercise unchecked evidence without changing the shared briefing or index.
-  const provided = {...OFFICIAL_NOTES[0], evidence: "provided-extract"};
+  const provided = {...OFFICIAL_NOTES.find(note => note.k.startsWith("protocol agency")), evidence: "provided-extract"};
   const fixture = "data:text/javascript," + encodeURIComponent(
     `export const METRICS = ${JSON.stringify(METRICS)};` +
     `export const OFFICIAL_NOTES = ${JSON.stringify([provided])};`,

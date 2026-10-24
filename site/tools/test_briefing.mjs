@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import {execFileSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
-import {CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, SCENARIOS, OFFICIAL_NOTES} from "../data/briefing.js";
+import {CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, CONSUMPTION_HORIZON, SCENARIOS, OFFICIAL_NOTES} from "../data/briefing.js";
 
 const root = fileURLToPath(new URL("../..", import.meta.url));
 const read = path => fs.readFileSync(root + "/site/" + path, "utf8");
@@ -45,6 +45,14 @@ for (const flow of WORKFLOWS) {
   assert(home.includes(flow.title));
 }
 for (const item of EXECUTION_DETAILS) assert(home.includes(item.source));
+assert.equal(UPDATES[0].id, "consumption-horizon");
+assert(home.includes('id="consumption-horizon"'));
+assert(home.includes(CONSUMPTION_HORIZON.source));
+assert.equal(CONSUMPTION_HORIZON.date, "2026-10-24");
+assert.deepEqual(CONSUMPTION_HORIZON.routes.map(item => item.artifact), ["Native", "TEE", "ZK"]);
+for (const route of CONSUMPTION_HORIZON.routes) {
+  assert(home.includes(`<dt>${route.consumer}</dt><dd>${route.artifact}</dd>`));
+}
 for (const scenario of SCENARIOS) {
   assert(builds.includes(`id="scenario-${scenario.id}"`));
   assert(builds.includes(`?scenario=${scenario.id}#board-submit`));

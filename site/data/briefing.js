@@ -5,6 +5,12 @@ const POST = "https://x.com/fermah_xyz/status/";
 
 export const UPDATES = [
   {
+    id: "consumption-horizon", date: "2026-10-24", kind: "Execution routing",
+    title: "Route for where the result goes next.",
+    text: "Fermah described routing the same computation differently depending on where its output will be consumed: locally, by the next action, or across future sequences. The longer the result must remain composable, the more durable its execution artifact needs to be.",
+    source: POST + "2114025885648974132", href: "#consumption-horizon", action: "Explore consumption horizon",
+  },
+  {
     id: "early-access", date: "2026-10-19", kind: "Early access",
     title: "Access is opening in cohorts.",
     text: "Fermah shared Vanishree Rao's announcement of phased admission: the first 10,000 had been admitted on October 19, with more cohorts to follow. This is an admission milestone, not an active-user count.",
@@ -16,12 +22,6 @@ export const UPDATES = [
     title: "One execution can start the next.",
     text: "Fermah described program identity through content-addressed OCI images, runtime context through gVisor runsc, and an onchain handoff that makes returned output available to the next action.",
     source: POST + "2111489165661536597", href: "#kernel-flow", action: "Follow the execution",
-  },
-  {
-    id: "agent-actions", date: "2026-10-16", kind: "Builder direction",
-    title: "Keep the action. Change the route.",
-    text: "An agent's API-payment intent can remain stable as routing, policy and settlement change underneath. Fermah used x402 to illustrate this distinction, not to announce a shipped Fermah integration.",
-    source: POST + "2111137093439074785", href: "built-with.html#build-scenarios", action: "Explore build scenarios",
   },
 ].map(item => ({...item, checked: CHECKED}));
 
@@ -74,6 +74,18 @@ export const EXECUTION_DETAILS = [
   {term: "Onchain handoff", text: "A returned result becomes available as input to the next action. The source describes composability, not a universal deployment recipe.", source: POST + "2111489165661536597"},
 ];
 
+export const CONSUMPTION_HORIZON = {
+  date: "2026-10-24", checked: CHECKED, source: POST + "2114025885648974132",
+  title: "Where will the result be used?",
+  text: "Fermah describes identical computation taking different execution paths as its output serves different consumers. Its October 24 post calls this the consumption horizon.",
+  routes: [
+    {consumer: "Local consumption", artifact: "Native"},
+    {consumer: "Next action", artifact: "TEE"},
+    {consumer: "Future sequences", artifact: "ZK"},
+  ],
+  boundary: "This is Fermah's stated routing principle, drawn from its discussion of 2.8M+ production proofs. It is not a universal routing rule, a deployment command or a latency guarantee; the post does not specify detailed security assumptions or selection thresholds.",
+};
+
 export const SCENARIOS = [
   {
     id: "agent-api", title: "An agent pays for an API.", category: "ideas",
@@ -106,6 +118,8 @@ export const SCENARIOS = [
 ].map(item => ({...item, checked: CHECKED}));
 
 export const OFFICIAL_NOTES = [
+  {k: "consumption horizon local native next action tee future sequences zk durable artifact output consumer execution path identical computation потребление горизонт результат артефакт",
+    t: "Fermah's October 24, 2026 post describes consumption horizon: identical computation can take different routes depending on where the output will be consumed. Its mapping is local consumption to native execution, the next action to TEE, and future sequences to ZK. The team argues that results composed farther into future sequences need more durable execution artifacts, citing 2.8M+ production proofs. This is the team's stated routing principle, not a universal rule, an SDK command or a latency guarantee. The post does not specify detailed security assumptions or selection thresholds.", src: POST + "2114025885648974132"},
   {k: "protocol agency initiation autonomous conditions consensus kernel how works what means протокол агентность инициирование",
     t: "Protocol agency concerns how a protocol initiates and continues an action when its conditions hold, rather than waiting for an external operator to originate each transaction. Fermah's October 14, 2026 post distinguishes consensus and ordering from initiation. Atlas's proof-request and market-resolution walkthroughs illustrate Kernel's official execution descriptions; they are not live telemetry or deployment instructions.", src: POST + "2110357206688247911"},
   {k: "waitlist joinwaitlist access cohorts phases first 10000 admission ultramint early доступ очередь вайтлист",

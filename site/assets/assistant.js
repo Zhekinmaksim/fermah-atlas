@@ -11,7 +11,7 @@
     "What is Flashcast Ignition?",
     "How do x402 and Fermah Pay differ?",
     "What are composite markets?",
-    "Who pays for Froben?",
+    "How does consumption horizon affect execution?",
     "How do I run a prover node?",
     "Who is behind Fermah?",
     "Who funded Fermah?",

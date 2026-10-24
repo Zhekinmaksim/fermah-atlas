@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import {fileURLToPath} from "node:url";
-import {CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, SCENARIOS} from "../data/briefing.js";
+import {CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, CONSUMPTION_HORIZON, SCENARIOS} from "../data/briefing.js";
 
 const site = fileURLToPath(new URL("..", import.meta.url));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
@@ -43,6 +43,10 @@ replace("index.html", "kernel", `<section class="kernel-flow-section" id="kernel
     ${source(flow.source, "Fermah execution and product descriptions")}
   </div>`).join("\n")}
   <details class="kernel-details"><summary>Execution details</summary><dl>${EXECUTION_DETAILS.map(item => `<div><dt>${escape(item.term)}</dt><dd>${escape(item.text)} ${source(item.source, "October 17 post")}</dd></div>`).join("")}</dl></details>
+  <div class="kernel-horizon" id="consumption-horizon"><p class="eyebrow">Consumption horizon</p><h3>${escape(CONSUMPTION_HORIZON.title)}</h3><p>${escape(CONSUMPTION_HORIZON.text)}</p>
+    <dl>${CONSUMPTION_HORIZON.routes.map(item => `<div><dt>${escape(item.consumer)}</dt><dd>${escape(item.artifact)}</dd></div>`).join("")}</dl>
+    <p class="brief-boundary">${escape(CONSUMPTION_HORIZON.boundary)}</p>${source(CONSUMPTION_HORIZON.source, date(CONSUMPTION_HORIZON.date) + " post")}
+  </div>
   <a class="brief-action kernel-build-link" href="built-with.html#build-scenarios">Build scenarios &#8594;</a>
 </div></section>`);
 

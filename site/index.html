@@ -80,7 +80,12 @@
 <!-- briefing:updates -->
 <section class="brief-updates" id="now" aria-labelledby="now-title"><div class="wrap">
   <div class="brief-section-head"><div><p class="eyebrow">Recent official notes</p><h2 class="sec" id="now-title">Now at Fermah.</h2></div><p class="brief-checked">Checked <time datetime="2026-10-24">Oct 24, 2026</time></p></div>
-  <div class="brief-updates-list"><article class="brief-update" id="update-early-access">
+  <div class="brief-updates-list"><article class="brief-update" id="update-consumption-horizon">
+    <div class="brief-update-meta"><time datetime="2026-10-24">Oct 24, 2026</time><span>Execution routing</span></div>
+    <div><h3>Route for where the result goes next.</h3><p>Fermah described routing the same computation differently depending on where its output will be consumed: locally, by the next action, or across future sequences. The longer the result must remain composable, the more durable its execution artifact needs to be.</p></div>
+    <div class="brief-update-links"><a class="brief-action" href="#consumption-horizon">Explore consumption horizon &#8594;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2114025885648974132" target="_blank" rel="noopener">Announcement &#8599;</a></div>
+  </article>
+<article class="brief-update" id="update-early-access">
     <div class="brief-update-meta"><time datetime="2026-10-19">Oct 19, 2026</time><span>Early access</span></div>
     <div><h3>Access is opening in cohorts.</h3><p>Fermah shared Vanishree Rao&#39;s announcement of phased admission: the first 10,000 had been admitted on October 19, with more cohorts to follow. This is an admission milestone, not an active-user count.</p><p class="brief-boundary">External site. X and Discord sign-in are requested there, not on Atlas.</p></div>
     <div class="brief-update-links"><a class="brief-action" href="https://joinwaitlist.xyz/" target="_blank" rel="noopener">Open official waitlist &#8599;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2112251932291023222" target="_blank" rel="noopener">Announcement &#8599;</a></div>
@@ -89,11 +94,6 @@
     <div class="brief-update-meta"><time datetime="2026-10-17">Oct 17, 2026</time><span>Kernel architecture</span></div>
     <div><h3>One execution can start the next.</h3><p>Fermah described program identity through content-addressed OCI images, runtime context through gVisor runsc, and an onchain handoff that makes returned output available to the next action.</p></div>
     <div class="brief-update-links"><a class="brief-action" href="#kernel-flow">Follow the execution &#8594;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2111489165661536597" target="_blank" rel="noopener">Announcement &#8599;</a></div>
-  </article>
-<article class="brief-update" id="update-agent-actions">
-    <div class="brief-update-meta"><time datetime="2026-10-16">Oct 16, 2026</time><span>Builder direction</span></div>
-    <div><h3>Keep the action. Change the route.</h3><p>An agent&#39;s API-payment intent can remain stable as routing, policy and settlement change underneath. Fermah used x402 to illustrate this distinction, not to announce a shipped Fermah integration.</p></div>
-    <div class="brief-update-links"><a class="brief-action" href="built-with.html#build-scenarios">Explore build scenarios &#8594;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2111137093439074785" target="_blank" rel="noopener">Announcement &#8599;</a></div>
   </article></div>
 </div></section>
 <!-- /briefing:updates -->
@@ -148,6 +148,10 @@
     <a class="brief-source" href="https://www.fermah.xyz/" target="_blank" rel="noopener">Fermah execution and product descriptions &#8599;</a>
   </div>
   <details class="kernel-details"><summary>Execution details</summary><dl><div><dt>Program identity</dt><dd>A content-addressed OCI image identifies the program by its content, rather than by a bespoke endpoint. <a class="brief-source" href="https://x.com/fermah_xyz/status/2111489165661536597" target="_blank" rel="noopener">October 17 post &#8599;</a></dd></div><div><dt>Runtime context</dt><dd>Fermah names gVisor runsc as carrying runtime context. A sandbox is not, by itself, a zero-knowledge proof. <a class="brief-source" href="https://x.com/fermah_xyz/status/2111489165661536597" target="_blank" rel="noopener">October 17 post &#8599;</a></dd></div><div><dt>Onchain handoff</dt><dd>A returned result becomes available as input to the next action. The source describes composability, not a universal deployment recipe. <a class="brief-source" href="https://x.com/fermah_xyz/status/2111489165661536597" target="_blank" rel="noopener">October 17 post &#8599;</a></dd></div></dl></details>
+  <div class="kernel-horizon" id="consumption-horizon"><p class="eyebrow">Consumption horizon</p><h3>Where will the result be used?</h3><p>Fermah describes identical computation taking different execution paths as its output serves different consumers. Its October 24 post calls this the consumption horizon.</p>
+    <dl><div><dt>Local consumption</dt><dd>Native</dd></div><div><dt>Next action</dt><dd>TEE</dd></div><div><dt>Future sequences</dt><dd>ZK</dd></div></dl>
+    <p class="brief-boundary">This is Fermah&#39;s stated routing principle, drawn from its discussion of 2.8M+ production proofs. It is not a universal routing rule, a deployment command or a latency guarantee; the post does not specify detailed security assumptions or selection thresholds.</p><a class="brief-source" href="https://x.com/fermah_xyz/status/2114025885648974132" target="_blank" rel="noopener">Oct 24, 2026 post &#8599;</a>
+  </div>
   <a class="brief-action kernel-build-link" href="built-with.html#build-scenarios">Build scenarios &#8594;</a>
 </div></section>
 <!-- /briefing:kernel -->

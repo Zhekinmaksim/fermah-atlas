@@ -89,6 +89,13 @@ a:hover{color:var(--teal)}
 .kernel-details dt{font-size:17px;line-height:1.4;color:var(--white);margin-bottom:10px}
 .kernel-details dd{font-size:14px;line-height:1.7;letter-spacing:0;color:#a3aec1;margin:0}
 .kernel-details .brief-source{display:block;margin-top:10px}
+.kernel-horizon{margin-top:30px;padding-top:24px;border-top:1px solid #2a3c59}
+.kernel-horizon h3{font-size:22px;line-height:1.4;letter-spacing:0;margin:14px 0 10px}
+.kernel-horizon>p:not(.eyebrow){font-size:15px;line-height:1.7;color:#a3aec1;max-width:85ch;margin:0 0 14px;letter-spacing:0}
+.kernel-horizon dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:22px 0}
+.kernel-horizon dl>div{border-left:2px solid var(--teal);padding-left:16px}
+.kernel-horizon dt{font:12px/1.5 var(--mono);letter-spacing:0;color:#a3aec1}
+.kernel-horizon dd{font-size:24px;line-height:1.4;letter-spacing:0;color:var(--white);margin:8px 0 0}
 .kernel-build-link{display:inline-block;margin-top:24px}
 .build-scenario{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:48px;padding-block:32px;border-top:1px solid var(--rule)}
 .scenario-heading{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;align-content:start}
@@ -136,6 +143,7 @@ a:hover{color:var(--teal)}
   .kernel-sequence h4{display:inline;margin-left:12px}
   .kernel-sequence p{margin-top:8px}
   .kernel-details dl{grid-template-columns:minmax(0,1fr);gap:24px}
+  .kernel-horizon dl{grid-template-columns:minmax(0,1fr);gap:20px}
   .build-scenario{grid-template-columns:minmax(0,1fr);gap:24px}
   .scenario-heading{grid-template-columns:28px minmax(0,1fr);gap:10px}
   .scenario-heading h3{font-size:22px}
