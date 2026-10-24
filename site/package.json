@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "assistant:index": "node tools/build_assistant_index.mjs"
+    "assistant:index": "node tools/build_assistant_index.mjs",
+    "briefing:build": "node tools/build_briefing.mjs",
+    "briefing:test": "node tools/test_briefing.mjs && node tools/test_assistant_updates.mjs"
   },
   "dependencies": {
     "@upstash/redis": "^1.35.3"

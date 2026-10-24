@@ -41,6 +41,107 @@ a:hover{color:var(--teal)}
   text-transform:uppercase;color:var(--dim);margin:0}
 .rule{height:1px;background:var(--rule);border:0;margin:0}
 
+/* Dated briefing, execution walkthrough and builder scenarios. */
+.brief-updates,.kernel-flow-section,.build-scenarios{border-bottom:1px solid var(--rule)}
+.brief-updates{padding-block:44px}
+.brief-section-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}
+.brief-section-head h2.sec,.build-scenarios h2.sec{font-size:32px;letter-spacing:0;line-height:1.2}
+.brief-checked,.brief-source,.brief-action{font:12px/1.6 var(--mono);letter-spacing:0}
+.brief-checked{color:var(--gray);margin:0}
+.brief-source{color:#a3aec1;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.brief-source:hover,.brief-action:hover{color:var(--white)}
+.brief-action{color:var(--teal);padding-block:7px}
+.brief-action:focus-visible,.brief-source:focus-visible,.kernel-tabs button:focus-visible,
+.kernel-details summary:focus-visible,.brief-metric-notes summary:focus-visible{outline:2px solid var(--teal);outline-offset:5px}
+.brief-update{display:grid;grid-template-columns:150px minmax(0,1fr) 210px;gap:28px;padding-block:24px}
+.brief-update+.brief-update{border-top:1px solid var(--rule)}
+.brief-update-meta{display:grid;align-content:start;gap:8px;font:12px/1.6 var(--mono);color:#a3aec1}
+.brief-update-meta span{color:var(--teal)}
+.brief-update h3,.kernel-example h3,.brief-metric-notes h3{font-size:22px;line-height:1.35;letter-spacing:0;margin:0 0 10px}
+.brief-update p,.kernel-example p,.build-scenario p,.brief-metric-notes p{font-size:16px;line-height:1.65;letter-spacing:0;margin:0;color:#a3aec1;max-width:78ch}
+.brief-update .brief-boundary{margin-top:10px}
+.brief-update-links{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.brief-boundary{color:#9aa9c1;font-size:14px;line-height:1.65;letter-spacing:0}
+.brief-metrics .src{font-size:10px;line-height:1.9;letter-spacing:0;color:#9aa9c1}
+.brief-metrics .src .brief-source{font-size:11px}
+.brief-metric-notes{padding-bottom:24px}
+.brief-metric-notes summary,.kernel-details summary{font:13px/1.6 var(--mono);letter-spacing:0;color:var(--teal);cursor:pointer;width:fit-content;max-width:100%;padding-block:8px}
+.brief-metric-notes>div{margin-top:18px;max-width:85ch}
+.brief-metric-notes h3{font-size:18px}
+.brief-metric-notes p{font-size:14px;margin-bottom:8px}
+.kernel-flow-section{background:var(--navy-2)}
+.kernel-brand{width:48px;height:48px;object-fit:contain;flex:none}
+.kernel-tabs{display:flex;width:fit-content;max-width:100%;border-bottom:1px solid #344260;margin-bottom:28px;gap:8px}
+.kernel-tabs button{appearance:none;border:0;border-bottom:2px solid transparent;background:none;color:#a3aec1;font:13px/1.5 var(--mono);letter-spacing:0;padding:13px 18px;min-height:48px;cursor:pointer}
+.kernel-tabs button[aria-selected="true"]{color:var(--teal);border-bottom-color:var(--teal)}
+.kernel-tabs button:disabled{cursor:default}
+.kernel-example[hidden]{display:none}
+.kernel-example{min-height:355px}
+.kernel-example .brief-boundary{font-size:14px;max-width:85ch}
+.kernel-sequence{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin:30px 0 20px;padding:0}
+.kernel-sequence li{position:relative;min-width:0;padding:22px 16px 14px 0;border-top:2px solid #31516a;min-height:200px}
+.kernel-sequence li:before{content:"";position:absolute;top:-5px;left:0;width:8px;height:8px;background:var(--teal)}
+.kernel-step-index{font:12px/1.5 var(--mono);color:var(--teal);letter-spacing:0}
+.kernel-sequence h4{font-size:18px;line-height:1.3;letter-spacing:0;margin:10px 0 8px}
+.kernel-sequence p{font-size:14px;line-height:1.65;margin:0;overflow-wrap:anywhere}
+.kernel-details{margin-top:24px;padding-top:16px;border-top:1px solid #2a3c59}
+.kernel-details dl{margin:14px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.kernel-details dt{font-size:17px;line-height:1.4;color:var(--white);margin-bottom:10px}
+.kernel-details dd{font-size:14px;line-height:1.7;letter-spacing:0;color:#a3aec1;margin:0}
+.kernel-details .brief-source{display:block;margin-top:10px}
+.kernel-build-link{display:inline-block;margin-top:24px}
+.build-scenario{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:48px;padding-block:32px;border-top:1px solid var(--rule)}
+.scenario-heading{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;align-content:start}
+.scenario-number{font:16px/1.7 var(--mono);letter-spacing:0;color:var(--teal)}
+.build-scenario p.scenario-status{font:11px/1.5 var(--mono);letter-spacing:0;color:var(--teal);margin-bottom:10px}
+.scenario-heading h3{font-size:24px;line-height:1.3;letter-spacing:0;margin:0 0 12px}
+.scenario-sequence{list-style:decimal-leading-zero;padding-left:28px;margin:0 0 20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 30px}
+.scenario-sequence li{font-size:14px;line-height:1.6;padding-left:4px;overflow-wrap:anywhere}
+.scenario-sequence li::marker{font:11px/1.7 var(--mono);color:var(--teal)}
+.build-scenario .brief-boundary{font-size:14px}
+.build-scenario p.scenario-reference{font-size:14px;margin-top:16px}
+.scenario-reference a{color:var(--teal)}
+.scenario-reference span{display:block}
+.scenario-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:20px}
+.scenario-actions .btn{font-size:11px;letter-spacing:0;white-space:normal;min-height:44px;color:var(--teal);border-color:#2a665e}
+@media(max-width:1100px){
+  .brief-update{grid-template-columns:140px minmax(0,1fr);gap:20px}
+  .brief-update-links{grid-column:2;flex-direction:row;align-items:center;flex-wrap:wrap;gap:18px}
+  .kernel-sequence{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 0}
+  .kernel-sequence li{min-height:170px}
+  .kernel-example{min-height:540px}
+  .build-scenario{gap:28px}
+}
+@media(max-width:680px){
+  .brief-updates{padding-block:32px}
+  .brief-section-head{align-items:flex-start;flex-wrap:wrap;gap:8px}
+  .brief-section-head h2.sec,.build-scenarios h2.sec{font-size:28px}
+  .brief-update{grid-template-columns:minmax(0,1fr);gap:14px}
+  .brief-update-meta{display:flex;flex-wrap:wrap;gap:8px 18px}
+  .brief-update-links{grid-column:auto;gap:14px}
+  .brief-update h3{font-size:21px}
+  .brief-update p{font-size:15px}
+  .brief-update p.brief-boundary{font-size:13px}
+  .kernel-brand{width:36px;height:36px}
+  .kernel-flow-section .brief-section-head{flex-wrap:nowrap;align-items:flex-start}
+  .kernel-flow-section .brief-section-head>div{min-width:0;flex:1}
+  .kernel-tabs{width:100%;gap:0}
+  .kernel-tabs button{flex:1;padding-inline:8px;font-size:12px}
+  .kernel-example{min-height:0}
+  .kernel-example h3{font-size:21px}
+  .kernel-sequence{grid-template-columns:minmax(0,1fr);gap:0;margin-top:24px}
+  .kernel-sequence li{border-top:0;border-left:2px solid #31516a;padding:0 0 24px 22px;min-height:112px}
+  .kernel-sequence li:before{top:4px;left:-5px}
+  .kernel-sequence li:last-child{min-height:100px;border-left-color:transparent}
+  .kernel-sequence h4{display:inline;margin-left:12px}
+  .kernel-sequence p{margin-top:8px}
+  .kernel-details dl{grid-template-columns:minmax(0,1fr);gap:24px}
+  .build-scenario{grid-template-columns:minmax(0,1fr);gap:24px}
+  .scenario-heading{grid-template-columns:28px minmax(0,1fr);gap:10px}
+  .scenario-heading h3{font-size:22px}
+  .scenario-sequence{grid-template-columns:minmax(0,1fr);gap:10px}
+}
+
 /* section rhythm — alternating air, one banded section per page */
 section{padding-block:clamp(56px,6vw,104px)}
 .band{background:var(--navy-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}

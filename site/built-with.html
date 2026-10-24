@@ -93,6 +93,31 @@
   </div>
 </section>
 
+<!-- briefing:scenarios -->
+<section class="build-scenarios" id="build-scenarios" aria-labelledby="scenarios-title"><div class="wrap">
+  <p class="eyebrow">Starting points</p><h2 class="sec" id="scenarios-title">What could you build?</h2>
+  <p class="sec">Development ideas grounded in Fermah's October posts. These are not shipped products or confirmed production integrations.</p>
+  <article class="build-scenario" id="scenario-agent-api">
+    <div class="scenario-heading"><span class="scenario-number" aria-hidden="true">01</span><div><p class="scenario-status">BUILD SCENARIO</p><h3>An agent pays for an API.</h3><p>Keep an API-payment action stable while its execution route evolves.</p></div></div>
+    <div class="scenario-body"><ol class="scenario-sequence"><li>API payment intent</li><li>Payment requirements</li><li>Policy and routing</li><li>Settlement and API result</li></ol><p class="brief-boundary">x402 is a machine-payment protocol; Fermah Pay is a separately documented USDC payments product. The post does not equate them or establish a native integration between them.</p>
+    <p class="scenario-reference">Reference: <a href="https://github.com/Zhekinmaksim/proofmarket-x402" target="_blank" rel="noopener">proofmarket-x402 &#8599;</a><span>Community reference model; signing and settlement are modelled.</span></p>
+    <div class="scenario-actions"><a class="btn scenario-draft" data-scenario="agent-api" href="built-with.html?scenario=agent-api#board-submit">Discuss on Board &#8595;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2111137093439074785" target="_blank" rel="noopener">Oct 16, 2026 post &#8599;</a></div></div>
+  </article>
+<article class="build-scenario" id="scenario-composite-market">
+    <div class="scenario-heading"><span class="scenario-number" aria-hidden="true">02</span><div><p class="scenario-status">BUILD SCENARIO</p><h3>A market with more than one condition.</h3><p>Resolve whether event A happened before event B crossed a defined threshold.</p></div></div>
+    <div class="scenario-body"><ol class="scenario-sequence"><li>Define events and sources</li><li>Collect timestamped evidence</li><li>Evaluate order and threshold</li><li>Produce a defined outcome</li></ol><p class="brief-boundary">A build scenario, not a listed market. It needs explicit deadlines, timestamp rules and missing-data handling before it can resolve safely.</p>
+
+    <div class="scenario-actions"><a class="btn scenario-draft" data-scenario="composite-market" href="built-with.html?scenario=composite-market#board-submit">Discuss on Board &#8595;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2110049932941930943" target="_blank" rel="noopener">Oct 13, 2026 post &#8599;</a></div></div>
+  </article>
+<article class="build-scenario" id="scenario-action-chain">
+    <div class="scenario-heading"><span class="scenario-number" aria-hidden="true">03</span><div><p class="scenario-status">BUILD SCENARIO</p><h3>An output becomes the next input.</h3><p>Compose two protocol actions without tying the caller to one executor endpoint.</p></div></div>
+    <div class="scenario-body"><ol class="scenario-sequence"><li>Identify the program</li><li>Prepare execution inputs</li><li>Return a verified result</li><li>Consume it in the next action</li></ol><p class="brief-boundary">An architectural scenario, not a production integration. Define result validation, permissions and failure behavior for each handoff.</p>
+
+    <div class="scenario-actions"><a class="btn scenario-draft" data-scenario="action-chain" href="built-with.html?scenario=action-chain#board-submit">Discuss on Board &#8595;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2111489165661536597" target="_blank" rel="noopener">Oct 17, 2026 post &#8599;</a></div></div>
+  </article>
+</div></section>
+<!-- /briefing:scenarios -->
+
 <section class="band community-board-sec" id="community-board"><div class="wrap reveal">
   <div class="community-board-head">
     <div>
@@ -236,8 +261,9 @@ async function loadBoard(){
 
 document.getElementById("board-form").addEventListener("submit", async (event) => {
   event.preventDefault();
+  const form = event.currentTarget;
   const status = document.getElementById("board-status");
-  const submit = event.currentTarget.querySelector("button[type=submit]");
+  const submit = form.querySelector("button[type=submit]");
   submit.disabled = true;
   status.textContent = "POSTING…";
   try {
@@ -253,7 +279,7 @@ document.getElementById("board-form").addEventListener("submit", async (event) =
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || "post failed");
-    event.currentTarget.reset();
+    form.reset();
     status.textContent = "POSTED TO THE BOARD";
     await loadBoard();
   } catch (error) {
@@ -314,4 +340,5 @@ if (!ECOSYSTEM.builtWith.length) {
 </script>
 <script src="assets/assistant.js"></script>
 <script src="assets/music.js"></script>
+<script type="module" src="assets/briefing.js"></script>
 </body></html>

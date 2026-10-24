@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {OFFICIAL_NOTES} from "../data/briefing.js";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const project = path.resolve(root, "..");
@@ -95,6 +96,10 @@ function chunks(text) {
 }
 
 const documents = [];
+for (const note of OFFICIAL_NOTES) {
+  documents.push({path: "site/data/briefing.js", source: note.src,
+    text: `${note.k}\n${note.t}\nEvidence: ${note.evidence}. Source checked: ${note.checked}.`});
+}
 for (const file of files) {
   const raw = fs.readFileSync(file, "utf8");
   let text;

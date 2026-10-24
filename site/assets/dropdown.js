@@ -42,6 +42,7 @@
       list.hidden = !on;
       wrap.classList.toggle("open", on);
     };
+    sel.addEventListener("change", paint);
 
     btn.addEventListener("click", (e) => { e.stopPropagation(); open(list.hidden); });
     list.addEventListener("click", (e) => {

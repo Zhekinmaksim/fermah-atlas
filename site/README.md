@@ -6,11 +6,11 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 
 | file | what it is |
 |---|---|
-| `index.html` | hero, team and backing, five doors, ecosystem graph, latest spotlight, sources |
+| `index.html` | hero, dated updates, reported metrics, Kernel walkthrough, team and backing, ecosystem, latest Spotlight |
 | `powered.html` | Powered by Fermah — production and announced integrations |
 | `flashcast-season-01.html` | Flashcast Ignition — week-by-week Season 01 chronicle |
-| `built-with.html` | Built with Fermah — projects on Fermah's architecture, plus the submit form |
-| `fermafia.html` | Fermafia — 182 active creators, searchable, card + post + download |
+| `built-with.html` | projects, submissions, sourced build scenarios and the public Fermafia Board |
+| `fermafia.html` | Fermafia — 189 active creators, searchable, card + post + download |
 | `stats.html` | season statistics: weekly intake, runs, comebacks, tier-ups and retention |
 | `week/<n>.html` | one static page per announcement, with its own OG metadata |
 | `operators.html` | Operators — the supply side and the on-chain node registry |
@@ -27,6 +27,8 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 - `data/seed.js` — the Spotlight record, loaded as a script so the site works from disk too.
 - `data/stats.js`, `data/stats.json` — statistics generated from the same seed.
 - `data/ignition.js` — Flashcast Ignition Season 01 weeks, quests and featured markets.
+- `data/briefing.js` — dated official notes, reported metrics, illustrative workflows and builder scenarios.
+- `assets/briefing.js` — workflow tabs and local Board drafts; selecting a scenario never posts it.
 - `cards/`, `brand/` — creator cards and logo assets.
 - `api/scores.js` — shared leaderboard (optional, see below).
 - `api/board.js` — shared Fermafia Board entries (requires the same Redis store).
@@ -61,13 +63,35 @@ formats, all week pages, the seed script, static counter fallbacks and the final
 Run it after `gen_pages.py`, which also writes a sitemap.
 
 Suspended accounts retain historical pages but are excluded from public aggregate counts.
-The archive has 187 historical profiles, of which 182 are active. Separate collaboration
+The archive has 194 historical profiles, of which 189 are active. Separate collaboration
 credits are not mentions. A collaboration inside the selected list counts as a selection.
 Only participants whose X identity is established by an official announcement receive
 credit; two unidentified collaborators remain uncredited. The rule is recorded in the seed.
 
 Checks: `python3 tools/test_weeks.py`, `python3 tools/test_archive.py` and
 `node site/tools/test_assistant_team.mjs`.
+
+## Dated briefing
+
+Edit `site/data/briefing.js` only after checking the original official source. Keep publication
+dates separate from check dates. A waitlist admission milestone is not an active-user count;
+the post's 100,000+ market claim and the homepage's 1M+ claim have no established shared scope.
+Do not infer growth or replace one with the other. Workflow and scenario examples are not live
+telemetry, deployment instructions or shipped integrations.
+
+From the repository root, regenerate the committed HTML and assistant index:
+
+```
+node site/tools/build_briefing.mjs
+node site/tools/build_assistant_index.mjs
+node site/tools/test_briefing.mjs
+node site/tools/test_assistant_updates.mjs
+```
+
+Generated HTML retains the updates, metrics, source links, proof walkthrough, technical details
+and scenarios without JavaScript. Workflow switching and editable scenario drafts need the
+module script served over HTTP. Scenario links fill the existing Board form; a changed draft
+requires confirmation before replacement, and only the form's Post to board button publishes.
 
 ## The shark assistant
 
