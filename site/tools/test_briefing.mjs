@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import {execFileSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
-import {CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, CONSUMPTION_HORIZON, SCENARIOS, OFFICIAL_NOTES} from "../data/briefing.js";
+import {CHECKED, UPDATES_CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, CONSUMPTION_HORIZON, SCENARIOS, OFFICIAL_NOTES} from "../data/briefing.js";
 
 const root = fileURLToPath(new URL("../..", import.meta.url));
 const read = path => fs.readFileSync(root + "/site/" + path, "utf8");
@@ -14,9 +14,9 @@ assert.equal(SCENARIOS.length, 3);
 assert.equal(new Set(SCENARIOS.map(s => s.id)).size, SCENARIOS.length);
 
 for (const item of [...UPDATES, ...SCENARIOS]) {
-  assert.equal(item.checked, CHECKED);
+  assert(item.checked >= CHECKED && item.checked <= UPDATES_CHECKED);
   assert(item.date <= item.checked);
-  assert.match(item.source, /^https:\/\/x\.com\/fermah_xyz\/status\/\d+$/);
+  assert.match(item.source, /^https:\/\/x\.com\/(fermah_xyz|7wealthh)\/status\/\d+$/);
 }
 for (const note of OFFICIAL_NOTES) {
   assert.equal(note.evidence, "checked");
@@ -45,7 +45,8 @@ for (const flow of WORKFLOWS) {
   assert(home.includes(flow.title));
 }
 for (const item of EXECUTION_DETAILS) assert(home.includes(item.source));
-assert.equal(UPDATES[0].id, "consumption-horizon");
+assert.equal(UPDATES[0].id, "fermah-pay-testnet");
+assert.equal(UPDATES[1].id, "consumption-horizon");
 assert(home.includes('id="consumption-horizon"'));
 assert(home.includes(CONSUMPTION_HORIZON.source));
 assert.equal(CONSUMPTION_HORIZON.date, "2026-10-24");

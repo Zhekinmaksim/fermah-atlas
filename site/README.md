@@ -119,6 +119,14 @@ How it is fenced in, in order:
 5. The reply must come back as `{"on_topic": …, "answer": …}`. Anything with `on_topic: false`
    is replaced by the fixed refusal line before it reaches the browser.
 
+Fermah Pay's October 26 update is stored in `data/fermah-pay.js`. It keeps the announcement,
+the checked official repository revision, testnet evidence and the distinction between sponsored
+buyer network fees and absent transaction fees. Its status is `testnet`, outside the live/named
+production count. Keep the prepaid-ledger/treasury flow distinct from the separate vault flow.
+After editing the Pay record, run `node site/tools/build_fermah_pay.mjs` and
+`node site/tools/build_briefing.mjs`, then rebuild the assistant index below. The latest-news check
+date is separate from the October 24 homepage-metric and older-source check dates.
+
 After changing site content, rebuild the committed index from the project root with
 `node site/tools/build_assistant_index.mjs`. There is no scraping and no training.
 

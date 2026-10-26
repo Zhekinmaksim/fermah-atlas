@@ -152,6 +152,7 @@ try {
   const handlerSource = (await readFile(new URL("../api/ask.js", import.meta.url), "utf8"))
     .replace('"./knowledge.js"', JSON.stringify(new URL("../api/knowledge.js", import.meta.url).href))
     .replace('"./operator-context.js"', JSON.stringify(new URL("../api/operator-context.js", import.meta.url).href))
+    .replace('"../data/fermah-pay.js"', JSON.stringify(new URL("../data/fermah-pay.js", import.meta.url).href))
     .replace('"../data/briefing.js"', JSON.stringify(fixture));
   const {default: fixtureHandler} = await import("data:text/javascript," + encodeURIComponent(handlerSource));
   const providedContext = extracts(await ask("What is protocol agency?", {endpoint: fixtureHandler}));
@@ -159,7 +160,8 @@ try {
   assert.ok(providedContext.includes(`source: ${provided.src}`));
   assert.match(providedContext, /evidence: provided-extract/);
   assert.ok(providedContext.includes(`record date: ${provided.checked}`));
-  assert.doesNotMatch(providedContext, /\n  checked:/);
+  const providedBlock = providedContext.split(provided.t + "\n")[1].split("\n- ")[0];
+  assert.doesNotMatch(providedBlock, /\n  checked:/);
   const checked = OFFICIAL_NOTES.find((note) => note.evidence === "checked");
   assert.ok(checked, "Briefing should retain checked-source evidence separately");
   const checkedContext = extracts(await ask("What is the phased joinwaitlist.xyz announcement?"));

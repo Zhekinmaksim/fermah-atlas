@@ -13,6 +13,7 @@
 import {ARCHIVE_STATS, ARCHIVE_SUMMARY, DOCUMENTS} from "./knowledge.js";
 import {METRICS, OFFICIAL_NOTES} from "../data/briefing.js";
 import {OPERATOR_CONTEXT} from "./operator-context.js";
+import {FERMAH_PAY_NOTES} from "../data/fermah-pay.js";
 
 // Sonnet is the default; Vercel can override it with ANTHROPIC_MODEL.
 const MODEL = String(process.env.ANTHROPIC_MODEL || "claude-sonnet-5").trim();
@@ -30,6 +31,7 @@ const REFUSAL =
 const KB = [
   ...OFFICIAL_NOTES,
   ...OPERATOR_CONTEXT,
+  ...FERMAH_PAY_NOTES,
   {
     k: "kernel engine agency protocol autonomous execute settle trigger",
     t: "Fermah Kernel is what the team calls the Protocol Agency Engine. Smart contracts are reactive: they read a condition and emit a value, then wait for a human, a server or a cron job. Kernel turns \"if this verifiable thing is true, do that\" into an on-chain primitive — it observes the event, runs the logic in a sandboxed container, and settles the verified result on-chain.",
@@ -49,11 +51,6 @@ const KB = [
     k: "flashcast ignition season 01 weekly chronicle recap featured markets universal markets magnet no recap published",
     t: "Fermah Atlas archives Flashcast Ignition as Season 01: twelve weeks of quests and featured markets, checked 2026-09-03. Week 2 stays in the archive as \"no recap published\" rather than having the numbering silently stitched together. The archive keeps weeks, dates, tasks and markets, but omits winners while announcements use Discord names and Atlas stores X handles only.",
     src: "https://fermahatlas.xyz/flashcast-season-01",
-  },
-  {
-    k: "fermah pay payments layer usdc gas keys xlm charge users",
-    t: "The current Fermah docs list Fermah Pay as a payments layer for products that need to charge users in USDC without asking them to hold gas, manage keys or leave the app to acquire XLM.",
-    src: "https://docs.fermah.xyz/fermah-pay",
   },
   {
     k: "marina privacy preserving data infrastructure decentralized web documentation soon api reference soon",
@@ -251,6 +248,9 @@ function pickContext(q) {
     return {e, score};
   }).sort((a, b) => b.score - a.score);
   const top = scored.filter((s) => s.score > 0).slice(0, 5).map((s) => s.e);
+  if (/\b(pay|x402|stellar|recurring|duplicate)\b|ферма[хх] п[эе]й|повторн.{0,15}списан/i.test(q)) {
+    for (const entry of FERMAH_PAY_NOTES) if (!top.includes(entry)) top.push(entry);
+  }
   if (/\b(prover[- ]?node|operator|onboard|registration|machine secret|telemetry|fpn)\b/i.test(q)) {
     for (const entry of KB.filter((e) => /\b(prover|node|operator|registration|telemetry|fpn|machine secret)\b/i.test(e.k))) {
       if (entry.kind !== "explorer-profile" && !top.includes(entry)) top.push(entry);

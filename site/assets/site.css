@@ -413,6 +413,19 @@ td a{color:var(--teal);word-break:break-all}
 .tag.live{color:var(--teal);border-color:rgba(6,193,157,.4)}
 .tag.enabled{color:#8fb6d8;border-color:rgba(143,182,216,.32)}
 .tag.listed{color:#d8c28f;border-color:rgba(216,194,143,.34)}
+.tag.testnet{color:#8bd1ed;border-color:rgba(139,209,237,.34)}
+.pay-update{padding-block:56px;border-block:1px solid var(--rule)}
+.pay-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;list-style:none;padding:0;margin:30px 0}
+.pay-flow h3,.pay-findings h3{font-size:20px;margin:0 0 12px}
+.pay-flow p,.pay-findings p,.pay-next p{font-size:15px;color:var(--gray);line-height:1.7;max-width:80ch}
+.pay-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin:36px 0}
+.pay-findings article{padding-top:20px;border-top:1px solid var(--rule)}
+.pay-update>.wrap>.brief-boundary{max-width:100ch}
+.pay-next{padding-block:20px;margin-top:20px;border-top:1px solid var(--rule)}
+.pay-next summary{cursor:pointer;font-size:17px}
+.pay-update .acts{gap:14px 24px}
+.pay-update .hint{margin-top:22px;line-height:1.7}
+@media(max-width:640px){.pay-flow,.pay-findings{grid-template-columns:1fr;gap:24px}}
 .tag.reference{color:#b9a6e8;border-color:rgba(185,166,232,.3)}
 
 /* entity cards */

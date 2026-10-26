@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import {fileURLToPath} from "node:url";
-import {CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, CONSUMPTION_HORIZON, SCENARIOS} from "../data/briefing.js";
+import {CHECKED, UPDATES_CHECKED, UPDATES, METRICS, WORKFLOWS, EXECUTION_DETAILS, CONSUMPTION_HORIZON, SCENARIOS} from "../data/briefing.js";
 
 const site = fileURLToPath(new URL("..", import.meta.url));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
@@ -17,7 +17,7 @@ function replace(file, name, html) {
 }
 
 replace("index.html", "updates", `<section class="brief-updates" id="now" aria-labelledby="now-title"><div class="wrap">
-  <div class="brief-section-head"><div><p class="eyebrow">Recent official notes</p><h2 class="sec" id="now-title">Now at Fermah.</h2></div><p class="brief-checked">Checked <time datetime="${CHECKED}">${date(CHECKED)}</time></p></div>
+  <div class="brief-section-head"><div><p class="eyebrow">Recent ecosystem notes</p><h2 class="sec" id="now-title">Now at Fermah.</h2></div><p class="brief-checked">Latest source check <time datetime="${UPDATES_CHECKED}">${date(UPDATES_CHECKED)}</time></p></div>
   <div class="brief-updates-list">${UPDATES.map(item => `<article class="brief-update" id="update-${item.id}">
     <div class="brief-update-meta"><time datetime="${item.date}">${date(item.date)}</time><span>${escape(item.kind)}</span></div>
     <div><h3>${escape(item.title)}</h3><p>${escape(item.text)}</p>${item.note ? `<p class="brief-boundary">${escape(item.note)}</p>` : ""}</div>

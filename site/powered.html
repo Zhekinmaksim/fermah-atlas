@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Powered by Fermah — Fermah Atlas</title>
-<meta name="description" content="Production integrations, docs-listed products and named customers in the Fermah ecosystem, each with a source and a check date.">
+<meta name="description" content="Production integrations, Stellar testnet Fermah Pay, docs-listed products and named customers, each with sources and check dates.">
 <meta property="og:title" content="Powered by Fermah — Fermah Atlas">
 <meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
 <link rel="canonical" href="https://fermahatlas.xyz/powered">
@@ -37,10 +37,10 @@
     <div class="row">
       <div class="cell"><b id="p-all">—</b><span>ENTRIES</span></div>
       <div class="cell"><b id="p-live">—</b><span>LIVE / NAMED</span></div>
-      <div class="cell"><b class="plain" id="p-ann">—</b><span>DOCS-LISTED / ANN.</span></div>
+      <div class="cell"><b class="plain" id="p-ann">—</b><span>TESTNET / OTHER</span></div>
       <div class="cell"><b class="plain">2</b><span>LIVE ON KERNEL</span></div>
     </div>
-    <p class="src">EVERY ENTRY CARRIES A SOURCE LINK · NEW DOCS CHECK 2026-08-30</p>
+    <p class="src">EVERY ENTRY CARRIES A SOURCE AND CHECK DATE · PAY TESTNET SOURCES CHECKED 2026-10-26</p>
   </div>
 </div>
 
@@ -48,15 +48,31 @@
   <div class="grid" id="powered-grid"></div>
 </div></section>
 
+<!-- fermah-pay:start -->
+<section class="pay-update" id="fermah-pay" aria-labelledby="pay-title"><div class="wrap">
+  <p class="eyebrow">Product update · October 26, 2026</p><h2 class="sec" id="pay-title">Fermah Pay on Stellar testnet.</h2>
+  <p class="sec">Prepaid USDC accounts and seller billing, with sponsored transaction submission, replay protection, recurring mandates and an x402 facilitator interface. The October 26 announcement reports Tranche 1 on Stellar testnet; the public repository provides implementation and testnet evidence.</p>
+  <ol class="pay-flow"><li><h3>Deposit once</h3><p>For the prepaid-ledger flow, the buyer signs a deposit authorization. USDC moves to a separate treasury and the contract credits the buyer’s ledger balance.</p></li><li><h3>Charge the ledger</h3><p>A charge moves credit from the buyer’s balance to seller revenue in the contract’s accounting. It does not transfer USDC between wallets on each charge.</p></li><li><h3>Sponsor submission</h3><p>A submitter signs the transaction and a separate fee account pays through Stellar fee bumps. Zero buyer fees means the buyer pays no network fee; the transaction still has a fee.</p></li></ol>
+  <div class="pay-findings"><article><h3>98 replays, no second debit</h3><p>The published testnet record replays a previously settled batch of 98 charge IDs. All 98 return Duplicate and nothing is debited again. This is a recorded test case, not a guarantee against every failure mode.</p><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar/blob/17e4d0a9b0d866b8db4df9ed1f0522179efba9d3/docs/evidence/testnet/2026-09-29T051328-charge-batch-98-first-replayed.json" target="_blank" rel="noopener">September 29 testnet record ↗</a></article>
+<article><h3>Retries retain their identity</h3><p>An API retry returns the original charge with created: false. The separate single-charge replay case is refused during pre-submission simulation as DuplicateCharge (error 110). The 98-entry batch replay is a distinct case that was included onchain.</p><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar/blob/17e4d0a9b0d866b8db4df9ed1f0522179efba9d3/docs/evidence/README.md#prepaid-ledger-on-testnet" target="_blank" rel="noopener">Replay and API evidence ↗</a></article>
+<article><h3>Recurring mandates</h3><p>The buyer authorizes a mandate once; billing follows its periods and limits. The recorded two-minute-period test checks an early second charge (not_due), a later valid charge, an expired mandate (mandate_expired), and revocation with allowance zero. The testnet CI workflow also exercises recurring billing.</p><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar/blob/17e4d0a9b0d866b8db4df9ed1f0522179efba9d3/docs/evidence/testnet/2026-10-01T034500-recurring-end-to-end.json" target="_blank" rel="noopener">Recurring testnet record ↗</a></article>
+<article><h3>A concrete x402 binding</h3><p>The gateway documents /supported, /verify and /settle for x402 v2 batch-settlement on Stellar. Authenticated verification and settlement use buyer-signed commitments against prepaid funds. Admission and later onchain batch inclusion are separate steps.</p><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar/blob/17e4d0a9b0d866b8db4df9ed1f0522179efba9d3/docs/api/x402.md" target="_blank" rel="noopener">x402 facilitator reference ↗</a></article></div>
+  <p class="brief-boundary">This record concerns Stellar testnet. It does not establish a production Mainnet release, an independent security audit or universal fee-free operation. The prepaid-ledger flow uses treasury custody and treasury-authorized withdrawals; the repository also describes a distinct vault flow, which should not be conflated with it.</p>
+  <details class="pay-next"><summary>What the announcement lists next</summary><p>The October 26 thread names onchain risk monitoring/alerts and an ecosystem-partner testnet integration as work being closed out. That announcement does not establish completion of either item or identify the partner.</p><a class="brief-source" href="https://x.com/7wealthh/status/2114637166403891489" target="_blank" rel="noopener">October 26 thread ↗</a></details>
+  <div class="acts"><a class="brief-source" href="https://x.com/7wealthh/status/2114637166403891489" target="_blank" rel="noopener">Read the announcement ↗</a><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar" target="_blank" rel="noopener">Official source code ↗</a><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar/blob/17e4d0a9b0d866b8db4df9ed1f0522179efba9d3/docs/evidence/README.md#prepaid-ledger-on-testnet" target="_blank" rel="noopener">Testnet evidence ↗</a><a class="brief-source" href="https://stellar.expert/explorer/testnet/contract/CD3GESMYMJ3MNWNSKS6P7TEDHL5HYEWSGTFX7A3ENDB5MXTQ5TED7PSI" target="_blank" rel="noopener">Testnet ledger contract ↗</a><a class="brief-source" href="https://stellar.expert/explorer/testnet/tx/21919c05e19f7bbb6b4e139e6da2330a54b402fa9ba5297ff859e3b3db626d9a" target="_blank" rel="noopener">98-charge replay transaction ↗</a><a class="brief-source" href="https://github.com/fermah-xyz/fermah-pay-stellar/actions/runs/39603810011" target="_blank" rel="noopener">Successful testnet CI run ↗</a></div>
+  <p class="hint">Sources checked 2026-10-26. Testnet evidence records retain their own dates; the September 29 replay record was discussed in the October 26 announcement.</p>
+</div></section>
+<!-- fermah-pay:end -->
+
 <section class="band"><div class="wrap reveal">
   <p class="eyebrow">Ecosystem graph</p>
   <h2 class="sec">Who runs on what.</h2>
-  <p class="sec">Solid lines are relationships current official sources state today. Dashed lines are
-    announced, historical or open slots Atlas does not promote as production.</p>
+  <p class="sec">Solid lines show live relationships and docs-listed products. Dashed lines show
+    testnet, announced, historical or open entries.</p>
   <div id="graph-canvas"></div>
   <div class="legend">
     <span><i></i>stated on official Fermah sources today</span>
-    <span><i class="hist"></i>announced / historical</span>
+    <span><i class="hist"></i>testnet / announced / historical</span>
   </div>
 </div></section>
 
@@ -89,7 +105,7 @@ ECOSYSTEM.powered.forEach((e, i) => {
     `<div class="kicker">${e.kicker}</div>` +
     `<h4>${e.name}</h4><p>${e.text}</p>` +
     `<div class="meta"><span class="tag ${e.status}">` +
-    `${({live:"live", enabled:"enabled by kernel", listed:"docs-listed", reference:"reference model"})[e.status] || "announced"}</span>` +
+    `${({live:"live", enabled:"enabled by kernel", listed:"docs-listed", testnet:"testnet", reference:"reference model"})[e.status] || "announced"}</span>` +
     `<span>checked ${e.checked}</span></div>`;
   g.appendChild(d);
 });

@@ -1,9 +1,18 @@
-// Source summaries checked against official pages and original X posts.
+// Source summaries retain their individual check dates.
+import {FERMAH_PAY} from "./fermah-pay.js";
 export const CHECKED = "2026-10-24";
+export const UPDATES_CHECKED = FERMAH_PAY.checked;
 const HOME = "https://www.fermah.xyz/";
 const POST = "https://x.com/fermah_xyz/status/";
 
 export const UPDATES = [
+  {
+    id: "fermah-pay-testnet", date: FERMAH_PAY.date, checked: FERMAH_PAY.checked, kind: "Fermah Pay · Stellar testnet",
+    title: "A prepaid balance, with replay protection.",
+    text: "On October 26, @7wealthh reported Fermah Pay Tranche 1 on Stellar testnet. Public repository evidence records a replay of 98 settled charges with no repeat debit, plus sponsored buyer network fees, recurring mandates and an x402 facilitator interface.",
+    source: FERMAH_PAY.announcement, href: "powered.html#fermah-pay", action: "Read the testnet evidence",
+    note: "Testnet implementation and recorded cases; no production Mainnet release is established.",
+  },
   {
     id: "consumption-horizon", date: "2026-10-24", kind: "Execution routing",
     title: "Route for where the result goes next.",
@@ -17,13 +26,7 @@ export const UPDATES = [
     source: POST + "2112251932291023222", href: "https://joinwaitlist.xyz/", action: "Open official waitlist",
     note: "External site. X and Discord sign-in are requested there, not on Atlas.",
   },
-  {
-    id: "composable-execution", date: "2026-10-17", kind: "Kernel architecture",
-    title: "One execution can start the next.",
-    text: "Fermah described program identity through content-addressed OCI images, runtime context through gVisor runsc, and an onchain handoff that makes returned output available to the next action.",
-    source: POST + "2111489165661536597", href: "#kernel-flow", action: "Follow the execution",
-  },
-].map(item => ({...item, checked: CHECKED}));
+].map(item => ({...item, checked: item.checked || CHECKED}));
 
 export const METRICS = {
   checked: CHECKED, source: HOME,
@@ -91,7 +94,8 @@ export const SCENARIOS = [
     id: "agent-api", title: "An agent pays for an API.", category: "ideas",
     task: "Keep an API-payment action stable while its execution route evolves.",
     sequence: ["API payment intent", "Payment requirements", "Policy and routing", "Settlement and API result"],
-    boundary: "x402 is a machine-payment protocol; Fermah Pay is a separately documented USDC payments product. The post does not equate them or establish a native integration between them.",
+    boundary: "x402 is the payment protocol; Fermah Pay now documents a Stellar batch-settlement binding on testnet. This build scenario is still an idea, and the community reference model below does not inherit that deployment status.",
+    checked: FERMAH_PAY.checked,
     source: POST + "2111137093439074785", date: "2026-10-16",
     reference: {title: "proofmarket-x402", url: "https://github.com/Zhekinmaksim/proofmarket-x402", text: "Community reference model; signing and settlement are modelled."},
     draftTitle: "A stable API-payment action for agents",
@@ -115,7 +119,7 @@ export const SCENARIOS = [
     draftTitle: "A two-step Kernel workflow reference",
     draftBody: "Idea, not a shipped integration: demonstrate one program's result becoming the next action's input. Specify content-addressed program identity, input and output schemas, validation and failure behavior. Do not assume a sandbox alone proves execution.\nSource: " + POST + "2111489165661536597",
   },
-].map(item => ({...item, checked: CHECKED}));
+].map(item => ({...item, checked: item.checked || CHECKED}));
 
 export const OFFICIAL_NOTES = [
   {k: "consumption horizon local native next action tee future sequences zk durable artifact output consumer execution path identical computation потребление горизонт результат артефакт",
@@ -125,7 +129,7 @@ export const OFFICIAL_NOTES = [
   {k: "waitlist joinwaitlist access cohorts phases first 10000 admission ultramint early доступ очередь вайтлист",
     t: "On October 19, 2026, Fermah linked joinwaitlist.xyz and quoted Vanishree Rao: admission was phased and the first 10,000 had been admitted. This is a dated admission milestone, not a current active-user count or a promise of rewards. Checked October 24: the external page calls itself the ULTRAMINT waitlist, says Built by Fermah and requests X and Discord sign-in. Atlas does not perform that sign-in, collect those identities or require a wallet for browsing. The waitlist does not prove a product is publicly live.", src: POST + "2112251932291023222"},
   {k: "x402 agent api payment stable action interface routing policy settlement fermah pay difference агент платежи разница",
-    t: "Fermah's October 16, 2026 post uses an x402 API-payment flow to explain a stable action interface: the agent's payment intent can stay fixed while policy, routing and settlement change. This is a design explanation, not proof of a shipped x402 integration. x402 is not the same thing as Fermah Pay, which the docs separately describe as a USDC payments layer. Atlas lists proofmarket-x402 as a community reference model with modelled signing and settlement, not production Fermah infrastructure.", src: POST + "2111137093439074785"},
+    t: "Fermah's October 16, 2026 post uses an x402 API-payment flow to explain a stable action interface: the agent's payment intent can stay fixed while policy, routing and settlement change. This dated post is a design explanation; use the separately dated Fermah Pay testnet entry for its implementation status. x402 is a protocol, while Fermah Pay is a payments product. Atlas lists proofmarket-x402 as a separate community reference model with modelled signing and settlement, not production Fermah infrastructure.", src: POST + "2111137093439074785"},
   {k: "oci content addressed program identity image gvisor runsc runtime sandbox execution handoff composable next action kernel контейнер песочница",
     t: "Fermah's October 17, 2026 post states that content-addressed OCI images give programs durable onchain identity, gVisor runsc carries runtime context, and onchain handoff makes an output the next action's input. These describe program identity, runtime and composition respectively. A sandbox alone is not a ZK proof. The post is not a complete installation guide and does not give universal deployment commands.", src: POST + "2111489165661536597"},
   {k: "latency queue queueing routing delay milliseconds handoffs compute 2.8m bottleneck задержка очередь маршрутизация",

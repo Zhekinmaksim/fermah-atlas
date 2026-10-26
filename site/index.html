@@ -40,8 +40,7 @@
               rel="noopener">Froben</a><span class="when">PROOF MARKET · MAINNET</span></li>
           <li><span class="sq"></span><a href="https://flashcast.social/" target="_blank"
               rel="noopener">Flashcast Social</a><span class="when">PREDICTION MARKETS</span></li>
-          <li><span class="sq hm"></span><a href="https://docs.fermah.xyz/fermah-pay" target="_blank"
-              rel="noopener">Fermah Pay</a><span class="when">DOCS-LISTED</span></li>
+          <li><span class="sq hm"></span><a href="powered.html#fermah-pay">Fermah Pay</a><span class="when">STELLAR TESTNET</span></li>
           <li><span class="sq hm"></span><a href="https://docs.fermah.xyz/" target="_blank"
               rel="noopener">Marina</a><span class="when">DOCS-LISTED</span></li>
           <li><span class="sq hm"></span><span style="color:var(--gray)">ZKsync Era</span>
@@ -77,8 +76,13 @@
 
 <!-- briefing:updates -->
 <section class="brief-updates" id="now" aria-labelledby="now-title"><div class="wrap">
-  <div class="brief-section-head"><div><p class="eyebrow">Recent official notes</p><h2 class="sec" id="now-title">Now at Fermah.</h2></div><p class="brief-checked">Checked <time datetime="2026-10-24">Oct 24, 2026</time></p></div>
-  <div class="brief-updates-list"><article class="brief-update" id="update-consumption-horizon">
+  <div class="brief-section-head"><div><p class="eyebrow">Recent ecosystem notes</p><h2 class="sec" id="now-title">Now at Fermah.</h2></div><p class="brief-checked">Latest source check <time datetime="2026-10-26">Oct 26, 2026</time></p></div>
+  <div class="brief-updates-list"><article class="brief-update" id="update-fermah-pay-testnet">
+    <div class="brief-update-meta"><time datetime="2026-10-26">Oct 26, 2026</time><span>Fermah Pay · Stellar testnet</span></div>
+    <div><h3>A prepaid balance, with replay protection.</h3><p>On October 26, @7wealthh reported Fermah Pay Tranche 1 on Stellar testnet. Public repository evidence records a replay of 98 settled charges with no repeat debit, plus sponsored buyer network fees, recurring mandates and an x402 facilitator interface.</p><p class="brief-boundary">Testnet implementation and recorded cases; no production Mainnet release is established.</p></div>
+    <div class="brief-update-links"><a class="brief-action" href="powered.html#fermah-pay">Read the testnet evidence &#8594;</a><a class="brief-source" href="https://x.com/7wealthh/status/2114637166403891489" target="_blank" rel="noopener">Announcement &#8599;</a></div>
+  </article>
+<article class="brief-update" id="update-consumption-horizon">
     <div class="brief-update-meta"><time datetime="2026-10-24">Oct 24, 2026</time><span>Execution routing</span></div>
     <div><h3>Route for where the result goes next.</h3><p>Fermah described routing the same computation differently depending on where its output will be consumed: locally, by the next action, or across future sequences. The longer the result must remain composable, the more durable its execution artifact needs to be.</p></div>
     <div class="brief-update-links"><a class="brief-action" href="#consumption-horizon">Explore consumption horizon &#8594;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2114025885648974132" target="_blank" rel="noopener">Announcement &#8599;</a></div>
@@ -87,11 +91,6 @@
     <div class="brief-update-meta"><time datetime="2026-10-19">Oct 19, 2026</time><span>Early access</span></div>
     <div><h3>Access is opening in cohorts.</h3><p>Fermah shared Vanishree Rao&#39;s announcement of phased admission: the first 10,000 had been admitted on October 19, with more cohorts to follow. This is an admission milestone, not an active-user count.</p><p class="brief-boundary">External site. X and Discord sign-in are requested there, not on Atlas.</p></div>
     <div class="brief-update-links"><a class="brief-action" href="https://joinwaitlist.xyz/" target="_blank" rel="noopener">Open official waitlist &#8599;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2112251932291023222" target="_blank" rel="noopener">Announcement &#8599;</a></div>
-  </article>
-<article class="brief-update" id="update-composable-execution">
-    <div class="brief-update-meta"><time datetime="2026-10-17">Oct 17, 2026</time><span>Kernel architecture</span></div>
-    <div><h3>One execution can start the next.</h3><p>Fermah described program identity through content-addressed OCI images, runtime context through gVisor runsc, and an onchain handoff that makes returned output available to the next action.</p></div>
-    <div class="brief-update-links"><a class="brief-action" href="#kernel-flow">Follow the execution &#8594;</a><a class="brief-source" href="https://x.com/fermah_xyz/status/2111489165661536597" target="_blank" rel="noopener">Announcement &#8599;</a></div>
   </article></div>
 </div></section>
 <!-- /briefing:updates -->
@@ -122,8 +121,9 @@
         is the universal proof market, live on mainnet, with ZKsync Era named as a
         paying customer. Flashcast Social turns any topic into a prediction market in a second and
         resolves it automatically, with no committee and no dispute window. The current Fermah docs
-        also list Fermah Pay as a USDC payments layer and Marina as privacy-preserving data
-        infrastructure, both separately from Froben and Flashcast.</p>
+        separately list Marina as privacy-preserving data infrastructure. Fermah Pay now has a
+        public Stellar testnet implementation for prepaid USDC billing, sponsored submission,
+        recurring mandates and x402 settlement. <a href="powered.html#fermah-pay">Read the Pay testnet update →</a></p>
       <p class="read">Read it at <a href="https://www.fermah.xyz/" target="_blank"
         rel="noopener">fermah.xyz</a> and <a href="https://docs.fermah.xyz/" target="_blank"
         rel="noopener">docs.fermah.xyz</a>.</p>
@@ -263,12 +263,12 @@
 <section class="band" id="graph"><div class="wrap reveal">
   <p class="eyebrow">Ecosystem graph</p>
   <h2 class="sec">Who runs on what.</h2>
-  <p class="sec">Solid lines are relationships current official sources state today. Dashed lines are
-    announced, historical or open slots Atlas keeps visible but never promotes as production.</p>
+  <p class="sec">Solid lines show live relationships and docs-listed products. Dashed lines show
+    testnet, announced, historical or open entries.</p>
   <div id="graph-canvas"></div>
   <div class="legend">
     <span><i></i>stated on official Fermah sources today</span>
-    <span><i class="hist"></i>announced / historical</span>
+    <span><i class="hist"></i>testnet / announced / historical</span>
   </div>
 </div></section>
 
