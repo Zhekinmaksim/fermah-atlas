@@ -1,9 +1,9 @@
 {
- "last_week": 24,
- "last_date": "2026-10-18",
- "creators": 189,
- "selections": 119,
- "mentions": 321,
+ "last_week": 25,
+ "last_date": "2026-10-25",
+ "creators": 193,
+ "selections": 124,
+ "mentions": 339,
  "per_week": [
   {
    "week": 1,
@@ -196,6 +196,14 @@
    "mentioned": 24,
    "new": 7,
    "returning": 22
+  },
+  {
+   "week": 25,
+   "date": "2026-10-25",
+   "selected": 5,
+   "mentioned": 18,
+   "new": 4,
+   "returning": 19
   }
  ],
  "selection_runs": [
@@ -218,7 +226,7 @@
    "length": 3,
    "from": 22,
    "to": 24,
-   "active": true
+   "active": false
   },
   {
    "handle": "shantelledore",
@@ -246,7 +254,7 @@
    "length": 2,
    "from": 23,
    "to": 24,
-   "active": true
+   "active": false
   },
   {
    "handle": "Manazrealfact",
@@ -272,38 +280,38 @@
  ],
  "active_selection_runs": [
   {
-   "handle": "ox_elfawzan",
-   "length": 3,
-   "from": 22,
-   "to": 24,
-   "active": true
-  },
-  {
-   "handle": "blockzen_alpha",
-   "length": 2,
-   "from": 23,
-   "to": 24,
-   "active": true
-  },
-  {
-   "handle": "barrandland",
+   "handle": "Iamolaniyi_",
    "length": 1,
-   "from": 24,
-   "to": 24,
+   "from": 25,
+   "to": 25,
    "active": true
   },
   {
-   "handle": "Bitbox50",
+   "handle": "itsmahi778",
    "length": 1,
-   "from": 24,
-   "to": 24,
+   "from": 25,
+   "to": 25,
    "active": true
   },
   {
-   "handle": "stfu0911",
+   "handle": "ansarisiddiq876",
    "length": 1,
-   "from": 24,
-   "to": 24,
+   "from": 25,
+   "to": 25,
+   "active": true
+  },
+  {
+   "handle": "FatimaSaud95",
+   "length": 1,
+   "from": 25,
+   "to": 25,
+   "active": true
+  },
+  {
+   "handle": "horriyasha01",
+   "length": 1,
+   "from": 25,
+   "to": 25,
    "active": true
   }
  ],
@@ -313,7 +321,7 @@
    "length": 6,
    "from": 19,
    "to": 24,
-   "active": true
+   "active": false
   },
   {
    "handle": "cryptomasterAJ",
@@ -381,45 +389,45 @@
  ],
  "active_appearance_runs": [
   {
-   "handle": "Faizan626371",
-   "length": 6,
-   "from": 19,
-   "to": 24,
-   "active": true
-  },
-  {
-   "handle": "Bilalearn",
+   "handle": "ansarisiddiq876",
    "length": 4,
-   "from": 21,
-   "to": 24,
-   "active": true
-  },
-  {
-   "handle": "ox_elfawzan",
-   "length": 3,
    "from": 22,
-   "to": 24,
-   "active": true
-  },
-  {
-   "handle": "Manazrealfact",
-   "length": 3,
-   "from": 22,
-   "to": 24,
+   "to": 25,
    "active": true
   },
   {
    "handle": "joloforU",
-   "length": 3,
+   "length": 4,
    "from": 22,
-   "to": 24,
+   "to": 25,
    "active": true
   },
   {
-   "handle": "ansarisiddiq876",
-   "length": 3,
+   "handle": "Mr_Joker717",
+   "length": 4,
    "from": 22,
-   "to": 24,
+   "to": 25,
+   "active": true
+  },
+  {
+   "handle": "ahsan_Crypto3",
+   "length": 3,
+   "from": 23,
+   "to": 25,
+   "active": true
+  },
+  {
+   "handle": "Iamolaniyi_",
+   "length": 2,
+   "from": 24,
+   "to": 25,
+   "active": true
+  },
+  {
+   "handle": "FatimaSaud95",
+   "length": 2,
+   "from": 24,
+   "to": 25,
    "active": true
   }
  ],
@@ -431,10 +439,22 @@
    "back": 20
   },
   {
+   "handle": "itsmahi778",
+   "weeks": 13,
+   "from": 11,
+   "back": 25
+  },
+  {
    "handle": "Prince_swago",
    "weeks": 13,
    "from": 4,
    "back": 18
+  },
+  {
+   "handle": "LUCKYlaku25",
+   "weeks": 10,
+   "from": 14,
+   "back": 25
   },
   {
    "handle": "mamatomtn20aprl",
@@ -459,21 +479,25 @@
    "weeks": 6,
    "from": 11,
    "back": 18
-  },
-  {
-   "handle": "amircry94432508",
-   "weeks": 5,
-   "from": 18,
-   "back": 24
-  },
-  {
-   "handle": "soha_thk",
-   "weeks": 5,
-   "from": 18,
-   "back": 24
   }
  ],
  "tierups": [
+  {
+   "handle": "Iamolaniyi_",
+   "week": 25
+  },
+  {
+   "handle": "ansarisiddiq876",
+   "week": 25
+  },
+  {
+   "handle": "FatimaSaud95",
+   "week": 25
+  },
+  {
+   "handle": "horriyasha01",
+   "week": 25
+  },
   {
    "handle": "Moraxweb3",
    "week": 23
@@ -505,25 +529,9 @@
   {
    "handle": "kyBellato",
    "week": 15
-  },
-  {
-   "handle": "NewKO20110815",
-   "week": 11
-  },
-  {
-   "handle": "Sam_wolf1122",
-   "week": 11
-  },
-  {
-   "handle": "likith6150470",
-   "week": 10
-  },
-  {
-   "handle": "itsmahi778",
-   "week": 9
   }
  ],
- "tierup_total": 15,
+ "tierup_total": 19,
  "leaders": [
   {
    "handle": "eam__sha",
@@ -587,13 +595,13 @@
   }
  ],
  "spread": {
-  "1": 74,
+  "1": 72,
   "2": 42,
   "3": 33,
-  "4": 22,
-  "5": 11,
+  "4": 27,
+  "5": 12,
   "6": 7
  },
- "one_timers": 74,
- "came_back": 115
+ "one_timers": 72,
+ "came_back": 121
 }

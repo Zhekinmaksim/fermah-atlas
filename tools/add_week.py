@@ -79,7 +79,14 @@ def main():
     week, day, rows, skipped = parse(open(args.text, encoding="utf-8").read(),
                                      args.week, args.date)
 
-    by_handle = {c["display_handle"]: c for c in seed["creators"]}
+    creators = list(seed["creators"])
+    by_handle = {}
+    for creator in creators:
+        for handle in [creator["display_handle"], *creator.get("previous_handles", [])]:
+            key = handle.lower()
+            if key in by_handle and by_handle[key] is not creator:
+                raise ValueError(f"Conflicting handle or alias: {handle}")
+            by_handle[key] = creator
     seen = {LINK.search(c["x_url"]).group(2)
             for cr in seed["creators"] for c in cr["contributions"]
             if LINK.search(c["x_url"])}
@@ -90,11 +97,12 @@ def main():
             dupes += 1
             continue
         seen.add(sid)
-        cr = by_handle.get(handle)
+        cr = by_handle.get(handle.lower())
         if cr is None:
             cr = {"display_handle": handle, "spotlight_count": 0,
                   "honourable_mention_count": 0, "contributions": []}
-            by_handle[handle] = cr
+            by_handle[handle.lower()] = cr
+            creators.append(cr)
             new_people.append(handle)
         cr["contributions"].append({
             "x_handle": handle,
@@ -105,7 +113,6 @@ def main():
         })
         added += 1
 
-    creators = list(by_handle.values())
     for cr in creators:
         cr["contributions"].sort(key=lambda c: (c["week_label"], c["tier"]))
         t = Counter(c["tier"] for c in cr["contributions"])

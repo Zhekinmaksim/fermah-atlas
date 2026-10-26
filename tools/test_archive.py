@@ -116,6 +116,33 @@ class ArchiveTests(unittest.TestCase):
             self.assertEqual(card[:8], b"\x89PNG\r\n\x1a\n")
             self.assertEqual(struct.unpack(">II", card[16:24]), (1200, 630))
 
+    def test_week25_announcement(self):
+        from add_week import parse
+
+        _, _, rows, _ = parse((ROOT / "tools/week25.txt").read_text())
+        expected = set(rows)
+        actual = set()
+        source = (SITE / "week/25.html").read_text()
+        owners = {}
+        for creator in self.seed["creators"]:
+            for handle in [creator["display_handle"], *creator.get("previous_handles", [])]:
+                self.assertNotIn(handle.lower(), owners)
+                owners[handle.lower()] = creator["display_handle"].lower()
+            for item in creator["contributions"]:
+                if item["week_label"] == 25:
+                    actual.add((item["x_handle"], item["x_url"].rsplit("/", 1)[1], item["tier"]))
+                    self.assertEqual(item["announcement_date"], "2026-10-25")
+                    slug = creator["display_handle"].lower()
+                    self.assertTrue((SITE / "avatars" / f"{slug}.jpg").exists())
+                    self.assertIn(f"../c/{slug}.html", source)
+                    self.assertIn(item["x_url"], source)
+        self.assertEqual(len(expected), 23)
+        self.assertEqual(actual, expected)
+        self.assertEqual(owners["doctordynamite3"], "ahsan_crypto3")
+        week = next(w for w in self.stats["per_week"] if w["week"] == 25)
+        self.assertEqual((week["selected"], week["mentioned"], week["new"]), (5, 18, 4))
+        self.assertEqual(week["date"], "2026-10-25")
+
     def test_weeks_and_sitemap(self):
         for week in self.seed["source_summary"]["weeks"]:
             parser = Links()
