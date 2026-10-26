@@ -25,7 +25,6 @@ const ECOSYSTEM = {
     {id:"marina",    label:"Marina",          col:2, kind:"product", note:"Privacy data infrastructure · docs-listed"},
     {id:"community", label:"Community apps",  col:2, kind:"open",    note:"open slot"},
     {id:"zksync",    label:"ZKsync Era",      col:3, kind:"customer"},
-    {id:"abstract",  label:"Abstract Chain",  col:3, kind:"customer"},
     {id:"cpd",       label:"CPD",             col:1, kind:"hist",    note:"Confidential Proving Delegation"},
     {id:"reclaim",   label:"Reclaim",         col:2, kind:"hist"},
     {id:"3jane",     label:"3Jane",           col:3, kind:"hist"}
@@ -38,7 +37,6 @@ const ECOSYSTEM = {
     {from:"fermah",  to:"marina",    status:"listed"},
     {from:"kernel",  to:"community", status:"open"},
     {from:"froben",  to:"zksync",    status:"live"},
-    {from:"froben",  to:"abstract",  status:"live"},
     {from:"fermah",  to:"cpd",       status:"hist"},
     {from:"cpd",     to:"reclaim",   status:"hist"},
     {from:"reclaim", to:"3jane",     status:"hist"}
@@ -59,9 +57,6 @@ const ECOSYSTEM = {
      text:"The current Fermah docs list Marina as privacy-preserving data infrastructure for the decentralized web. The docs page marks its Documentation and API Reference as Soon, so Atlas does not label it as live.",
      source:DOCS, checked:DOCS_CHECKED},
     {name:"ZKsync Era", kicker:"Paying customer of Froben", status:"live",
-     text:"Named on the Fermah site as a paying customer of the Froben proof market.",
-     source:FERMAH, checked:CHECKED},
-    {name:"Abstract Chain", kicker:"Paying customer of Froben", status:"live",
      text:"Named on the Fermah site as a paying customer of the Froben proof market.",
      source:FERMAH, checked:CHECKED},
     {name:"DeFi Automation", kicker:"Enabled by Kernel", status:"enabled",
@@ -111,7 +106,6 @@ const ECOSYSTEM = {
     {rel:"Marina — privacy-preserving data infrastructure listed separately in the current Fermah docs",
      status:"listed", url:DOCS, checked:DOCS_CHECKED},
     {rel:"ZKsync Era — paying customer of Froben", status:"live", url:FERMAH, checked:CHECKED},
-    {rel:"Abstract Chain — paying customer of Froben", status:"live", url:FERMAH, checked:CHECKED},
     {rel:"DeFi automation, programmable liquidity, price feeds and cross-protocol sequencing — listed as enabled by Kernel, not as shipped products", status:"enabled",
      url:FERMAH, checked:CHECKED},
     {rel:"CPD → Reclaim → 3Jane — announced integration, not on the current site", status:"hist",

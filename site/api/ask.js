@@ -59,8 +59,8 @@ const KB = [
     src: "https://docs.fermah.xyz/",
   },
   {
-    k: "customers zksync abstract paying who uses production",
-    t: "ZKsync Era and Abstract Chain are named on the Fermah site as paying customers of the Froben proof market.",
+    k: "customers zksync paying who uses production",
+    t: "Atlas lists ZKsync Era as a named paying customer of the Froben proof market, based on the Fermah site.",
     src: "https://www.fermah.xyz/",
   },
   {

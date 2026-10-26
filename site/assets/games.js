@@ -80,7 +80,7 @@ const QUESTIONS = [
    e:"Froben and Flashcast are the two production Kernel products Atlas tracks. Fermah Pay and Marina are listed separately in the current docs."},
   {q:"Who is named on the Fermah site as a paying customer of Froben?",
    a:["ZKsync Era","Scroll","Boundless","zkVerify"], c:0,
-   e:"ZKsync Era and Abstract Chain are the named paying customers. Scroll, Boundless and zkVerify appear on the partner wall, which is a different claim."},
+   e:"Atlas lists ZKsync Era as a named paying customer. Scroll, Boundless and zkVerify appear on the partner wall, which is a different claim."},
   {q:"In Fermah's vocabulary, who submits a Proof Request?",
    a:["A Seeker","A Matchmaker","A Prover Node","An Operator"], c:0,
    e:"Seekers submit Proof Requests, the Matchmaker assigns them to Prover Nodes, and the Prover Nodes generate the proofs."},
@@ -259,7 +259,7 @@ const LEVELS = {
   2:["request","Request"], 4:["seeker","Seeker"], 8:["matchmaker","Matchmaker"],
   16:["node","Prover"], 32:["proof","Proof"], 64:["froben","Froben"],
   128:["flashcast","Flashcast"], 256:["kernel","Kernel"], 512:["zksync","ZKsync"],
-  1024:["abstract","Abstract"], 2048:["pi","FERMAH"], 4096:["atlas","ATLAS"]
+  1024:["pay","Fermah Pay"], 2048:["pi","FERMAH"], 4096:["atlas","ATLAS"]
 };
 const INK = v => (v >= 32 ? "#001030" : "#cfe6ef");
 

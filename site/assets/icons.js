@@ -15,7 +15,7 @@ const ICONS = {
   prover:    ["#.#.#.#","#.#.#.#","#######","..###..","..###..",".#####.","#######"],
   proof:    ["......#",".....##","#...##.","##.##..",".####..","..##...","......."],
   zksync:    ["#######","....##.","...##..","..##...",".##....","##.....","#######"],
-  abstract:  [".#####.","##...##","#..#..#","#.###.#","#..#..#","##...##",".#####."],
+  pay:       [".#####.",".##..##",".##..##",".#####.",".##....",".##....",".##...."],
   request:   ["..###..",".#####.","##...##","##...##","##...##",".#####.","..###.."],
   node:      ["##...##","##...##","..###..",".#####.","..###..","##...##","##...##"],
   atlas:     ["#######","#.....#","#.###.#","#.#.#.#","#.###.#","#.....#","#######"],
@@ -23,12 +23,12 @@ const ICONS = {
 };
 
 const ICON_ORDER = ["pi","kernel","froben","flashcast","seeker","matchmaker",
-                    "prover","proof","zksync","abstract","request","node"];
+                    "prover","proof","zksync","pay","request","node"];
 
 const ICON_LABEL = {
   pi:"π", kernel:"Kernel", froben:"Froben", flashcast:"Flashcast", seeker:"Seeker",
   matchmaker:"Matchmaker", prover:"Prover", proof:"Proof", zksync:"ZKsync",
-  abstract:"Abstract", request:"Request", node:"Node", atlas:"Atlas", spark:"Spark"
+  pay:"Fermah Pay", request:"Request", node:"Node", atlas:"Atlas", spark:"Spark"
 };
 
 /** Inline SVG for an icon. `color` is any CSS colour. */
