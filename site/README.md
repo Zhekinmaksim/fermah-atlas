@@ -13,7 +13,7 @@ Unofficial community archive of the Fermah ecosystem. Static site, no build step
 | `fermafia.html` | Fermafia — 193 active creators, searchable, card + post + download |
 | `stats.html` | season statistics: weekly intake, runs, comebacks, tier-ups and retention |
 | `week/<n>.html` | one static page per announcement, with its own OG metadata |
-| `operators.html` | Operators — the supply side and the on-chain node registry |
+| `operators.html` | Operators — dated Explorer snapshot, node requirements and network-specific AVS evidence |
 | `play.html` | Play with Fermah — question of the day, memory, 2048 |
 | `c/<handle>.html` | one page per creator, own title and own og:image |
 
@@ -122,18 +122,32 @@ How it is fenced in, in order:
 After changing site content, rebuild the committed index from the project root with
 `node site/tools/build_assistant_index.mjs`. There is no scraping and no training.
 
-## Operator registry
+## Operator reference
 
-`operators.html` renders from `data/operators.js`, which ships empty. To fill it, take the
-Fermah AVS service manager address from
-[fermah-xyz/avs-metadata](https://github.com/fermah-xyz/avs-metadata) and run:
+`data/explorer-operators.json` stores the dated, fully paginated Fermah Explorer snapshot.
+The October 26 snapshot contains 10 display names, 6 with connected machines and 7 connected
+machines. Counters are recorded as of the capture time, not fetched live in visitors’ browsers.
+Machine counts include disconnected source records. There is no confirmed mapping from these
+names to Ethereum operator addresses.
+
+`data/operator-guide.js` keeps sourced Mainnet onboarding and requirements notes. Preserve the
+unresolved CPU/RAM disagreement between Mainnet Overview and Provers; neither page establishes
+which minimum governs. `data/operator-contracts.json` records network-specific indexer evidence:
+the configuration example’s addresses are contracts on Sepolia, while a production Mainnet AVS
+deployment is not confirmed. Do not treat a negative indexer lookup as a bytecode audit.
+
+After a source-backed data update, run from the repository root:
 
 ```
-python tools/fetch_operators.py --rpc <sepolia rpc> --address 0x... --from-block 0x0
+node site/tools/build_operators.mjs
+node site/tools/build_assistant_index.mjs
+node site/tools/test_operators.mjs
 ```
 
-It reads registration events and writes the file. Nothing is written that the chain did not
-return, and labels for addresses are added by hand, only when an operator asks.
+The builder writes static snapshot/contract sections, the homepage operator count and
+`api/operator-context.js`. The complete table remains readable without JavaScript.
+The old empty `data/operators.js` and event-indexing prototype are not used by this page;
+do not replace the Explorer snapshot with guessed event signatures or inferred identities.
 
 ## Leaderboard (optional)
 

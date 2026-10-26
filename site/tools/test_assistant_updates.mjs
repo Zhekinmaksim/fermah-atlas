@@ -151,6 +151,7 @@ try {
   );
   const handlerSource = (await readFile(new URL("../api/ask.js", import.meta.url), "utf8"))
     .replace('"./knowledge.js"', JSON.stringify(new URL("../api/knowledge.js", import.meta.url).href))
+    .replace('"./operator-context.js"', JSON.stringify(new URL("../api/operator-context.js", import.meta.url).href))
     .replace('"../data/briefing.js"', JSON.stringify(fixture));
   const {default: fixtureHandler} = await import("data:text/javascript," + encodeURIComponent(handlerSource));
   const providedContext = extracts(await ask("What is protocol agency?", {endpoint: fixtureHandler}));

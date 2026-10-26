@@ -12,6 +12,7 @@
 
 import {ARCHIVE_STATS, ARCHIVE_SUMMARY, DOCUMENTS} from "./knowledge.js";
 import {METRICS, OFFICIAL_NOTES} from "../data/briefing.js";
+import {OPERATOR_CONTEXT} from "./operator-context.js";
 
 // Sonnet is the default; Vercel can override it with ANTHROPIC_MODEL.
 const MODEL = String(process.env.ANTHROPIC_MODEL || "claude-sonnet-5").trim();
@@ -28,6 +29,7 @@ const REFUSAL =
 -------------------------------------------------------------------------- */
 const KB = [
   ...OFFICIAL_NOTES,
+  ...OPERATOR_CONTEXT,
   {
     k: "kernel engine agency protocol autonomous execute settle trigger",
     t: "Fermah Kernel is what the team calls the Protocol Agency Engine. Smart contracts are reactive: they read a condition and emit a value, then wait for a human, a server or a cron job. Kernel turns \"if this verifiable thing is true, do that\" into an on-chain primitive — it observes the event, runs the logic in a sandboxed container, and settles the verified result on-chain.",
@@ -78,41 +80,6 @@ const KB = [
   {
     k: "seeker matchmaker prover node roles demand supply how it works market sides",
     t: "The market has three roles. A Seeker submits a proof request. The Matchmaker allocates it. A Prover Node generates the proof. Supply is hardware — GPUs and FPGAs run by operators; demand is anything that needs a ZK proof.",
-    src: "https://docs.fermah.xyz/",
-  },
-  {
-    k: "run a node operator register eigenlayer avs keys ecdsa bls whitelist join",
-    t: "To run a prover node an operator generates ECDSA and BLS keys, gets whitelisted, and registers with the Fermah AVS through EigenLayer contracts. The operator set is permissioned, so access is requested before a node can register. Follow the docs for the exact commands.",
-    src: "https://docs.fermah.xyz/",
-  },
-  {
-    k: "prover node onboarding steps installation configuration machine secret registration telemetry starting node",
-    t: "The Fermah docs describe prover-node onboarding as a sequence: installation, configuration, machine secret, registration, telemetry, and starting the node. Atlas treats this as testnet/operator documentation and sends readers to the docs for the exact commands.",
-    src: "https://docs.fermah.xyz/testnet/for-prover-nodes",
-  },
-  {
-    k: "installation prover node ubuntu docker cuda toolkit fpn binary zksync configuration files install script",
-    t: "For installation, the docs point operators at Ubuntu 22.04 LTS, Docker, CUDA drivers and the CUDA container toolkit. The install script obtains the fpn / prover-node binary, downloads the default ZKsync prover, installs configuration files, sets up telemetry, and can onboard into the Fermah network when whitelist keys are available.",
-    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/installation",
-  },
-  {
-    k: "machine secret ecdsa private key store-key gen-machine-secret whitelist public keys operator application",
-    t: "For machine authentication, the docs use an imported ECDSA key to generate a machine secret. Operators submit the machine-secret public keys through the Fermah operator application flow and wait until those keys are whitelisted before continuing.",
-    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/machine-secret",
-  },
-  {
-    k: "registration prover-node register rpc sepolia eigenlayer el flag configuration whitelisted avs",
-    t: "Registration is a one-time action handled by the fpn / prover-node binary. The docs require machine secret and whitelist completion, configuration files, and a Sepolia RPC URL. Operators registered in EigenLayer use the same operator identity key and add the EigenLayer flag when registering.",
-    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/registration",
-  },
-  {
-    k: "starting node fpn run command telemetry config systemd docker kubernetes daemon",
-    t: "To start the node, the docs say telemetry should already be running and the configuration file should exist at ~/.fermah/config/prover-node-config.toml. The node is then launched with the fpn command, with daemon options documented for systemd, Docker and Kubernetes.",
-    src: "https://docs.fermah.xyz/testnet/for-prover-nodes/starting-a-node",
-  },
-  {
-    k: "telemetry metrics grafana monitoring sidecar opentelemetry dashboard",
-    t: "Prover nodes ship a metrics sidecar built on OpenTelemetry. Operators can point it at additional collectors of their own. The team's aggregated Grafana dashboard is not open — the key is issued on request through their channels.",
     src: "https://docs.fermah.xyz/",
   },
   {
@@ -203,7 +170,7 @@ const DIRECT_ANSWERS = [
   {
     test: /\b((how|where|can|do).{0,40})?(run|start|install|operate|register|onboard).{0,80}(prover[- ]?node|node|operator)\b/i,
     answer:
-      "To run a Fermah prover node, the docs route an operator through onboarding: prepare the server, install Docker/CUDA and the fpn/prover-node binary, load the assigned configuration, create the machine secret from an ECDSA key, submit the machine-secret public keys for whitelist approval, register through the Fermah AVS with a Sepolia RPC, then start the node with fpn once telemetry and ~/.fermah/config/prover-node-config.toml are in place. If the operator is also registered in EigenLayer, the docs say to use the same operator identity key and the EigenLayer registration flag. Atlas does not mirror the full command guide because those commands can change, so use the official docs for the exact steps.\nSource: https://docs.fermah.xyz/testnet/for-prover-nodes",
+      "The Mainnet docs start with whitelisting your Mainnet Ethereum public address with Fermah and obtaining an assigned prover-node name. Prepare the supported Linux/Docker/CUDA setup, install and configure the prover, create the machine secret, register with Ethereum Mainnet RPC, set up telemetry and start the node; --el applies to an already-registered EigenLayer operator using the same operator identity key. The docs disagree on the CPU/RAM minimum for CP and the all-round witness generator, so confirm your assigned hardware profile and use the official guide for exact commands.\nSource: https://docs.fermah.xyz/network/mainnet/installation",
   },
   {
     test: /\b(flashcast\s+ignition|ignition|season\s*0?1|featured markets|universal markets|no recap published)\b/i,
@@ -286,7 +253,7 @@ function pickContext(q) {
   const top = scored.filter((s) => s.score > 0).slice(0, 5).map((s) => s.e);
   if (/\b(prover[- ]?node|operator|onboard|registration|machine secret|telemetry|fpn)\b/i.test(q)) {
     for (const entry of KB.filter((e) => /\b(prover|node|operator|registration|telemetry|fpn|machine secret)\b/i.test(e.k))) {
-      if (!top.includes(entry)) top.push(entry);
+      if (entry.kind !== "explorer-profile" && !top.includes(entry)) top.push(entry);
     }
   }
   if (/\b(team|leadership|founder|founded|ceo|cto|behind|vanishree|rao|patricio|napoli)\b|команд|основател|руководител|ванишри|патрицио|напол[иь]/i.test(q)) {

@@ -1,0 +1,60 @@
+{
+  "checked": "2026-10-26",
+  "official_documentation_url": "https://docs.fermah.xyz/network/mainnet/configuration",
+  "confirmed_production_mainnet_avs_address": null,
+  "method": "Blockscout MCP get_address_info, Ethereum Sepolia and Ethereum Mainnet; indexer evidence, not an independent eth_getCode or bytecode audit.",
+  "contracts": [
+    {
+      "role": "fermahServiceManager",
+      "address": "0xEE4eE799e09Ea975139c93Da2E403a8A0Ea8eE6a",
+      "confirmed_network": {
+        "name": "Ethereum Sepolia",
+        "chain_id": 11155111,
+        "is_testnet": true
+      },
+      "sepolia_explorer_url": "https://eth-sepolia.blockscout.com/address/0xEE4eE799e09Ea975139c93Da2E403a8A0Ea8eE6a",
+      "mainnet_explorer_url": "https://eth.blockscout.com/address/0xEE4eE799e09Ea975139c93Da2E403a8A0Ea8eE6a",
+      "sepolia_indexer": {
+        "is_contract": true,
+        "is_verified": false,
+        "proxy_type": "eip1967",
+        "first_transaction_details": {
+          "block_number": 8117743,
+          "timestamp": "2025-04-14T15:35:00.000000Z"
+        }
+      },
+      "ethereum_mainnet_indexer": {
+        "is_contract": false,
+        "is_verified": false,
+        "proxy_type": null,
+        "first_transaction_details": null
+      }
+    },
+    {
+      "role": "fermahStakeRegistry",
+      "address": "0x0118abd80cC8895Cbd40f5912e8E36c863CC61c1",
+      "confirmed_network": {
+        "name": "Ethereum Sepolia",
+        "chain_id": 11155111,
+        "is_testnet": true
+      },
+      "sepolia_explorer_url": "https://eth-sepolia.blockscout.com/address/0x0118abd80cC8895Cbd40f5912e8E36c863CC61c1",
+      "mainnet_explorer_url": "https://eth.blockscout.com/address/0x0118abd80cC8895Cbd40f5912e8E36c863CC61c1",
+      "sepolia_indexer": {
+        "is_contract": true,
+        "is_verified": false,
+        "proxy_type": "eip1967",
+        "first_transaction_details": {
+          "block_number": 8117743,
+          "timestamp": "2025-04-14T15:35:00.000000Z"
+        }
+      },
+      "ethereum_mainnet_indexer": {
+        "is_contract": false,
+        "is_verified": false,
+        "proxy_type": null,
+        "first_transaction_details": null
+      }
+    }
+  ]
+}

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Operators — Fermah Atlas</title>
-<meta name="description" content="The supply side of the Fermah proof market: who runs the prover nodes, how registration works, and what it takes to join.">
+<meta name="description" content="Fermah Explorer prover names, a dated machine snapshot, node requirements and network-specific AVS contract evidence, with sources.">
 <meta property="og:title" content="Operators — Fermah Atlas">
-<meta property="og:description" content="The supply side of the Fermah proof market.">
+<meta property="og:description" content="The supply side: Explorer prover names, node requirements and AVS evidence.">
 <meta property="og:image" content="https://fermahatlas.xyz/brand/x-banner.png">
 <link rel="canonical" href="https://fermahatlas.xyz/operators">
 <meta property="og:url" content="https://fermahatlas.xyz/operators">
@@ -17,123 +17,119 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
-
 <section class="pagehead"><div class="wrap reveal">
-  <div class="top">
-    <span class="num">04</span>
-    <div>
-      <p class="eyebrow">The supply side</p>
-      <h1>Operators</h1>
-      <p class="lede">Powered by Fermah shows who buys proofs. This page shows who makes them.
-        Prover nodes are the hardware half of the market, and their registration lives in public
-        contracts rather than in a dashboard — so it can be read by anyone, including this page.</p>
-    </div>
-  </div>
+  <div class="top"><span class="num">04</span><div>
+    <p class="eyebrow">The supply side</p><h1>Operators</h1>
+    <p class="lede">Powered by Fermah shows who buys proofs. This page follows who makes them:
+      the prover names published by Fermah Explorer, the requirements for running a node,
+      and what the public contract evidence confirms.</p>
+    <div class="acts"><a class="btn primary" href="#explorer-snapshot">Explorer snapshot ↓</a><a class="btn" href="#node-requirements">Node requirements ↓</a></div>
+  </div></div>
 </div></section>
+
+<hr class="rule">
+<section class="wrap reveal" id="explorer-snapshot">
+<!-- operator-snapshot:start -->
+  <div class="sec-head"><div><p class="eyebrow">Fermah Proof Explorer</p><h2 class="sec">The prover names in the record.</h2></div></div>
+  <p class="sec">A snapshot of the public Explorer, captured <time datetime="2026-10-26T07:57:23.844517+00:00">2026-10-26 07:57 UTC</time>. These are Explorer display names; their Ethereum operator addresses have not been matched.</p>
+  <dl class="op-summary"><div><dt>Prover names</dt><dd>10</dd></div><div><dt>With connected machines</dt><dd>6</dd></div><div><dt>Connected machines</dt><dd>7</dd></div></dl>
+  <div class="op-table-scroll" role="region" aria-label="Explorer prover snapshot" tabindex="0"><table class="op-table"><caption>Fermah Explorer snapshot · 2026-10-26 07:57 UTC</caption><thead><tr><th scope="col">Prover name</th><th scope="col">Machines in source</th><th scope="col">Connected</th><th scope="col">Tasks completed · 1h</th><th scope="col">First seen in Explorer</th></tr></thead><tbody>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/moonli" target="_blank" rel="noopener">moonli ↗</a></th><td>2</td><td>2</td><td>115</td><td>2026-02-25</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/staking4all" target="_blank" rel="noopener">staking4all ↗</a></th><td>1</td><td>1</td><td>58</td><td>2026-05-08</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/rubynodes" target="_blank" rel="noopener">rubynodes ↗</a></th><td>1</td><td>1</td><td>56</td><td>2026-04-24</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/blackblocks" target="_blank" rel="noopener">blackblocks ↗</a></th><td>2</td><td>1</td><td>31</td><td>2026-08-12</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/fermah.wg.c4d" target="_blank" rel="noopener">fermah.wg.c4d ↗</a></th><td>2,723</td><td>1</td><td>8</td><td>2026-08-13</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/fermah.cp.g4" target="_blank" rel="noopener">fermah.cp.g4 ↗</a></th><td>15,400</td><td>0</td><td>0</td><td>2026-08-11</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/natsai" target="_blank" rel="noopener">natsai ↗</a></th><td>1</td><td>0</td><td>0</td><td>2026-04-06</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/p-ops" target="_blank" rel="noopener">p-ops ↗</a></th><td>2</td><td>0</td><td>0</td><td>2026-02-12</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/cp0x" target="_blank" rel="noopener">cp0x ↗</a></th><td>2</td><td>0</td><td>0</td><td>2026-02-24</td></tr>
+      <tr><th scope="row"><a href="https://explorer.fermah.xyz/provers/fermah.c.g2" target="_blank" rel="noopener">fermah.c.g2 ↗</a></th><td>2</td><td>1</td><td>0</td><td>2026-08-06</td></tr>
+  </tbody></table></div>
+  <p class="hint op-note">Machine counts include all records in the source, including disconnected entries. They are not a count of operating servers. A zero connected count in this snapshot does not establish that an operator has left. The 1h counters belong to the source’s rolling window at capture time.</p>
+  <div class="acts"><a href="https://explorer.fermah.xyz/provers" target="_blank" rel="noopener">Open current Explorer ↗</a><a href="data/explorer-operators.json" download>Download snapshot JSON</a></div>
+<!-- operator-snapshot:end -->
 </section>
 
 <hr class="rule">
+<section class="wrap reveal" id="node-requirements">
+  <p class="eyebrow">Running a prover node</p><h2 class="sec">Start with the assigned profile.</h2>
+  <p class="sec">A Seeker submits a Proof Request, the Matchmaker allocates it, and a prover node
+    generates the proof. Onboarding is permissioned: submit your Mainnet Ethereum public address
+    to Fermah for whitelisting and obtain the assigned prover-node name before installation.</p>
+  <ol class="op-onboarding">
+    <li><h3>Prepare the server</h3><p>Use a supported OS, compatible NVIDIA drivers and CUDA toolkit, Docker and NVIDIA Container Toolkit.</p></li>
+    <li><h3>Configure the identity</h3><p>Install the prover binary, use the assigned configuration and create the machine secret. Keep private keys and secrets on your machine.</p></li>
+    <li><h3>Register, then start</h3><p>Configure Ethereum Mainnet RPC, register the node, set up telemetry and start it. The <code>--el</code> registration flag applies to an already-registered EigenLayer operator participating with the same operator identity key.</p></li>
+  </ol>
+  <p class="hint op-note">Official commands: <a href="https://docs.fermah.xyz/network/mainnet/installation" target="_blank" rel="noopener">Installation ↗</a> · <a href="https://docs.fermah.xyz/network/mainnet/configuration" target="_blank" rel="noopener">Configuration ↗</a> · <a href="https://docs.fermah.xyz/network/mainnet/registration" target="_blank" rel="noopener">Registration ↗</a>. Checked October 26, 2026.</p>
 
-<section class="wrap reveal">
-  <p class="eyebrow">How the supply side works</p>
-  <h2 class="sec">Seekers ask, the Matchmaker allocates, nodes prove.</h2>
-  <p class="sec">Fermah is a market with machines on one side — GPUs and FPGAs run by operators —
-    and anything that needs a ZK proof on the other. A Seeker submits a Proof Request, the
-    Matchmaker assigns it to a Prover Node, and the node generates the proof. The whole ceiling
-    of the system is coordination between those three, not raw compute.</p>
-  <div class="op-grid">
-    <div class="op-card"><span class="step">01 · KEYS</span>
-      <h4>ECDSA and BLS</h4>
-      <p>An operator generates both key types. They identify the node to the network and sign
-        its participation.</p></div>
-    <div class="op-card"><span class="step">02 · WHITELIST</span>
-      <h4>Access is granted, not taken</h4>
-      <p>The operator set is permissioned: you request access before a node can register, which
-        is why the registry is small and every entry is deliberate.</p></div>
-    <div class="op-card"><span class="step">03 · REGISTRATION</span>
-      <h4>Through EigenLayer</h4>
-      <p>Registration goes through EigenLayer contracts for the Fermah AVS. That is what makes
-        the operator set publicly readable — no permission needed to look.</p></div>
-    <div class="op-card"><span class="step">04 · TELEMETRY</span>
-      <h4>A metrics sidecar</h4>
-      <p>Nodes ship an OpenTelemetry collector alongside the prover. Operators can point it at
-        additional collectors of their own, which is how a node could feed a public board.</p></div>
-  </div>
-  <p class="hint" style="margin-top:22px">Summarised from
-    <a href="https://docs.fermah.xyz/" target="_blank" rel="noopener" style="color:var(--teal)">docs.fermah.xyz</a>.
-    Follow the docs for the exact commands — Atlas does not mirror them, they change.</p>
+  <details class="op-detail" open><summary>Software and supported OS profiles</summary>
+    <div class="op-table-scroll" role="region" aria-label="Supported OS profiles" tabindex="0"><table class="op-table"><caption>Official Installation profiles · checked October 26, 2026</caption><thead><tr><th scope="col">OS</th><th scope="col">Architecture</th><th scope="col">CUDA</th><th scope="col">GLIBC</th></tr></thead><tbody>
+      <tr><th scope="row">Ubuntu 22.04 LTS</th><td>amd64</td><td>12.2</td><td>2.34+</td></tr>
+      <tr><th scope="row">Ubuntu 24.04 LTS</th><td>amd64</td><td>12.9</td><td>2.39+</td></tr>
+    </tbody></table></div>
+    <p>Other Linux distributions need compatible GLIBC. Both NVIDIA drivers and CUDA toolkit are required; the CUDA numbers above are not driver release numbers.</p>
+    <p>Root Docker v24+ is used for telemetry, rootless Docker v24+ for prover containers. Configure NVIDIA Container Toolkit for rootless Docker.</p>
+    <p class="hint"><a href="https://docs.fermah.xyz/network/mainnet/installation" target="_blank" rel="noopener">Official Installation guide ↗</a></p>
+  </details>
+
+  <details class="op-detail" open><summary>Hardware: two published CPU/RAM profiles</summary>
+    <p>The Mainnet Overview and the dedicated Provers page disagree for these two ZKsync roles. Neither establishes which CPU/RAM minimum governs. Confirm the assigned profile with Fermah before choosing hardware.</p>
+    <div class="op-table-scroll" role="region" aria-label="Conflicting hardware requirements" tabindex="0"><table class="op-table"><caption>Published CPU/RAM values · checked October 26, 2026</caption><thead><tr><th scope="col">Role</th><th scope="col">Mainnet Overview</th><th scope="col">Provers page</th></tr></thead><tbody>
+      <tr><th scope="row">Circuit Prover (CP)</th><td>16 vCPU · 64 GB RAM</td><td>32 vCPU · 128 GB RAM</td></tr>
+      <tr><th scope="row">CPU Witness Generator · all</th><td>16 vCPU · 64 GB RAM</td><td>32 vCPU · 128 GB RAM</td></tr>
+    </tbody></table></div>
+    <p>Both pages give CP 24 GB GPU VRAM and 375 GB SSD. WGC additionally includes a compressor requiring at least 24 GB GPU memory, so CPU witness-round figures alone do not describe a complete WGC machine.</p>
+    <p class="hint"><a href="https://docs.fermah.xyz/network/mainnet#hardware-requirements" target="_blank" rel="noopener">Mainnet Overview ↗</a> · <a href="https://docs.fermah.xyz/network/mainnet/provers#zksync" target="_blank" rel="noopener">Provers ↗</a></p>
+  </details>
+
+  <details class="op-detail"><summary>Individual witness rounds</summary>
+    <div class="op-table-scroll" role="region" aria-label="CPU witness round profiles" tabindex="0"><table class="op-table"><caption>Individual CPU witness rounds, not a complete WGC specification</caption><thead><tr><th scope="col">Round</th><th scope="col">vCPU</th><th scope="col">RAM</th></tr></thead><tbody>
+      <tr><th scope="row"><code>basic_circuits</code></th><td>16</td><td>32 GB</td></tr>
+      <tr><th scope="row"><code>leaf_aggregation</code></th><td>16</td><td>80 GB</td></tr>
+      <tr><th scope="row"><code>node_aggregation</code></th><td>8</td><td>4 GB</td></tr>
+      <tr><th scope="row"><code>recursion_tip</code></th><td>4</td><td>1 GB</td></tr>
+      <tr><th scope="row"><code>scheduler</code></th><td>4</td><td>1 GB</td></tr>
+    </tbody></table></div>
+    <p>These CPU/RAM rows agree across the two pages. Disk requirements are not stated for these rounds. <a href="https://docs.fermah.xyz/network/mainnet/provers" target="_blank" rel="noopener">Source: Provers ↗</a></p>
+  </details>
+
+  <details class="op-detail"><summary>Multiple GPUs and remaining setup questions</summary>
+    <p>The Multi-GPU guide describes one prover-node instance/container per GPU, separate Fermah home directories, unique machine secrets, independent registration and explicit GPU pinning.</p>
+    <p>Its examples mount <code>/var/run/docker.sock</code> and use root systemd services. The guide does not explain how those examples relate to the rootless prover-container requirement; confirm the container context for your setup.</p>
+    <p>The checked guides do not establish a universal stake minimum, bandwidth minimum or uptime SLA. This does not establish that no such conditions exist.</p>
+    <p class="hint"><a href="https://docs.fermah.xyz/network/mainnet/multi-gpu-setup" target="_blank" rel="noopener">Multi-GPU Setup ↗</a> · <a href="https://docs.fermah.xyz/network/mainnet" target="_blank" rel="noopener">Mainnet Overview ↗</a></p>
+  </details>
 </section>
 
 <hr class="rule">
-
-<section class="wrap reveal">
-  <div class="sec-head">
-    <div>
-      <p class="eyebrow">Registry</p>
-      <h2 class="sec" style="margin-bottom:0">Registered prover nodes.</h2>
-    </div>
-    <p class="week" id="op-meta">NOT YET INDEXED</p>
-  </div>
-  <div id="op-body"></div>
+<section class="wrap reveal" id="avs-evidence">
+<!-- operator-contracts:start -->
+  <p class="eyebrow">Contract evidence</p><h2 class="sec">Keep the network explicit.</h2>
+  <p class="sec">The Mainnet configuration example names the following addresses. Blockscout identifies contracts at both addresses on Ethereum Sepolia (chain ID 11155111). A production Ethereum Mainnet AVS deployment is not confirmed by this evidence.</p>
+  <dl class="op-contracts"><div><dt>fermahServiceManager</dt><dd><a href="https://eth-sepolia.blockscout.com/address/0xEE4eE799e09Ea975139c93Da2E403a8A0Ea8eE6a" target="_blank" rel="noopener">0xEE4eE799e09Ea975139c93Da2E403a8A0Ea8eE6a ↗</a><span>Sepolia · source not verified</span></dd></div><div><dt>fermahStakeRegistry</dt><dd><a href="https://eth-sepolia.blockscout.com/address/0x0118abd80cC8895Cbd40f5912e8E36c863CC61c1" target="_blank" rel="noopener">0x0118abd80cC8895Cbd40f5912e8E36c863CC61c1 ↗</a><span>Sepolia · source not verified</span></dd></div></dl>
+  <p class="hint op-note">Checked 2026-10-26. On Ethereum Mainnet (chain ID 1), the indexer did not identify these addresses as contracts. An indexer response is not an independent bytecode check and does not prove that no deployment exists. These addresses are not used to assign Ethereum identities to the Explorer names above.</p>
+  <div class="acts"><a href="https://docs.fermah.xyz/network/mainnet/configuration" target="_blank" rel="noopener">Official configuration example ↗</a><a href="data/operator-contracts.json" download>Download contract evidence</a></div>
+<!-- operator-contracts:end -->
 </section>
 
 <hr class="rule">
-
 <section class="wrap reveal">
-  <p class="eyebrow">Running a node?</p>
-  <h2 class="sec">Put your node on the map.</h2>
-  <p class="sec">Once the registry is indexed, every registered address appears here whether its
-    operator asks or not — it is public on-chain data. What is not public is who is behind an
-    address. If you want your node shown under your name, tell me and it gets a label.</p>
-  <div class="acts">
-    <a class="btn primary" id="op-mail">Claim my node</a>
-    <a class="btn" href="https://docs.fermah.xyz/" target="_blank" rel="noopener">Node docs ↗</a>
-  </div>
-  <p class="hint" style="margin-top:16px">A label is opt-in and reversible. Atlas never links an
-    address to a person on its own — no heuristics, no name matching, no timing analysis.</p>
+  <p class="eyebrow">Corrections</p><h2 class="sec">Keep the record useful.</h2>
+  <p class="sec">A changed prover name, a missing source or an updated setup requirement? Send the public source and the detail to correct.</p>
+  <div class="acts"><a class="btn primary" href="mailto:fermahatlas@gmail.com?subject=Fermah%20Atlas%20operator%20correction">Suggest a correction</a><a class="btn" href="https://docs.fermah.xyz/network/mainnet" target="_blank" rel="noopener">Official node docs ↗</a></div>
+  <p class="hint op-note">Atlas does not infer which person owns an address or request private keys, machine secrets or a wallet connection.</p>
 </section>
 
 <script src="data/seed.js"></script>
-<script src="data/operators.js"></script>
 <script src="assets/atlas.js"></script>
 <script>
-const safe = (l, fn) => { try { fn(); } catch (e) { console.error(l, e); } };
-safe("chrome", () => mountChrome("operators.html"));
-safe("reveal", () => mountReveal());
-safe("fresh",  () => mountFreshness(window.SEED));
-
-safe("registry", () => {
-  const o = window.OPERATORS || {rows: []};
-  const host = document.getElementById("op-body");
-  const meta = document.getElementById("op-meta");
-  if (!o.rows.length){
-    host.innerHTML =
-      '<div class="empty">The registry is not indexed yet.<br>' +
-      'It reads the Fermah AVS registration events straight from the chain — no API key, ' +
-      'no permission, no node of my own required.<br>' +
-      'What is missing is one thing: the service manager address, which comes from ' +
-      '<a href="https://github.com/fermah-xyz/avs-metadata" target="_blank" rel="noopener" ' +
-      'style="color:var(--teal)">fermah-xyz/avs-metadata</a>. ' +
-      'Until it is confirmed, this page shows nothing rather than something invented.</div>';
-    return;
-  }
-  meta.textContent = `${o.rows.length} NODES · ${o.network || ""} · READ ${o.fetched || ""}`.toUpperCase();
-  host.innerHTML =
-    '<table class="op-table"><thead><tr><th>Operator</th><th>Registered</th>' +
-    '<th>Label</th></tr></thead><tbody>' +
-    o.rows.map(r =>
-      `<tr><td class="mono">${r.address.slice(0,10)}…${r.address.slice(-6)}</td>` +
-      `<td>${r.registered || "—"}</td><td>${r.label || "unlabelled"}</td></tr>`).join("") +
-    '</tbody></table>';
-});
-
-document.getElementById("op-mail").addEventListener("click", () => {
-  location.href = "mailto:" + CONTACT + "?subject=" +
-    encodeURIComponent("Fermah Atlas — claim my prover node") + "&body=" +
-    encodeURIComponent("Operator address:\n\nLabel to show:\n\nProof it is mine (a signature, a post, anything):\n");
-});
+mountChrome("operators.html");
+mountReveal();
+try { mountFreshness(window.SEED); } catch (e) {}
 </script>
 <script src="assets/assistant.js"></script>
 <script src="assets/music.js"></script>

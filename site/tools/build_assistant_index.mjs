@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import {OFFICIAL_NOTES} from "../data/briefing.js";
+import {OPERATOR_CONTEXT} from "../api/operator-context.js";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const project = path.resolve(root, "..");
@@ -96,6 +97,10 @@ function chunks(text) {
 }
 
 const documents = [];
+for (const note of OPERATOR_CONTEXT) {
+  documents.push({path: "site/data/operator-guide.js", source: note.src,
+    text: `${note.k}\n${note.t}\nEvidence: ${note.evidence}. ${note.evidence === "provided-extract" ? "Record date" : "Source checked"}: ${note.checked}.`});
+}
 for (const note of OFFICIAL_NOTES) {
   documents.push({path: "site/data/briefing.js", source: note.src,
     text: `${note.k}\n${note.t}\nEvidence: ${note.evidence}. Source checked: ${note.checked}.`});
